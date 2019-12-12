@@ -97,22 +97,6 @@
       .finally(x => {
         loading = false;
       });
-
-    /* loading = true;
-    axios
-      .post("https://axieinfinity.com/graphql-server/graphql", getQuery())
-      .then(function(response) {
-        console.log(response);
-
-        axies = response.data.data.axies.results;
-        total = response.data.data.axies.total;
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-      .finally(x => {
-        loading = false;
-      });*/
   }
 </script>
 
