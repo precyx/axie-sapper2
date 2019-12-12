@@ -52,8 +52,8 @@
         from: currentpage * pagesize - pagesize,
         size: pagesize,
         sort: "PriceAsc",
-        auctionType: "Sale",
-        owner: null,
+        auctionType: "All",
+        owner: "0xe293390d7651234c6dfb1f41a47358b9377c004f",
         region: null,
         criteria: {
           parts: null,
@@ -144,7 +144,7 @@
       </div>
     {/if}
     <div>
-      <AxieList mode="auction" {axies} {total} {onSelectAxie} {loading} />
+      <AxieList mode="simple" {axies} {total} {onSelectAxie} {loading} />
 
       <div class="mt-4 mb-8">
         <Paginator {total} {pagesize} {currentpage} {onNext} {onPrev} />

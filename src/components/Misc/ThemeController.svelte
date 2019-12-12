@@ -41,7 +41,7 @@
   <select
     bind:value={$theme}
     on:change={changeTheme()}
-    class="select p-2 ml-2 rounded-lg bg-transparent text-dark-1">
+    class="select p-2 ml-4 rounded-lg bg-transparent text-dark-1">
     <option value="white" class="text-black">White</option>
     <option value="light" class="text-black">Light</option>
     <option value="anemone" class="text-black">Anemone</option>

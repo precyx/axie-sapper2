@@ -5,6 +5,7 @@
   $: color = getColor(axieClass);
 
   function getColor(_class) {
+    let _klass = _class || "";
     let colors = {
       aquatic: "#00b8ce",
       beast: "#ffb812",
@@ -17,7 +18,7 @@
       "hidden-3": "#129092"
     };
 
-    return colors[_class.toLowerCase()];
+    return colors[_klass.toLowerCase()] || "#ff00aa";
   }
 </script>
 

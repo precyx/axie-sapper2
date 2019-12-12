@@ -23,8 +23,8 @@
 
   .item {
     height: 100%;
-    padding: 0 8px;
-    margin: 0 8px;
+    padding: 0 12px;
+    margin: 0 4px;
     align-items: center;
   }
 

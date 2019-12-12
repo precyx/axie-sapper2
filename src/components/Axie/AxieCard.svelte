@@ -69,7 +69,9 @@
         p-2">
         {axie.name}
       </div>
-      <AxieParts parts={axie.parts} />
+      {#if axie.parts}
+        <AxieParts parts={axie.parts} />
+      {/if}
     </div>
   </div>
 

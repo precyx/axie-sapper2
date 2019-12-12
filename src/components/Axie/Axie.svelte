@@ -1,7 +1,22 @@
 <script>
   import AxieId from "./AxieId.svelte";
+  import AxieAuction from "./Plates/AxieAuction.svelte";
+  import AxieImage from "./AxieImage.svelte";
+  import AxieParts from "./AxieParts.svelte";
+
   export let axie;
   export let type;
+
+  $: entitiyType = getEntitiyType(axie);
+
+  function getEntitiyType() {
+    if (axie.stage) {
+      if (axie.stage == 1) return "egg";
+      if (axie.stage == 2) return "larva";
+      if (axie.stage == 3) return "petite";
+      if (axie.stage == 4) return "axie";
+    } else return "other";
+  }
 </script>
 
 <style>
@@ -23,21 +38,6 @@
     align-items: center;
     justify-content: center;
   }
-  .image-cropper {
-    width: 160px;
-    height: 120px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  img {
-    width: 200px;
-    height: auto;
-    position: absolute;
-    left: -18px;
-    top: -15px;
-    max-width: fit-content;
-  }
 
   .infoplate {
     position: relative;
@@ -58,7 +58,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   :global(.axie_001 .axieid) {
@@ -74,18 +74,18 @@
   <div class="bg bg-dark-shimmer-1">
 
     <AxieId axieId={axie.id} axieClass={axie.class} class="axieid" />
-    <div class="image-cropper">
-      <img src={axie.image} alt="axie image" />
-    </div>
+
+    <AxieImage image={axie.image} type={entitiyType} />
+
   </div>
 
   <div class="infoplate text-dark-1">
 
     {#if type == 'auction'}
-      <div class="price text-lg font-medium">
-        {axie.auction.currentPriceUSD} $
-      </div>
-      <div class="name font-normal hidden">{axie.name}</div>
+      {#if axie.auction}
+        <AxieAuction auction={axie.auction} />
+      {/if}
+      <div class="name-secondary font-normal hidden">{axie.name}</div>
     {:else}
       <div class="name">{axie.name}</div>
     {/if}

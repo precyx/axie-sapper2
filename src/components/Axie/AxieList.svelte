@@ -8,6 +8,7 @@
   export let total;
   export let onSelectAxie;
   export let loading = false;
+  export let mode = "simple";
 
   $: _axies = axies;
 
@@ -24,6 +25,8 @@
   }
 
   .axies {
+    display: flex;
+    flex-flow: wrap;
     margin: 0 -5px;
   }
 
@@ -39,7 +42,7 @@
     <Title>Axies {total}</Title>
     <div class="axies" class:loading>
       {#each _axies as axie}
-        <Axie type="auction" {axie} on:click={clickAxie(axie)} />
+        <Axie type={mode} {axie} on:click={clickAxie(axie)} />
       {/each}
     </div>
   {/if}
