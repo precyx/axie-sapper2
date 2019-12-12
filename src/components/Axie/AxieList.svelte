@@ -21,7 +21,7 @@
 
 <style>
   .axielist {
-    width: 850px;
+    width: 980px;
   }
 
   .axies {

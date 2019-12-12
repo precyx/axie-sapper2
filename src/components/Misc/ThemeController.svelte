@@ -8,8 +8,8 @@
     { value: "1", text: "White" },
     { value: "2", text: "Light" },
     { value: "3", text: "Anemone" },
-    { value: "4", text: "Dark" },
     { value: "5", text: "Space" },
+    { value: "4", text: "Dark" },
     { value: "6", text: "Black" }
   ];
 
@@ -45,8 +45,8 @@
     <option value="white" class="text-black">White</option>
     <option value="light" class="text-black">Light</option>
     <option value="anemone" class="text-black">Anemone</option>
-    <option value="dark" class="text-black">Dark</option>
     <option value="space" class="text-black">Space</option>
+    <option value="dark" class="text-black">Dark</option>
     <option value="black" class="text-black">Black</option>
   </select>
 </div>

@@ -24,7 +24,7 @@
     display: inline-flex;
     flex-flow: column;
     margin: 5px;
-    width: 200px;
+    width: 230px;
   }
   .bg {
     position: relative;
@@ -33,7 +33,7 @@
 
     border-radius: var(--border-radius-8);
 
-    height: 180px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,6 +61,11 @@
     font-size: 16px;
   }
 
+  .field-exp {
+    font-size: 12px;
+    color: #93abab;
+  }
+
   :global(.axie_001 .axieid) {
     position: absolute;
     z-index: 10;
@@ -86,6 +91,12 @@
         <AxieAuction auction={axie.auction} />
       {/if}
       <div class="name-secondary font-normal hidden">{axie.name}</div>
+    {:else if (type = 'experience')}
+      <div class="name">{axie.name}</div>
+
+      {#if axie.exp}
+        <div class="field-exp">{axie.exp} EXP</div>
+      {/if}
     {:else}
       <div class="name">{axie.name}</div>
     {/if}

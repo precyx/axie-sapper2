@@ -89,6 +89,7 @@
       .then(function(res) {
         console.log(res);
 
+        axies = [];
         axies = res.data.axies.results;
         total = res.data.axies.total;
       })
@@ -103,12 +104,12 @@
 
 <style>
   .axieview {
-    max-width: 850px;
+    max-width: 980px;
     margin: 0 auto;
     display: flex;
   }
   .axieview.expanded {
-    max-width: 1200px;
+    max-width: 1300px;
   }
 
   .axiecard {

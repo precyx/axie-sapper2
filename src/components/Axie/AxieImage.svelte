@@ -1,12 +1,14 @@
 <script>
   export let image = "";
   export let type = "";
+
+  $: _img = image;
 </script>
 
 <style>
   img {
-    --axie-image-width: 200px;
-    --axie-image-height: 155px;
+    --axie-image-width: 230px;
+    --axie-image-height: 220px;
 
     max-width: var(--axie-image-width);
     max-height: var(--axie-image-height);
@@ -31,5 +33,5 @@
 </style>
 
 <div class="image-cropper type-{type}">
-  <img src={image} alt="axie image" />
+  <img src={_img} alt="axie image" />
 </div>
