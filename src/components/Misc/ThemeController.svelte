@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { theme } from "../../store/store.js";
 
   import Select from "./Select.svelte";
@@ -11,8 +12,14 @@
     { value: "5", text: "Black" }
   ];
 
-  const setTheme = _theme => x => {
-    theme.update(t => _theme);
+  onMount(async () => {
+    document.querySelector("body").setAttribute("data-theme", $theme);
+  });
+
+  const changeTheme = n => _evt => {
+    //theme.update(t => _theme);
+    let v = _evt.target.value;
+    document.querySelector("body").setAttribute("data-theme", v);
   };
 </script>
 
@@ -27,7 +34,10 @@
 </style>
 
 <div>
-  <select bind:value={$theme} class="p-2 rounded-lg bg-transparent text-dark-1">
+  <select
+    bind:value={$theme}
+    on:change={changeTheme()}
+    class="p-2 rounded-lg bg-transparent text-dark-1">
     <option value="white" class="text-black">White</option>
     <option value="light" class="text-black">Light</option>
     <option value="anemone" class="text-black">Anemone</option>

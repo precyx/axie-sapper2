@@ -54,7 +54,7 @@
       <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
     </li>
     <li>
-      <a class={segment === 'about' ? 'selected' : ''} href="Test">about</a>
+      <a class={segment === 'about' ? 'selected' : ''} href="MainPage">about</a>
     </li>
   </ul>
 </nav>

@@ -40,6 +40,7 @@
     position: absolute;
     left: -11px;
     top: -31px;
+    max-width: fit-content;
   }
 
   :global(.axiecard .axieid) {

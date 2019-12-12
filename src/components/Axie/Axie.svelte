@@ -36,6 +36,7 @@
     position: absolute;
     left: -18px;
     top: -15px;
+    max-width: fit-content;
   }
 
   .infoplate {

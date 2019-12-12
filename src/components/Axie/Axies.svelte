@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import axios from "axios";
+  //import axios from "axios";
 
   import AxieList from "./AxieList.svelte";
   import AxieCard from "./AxieCard.svelte";
@@ -74,7 +74,31 @@
   }
 
   async function run() {
-    loading = true;
+    let url = "https://axieinfinity.com/graphql-server/graphql";
+
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body: JSON.stringify(getQuery())
+    })
+      .then(response => response.json())
+      .then(function(res) {
+        console.log(res);
+
+        axies = res.data.axies.results;
+        total = res.data.axies.total;
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+      .finally(x => {
+        loading = false;
+      });
+
+    /* loading = true;
     axios
       .post("https://axieinfinity.com/graphql-server/graphql", getQuery())
       .then(function(response) {
@@ -88,7 +112,7 @@
       })
       .finally(x => {
         loading = false;
-      });
+      });*/
   }
 </script>
 
