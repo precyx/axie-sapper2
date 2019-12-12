@@ -34,7 +34,7 @@
 
 <div class="axielist">
   {#if !_axies || !_axies.length}
-    <Notice>No Axies</Notice>
+    <Notice>No Axies around...</Notice>
   {:else if _axies && _axies.length}
     <Title>Axies {total}</Title>
     <div class="axies" class:loading>

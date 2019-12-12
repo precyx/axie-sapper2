@@ -8,7 +8,9 @@
 
 </style>
 
-<Nav {segment} />
+{#if false}
+  <Nav {segment} />
+{/if}
 
 <main>
   <slot />

@@ -73,17 +73,33 @@ body[data-theme="anemone"] {
 }
 
 body[data-theme="dark"] {
-  --color-light-1: #192e44;
+  --color-light-1: #132c46;
   --color-light-2: #1b2e42;
 
   --color-dark-1: white;
   --color-dark-2: white;
 
-  --color-dark-shimmer-1: rgba(24, 47, 70, 0.25);
-  --color-dark-shimmer-2: rgba(15, 70, 103, 0.32);
+  --color-dark-shimmer-1: rgba(19, 51, 70, 0.21);
+  --color-dark-shimmer-2: rgba(51, 49, 60, 0.32);
 
-  --gradient-color-ambient-1a: rgb(21, 19, 39);
-  --gradient-color-ambient-1b: rgb(13, 18, 25);
+  --gradient-color-ambient-1a: rgb(10, 7, 31);
+  --gradient-color-ambient-1b: #05151d;
+
+  color: white;
+}
+
+body[data-theme="space"] {
+  --color-light-1: #2b2e2f;
+  --color-light-2: #1b2e42; /* @todo set */
+
+  --color-dark-1: white;
+  --color-dark-2: white;
+
+  --color-dark-shimmer-1: rgba(43, 46, 47, 0.25);
+  --color-dark-shimmer-2: rgba(51, 49, 60, 0.32);
+
+  --gradient-color-ambient-1a: rgb(18, 16, 29);
+  --gradient-color-ambient-1b: #0d0f10;
 
   color: white;
 }

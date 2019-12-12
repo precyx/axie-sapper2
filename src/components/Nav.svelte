@@ -51,10 +51,10 @@
 <nav>
   <ul>
     <li>
-      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
+      <a class={segment === undefined ? 'selected' : ''} href="Market">home</a>
     </li>
     <li>
-      <a class={segment === 'about' ? 'selected' : ''} href="MainPage">about</a>
+      <a class={segment === 'about' ? 'selected' : ''} href="Profile">about</a>
     </li>
   </ul>
 </nav>

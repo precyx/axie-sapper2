@@ -5,5 +5,6 @@
 
 <div>
   <Headbar />
+  Market
   <Axies />
 </div>

@@ -1,5 +1,7 @@
 <script>
   import ThemeController from "./ThemeController.svelte";
+
+  let url = window.location.href;
 </script>
 
 <style>
@@ -14,6 +16,8 @@
   }
 
   .sidespace {
+    display: flex;
+    align-items: center;
     width: 200px;
   }
 
@@ -33,6 +37,11 @@
     margin-left: 8px;
     font-weight: 500;
   }
+
+  .item.active {
+    border-bottom: 2px solid #186069;
+    background: rgba(24, 96, 105, 0.1);
+  }
 </style>
 
 <div class="headbar bg-dark-shimmer-2 flex">
@@ -43,14 +52,20 @@
   <div class="center flex text-dark-1">
 
     <div class="navigation flex ml-auto items-center">
-      <div class="item flex cursor-pointer ">
+      <a
+        href="Market"
+        class="item flex cursor-pointer"
+        class:active={url.indexOf('Market') != -1}>
         <img src="images/navigation/market.png" />
         <p>Market</p>
-      </div>
-      <div class="item flex cursor-pointer">
+      </a>
+      <a
+        href="Profile"
+        class="item flex cursor-pointer"
+        class:active={url.indexOf('Profile') != -1}>
         <img src="images/navigation/my_axies.png" />
         <p>Profile</p>
-      </div>
+      </a>
 
     </div>
   </div>
