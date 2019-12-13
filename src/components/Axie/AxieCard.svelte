@@ -1,6 +1,7 @@
 <script>
   import Axie from "./Axie.svelte";
   import AxieParts from "./AxieParts.svelte";
+  import AxieAuction from "./Plates/AxieAuction.svelte";
   import AxieId from "./AxieId.svelte";
 
   export let axie;
@@ -43,6 +44,11 @@
     max-width: fit-content;
   }
 
+  .field-exp {
+    font-size: 12px;
+    color: #93abab;
+  }
+
   :global(.axiecard .axieid) {
     position: absolute;
     z-index: 10;
@@ -65,12 +71,20 @@
     <div
       class="infoplate bg-light-1 rounded-lg relative p-2 text-base shadow -mt-3">
       <div
-        class="name font-medium text-dark-1 text-center truncate whitespace-pre
-        p-2">
+        class="name font-medium text-dark-1 text-center truncate whitespace-pre">
         {axie.name}
       </div>
+      {#if axie.exp}
+        <div class="field-exp text-center">{axie.exp} EXP</div>
+      {/if}
       {#if axie.parts}
         <AxieParts parts={axie.parts} />
+      {/if}
+
+      {#if axie.auction}
+        <div class="text-center p-3">
+          <AxieAuction auction={axie.auction} />
+        </div>
       {/if}
     </div>
   </div>

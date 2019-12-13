@@ -33,5 +33,7 @@
 </style>
 
 <div class="image-cropper type-{type}">
-  <img src={_img} alt="axie image" />
+  {#if _img}
+    <img src={_img} alt="axie image" />
+  {/if}
 </div>

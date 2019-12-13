@@ -73,6 +73,8 @@
     return query;
   }
 
+  let _counter = 0;
+
   async function run() {
     let url = "https://axieinfinity.com/graphql-server/graphql";
 
@@ -89,9 +91,12 @@
       .then(function(res) {
         console.log(res);
 
-        axies = [];
-        axies = res.data.axies.results;
-        total = res.data.axies.total;
+        resetImages();
+        // use timeout to let images deload
+        setTimeout(() => {
+          axies = res.data.axies.results;
+          total = res.data.axies.total;
+        }, 0);
       })
       .catch(function(error) {
         console.log(error);
@@ -99,6 +104,13 @@
       .finally(x => {
         loading = false;
       });
+  }
+
+  function resetImages() {
+    axies = axies.map(axie => {
+      // @todo handle different entities
+      return { ...axie, image: "" };
+    });
   }
 </script>
 
