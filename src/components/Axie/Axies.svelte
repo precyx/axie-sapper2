@@ -51,8 +51,11 @@
       auctionType: "Sale",
       owner: null
     };
+    let criteria = {
+      /* _numMystics: [1]*/
+    };
 
-    getAxieBriefList(params)
+    getAxieBriefList(params, criteria)
       .then(function(res) {
         console.log("Axies...", res);
 
@@ -87,14 +90,14 @@
   <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
     <div slot="list">
       <div>
-        <AxieList mode="auction" {axies} {total} {onSelectAxie} {loading} />
+        <AxieList mode="auction" {axies} {total} {onSelectAxie} {loading}>
+          <div slot="pagination">
+            <Paginator {total} {pagesize} {onPageChange} startpage={1} />
+          </div>
+        </AxieList>
+
       </div>
     </div>
 
-    <div slot="pagination">
-      <div class="mt-4 mb-8">
-        <Paginator {total} {pagesize} {onPageChange} startpage={1} />
-      </div>
-    </div>
   </AxieHighlightLayout>
 </div>

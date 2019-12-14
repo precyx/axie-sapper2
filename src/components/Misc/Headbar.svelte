@@ -39,8 +39,8 @@
   }
 
   .item.active {
-    border-bottom: 2px solid #186069;
-    background: rgba(24, 96, 105, 0.1);
+    border-bottom: 2px solid var(--color-accent-2);
+    background: var(--color-accent-shimmer-1);
   }
 </style>
 

@@ -15,7 +15,7 @@
 <style>
   .dollar {
     font-size: 12px;
-    color: #93abab;
+    color: var(--color-grey-1);
     font-weight: normal;
   }
 </style>

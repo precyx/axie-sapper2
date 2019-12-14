@@ -28,13 +28,16 @@ body {
   --color-light-1: #eeffff;
   --color-light-2: #e5fcfd;
 
+  --color-grey-1: #93abab;
+
   --color-dark-1: #1a3641;
   --color-dark-2: #0b333a;
-
   --color-dark-shimmer-1: rgba(39, 82, 93, 0.05);
   --color-dark-shimmer-2: rgba(0, 156, 156, 0.15);
 
   --color-accent-1: #1aafaf;
+  --color-accent-2: #186069;
+  --color-accent-shimmer-1: rgba(24, 96, 105, 0.1);
 
   --font-size-12: 12px;
   --font-size-14: 14px;
@@ -51,11 +54,12 @@ body[data-theme="white"] {
 
   --color-dark-1: #1a3641;
   --color-dark-2: #3a3a3a;
+  --color-dark-shimmer-1: rgba(53, 53, 53, 0.05);
+  --color-dark-shimmer-2: rgba(171, 171, 171, 0.12);
 
-  --color-dark-shimmer-2: rgba(56, 56, 56, 0.05);
-  --color-dark-shimmer-2: rgba(0, 0, 0, 0.12);
+  --color-grey-1: #989898;
+
   --color-ambient-1: white;
-
   --gradient-color-ambient-1a: white;
   --gradient-color-ambient-1b: white;
 }
@@ -65,8 +69,9 @@ body[data-theme="anemone"] {
 
   --color-dark-1: white;
   --color-dark-2: white;
-
   --color-dark-shimmer-2: rgba(13, 78, 84, 0.25);
+
+  --color-grey-1: #7898a5;
 
   --gradient-color-ambient-1a: #17212c;
   --gradient-color-ambient-1b: #17212c;
@@ -80,9 +85,10 @@ body[data-theme="space"] {
 
   --color-dark-1: white;
   --color-dark-2: white;
-
   --color-dark-shimmer-1: rgba(19, 51, 70, 0.21);
   --color-dark-shimmer-2: rgba(51, 49, 60, 0.32);
+
+  --color-grey-1: #7790ab;
 
   --gradient-color-ambient-1a: rgb(10, 7, 31);
   --gradient-color-ambient-1b: #05151d;
@@ -96,9 +102,10 @@ body[data-theme="dark"] {
 
   --color-dark-1: white;
   --color-dark-2: white;
-
   --color-dark-shimmer-1: rgba(43, 46, 47, 0.25);
   --color-dark-shimmer-2: rgba(51, 49, 60, 0.32);
+
+  --color-grey-1: #8d989c;
 
   --gradient-color-ambient-1a: rgb(18, 16, 29);
   --gradient-color-ambient-1b: #0d0f10;
@@ -112,10 +119,11 @@ body[data-theme="black"] {
 
   --color-dark-1: white;
   --color-dark-2: white;
-
   --color-dark-shimmer-1: black;
   --color-dark-shimmer-2: rgba(255, 255, 255, 0.05);
   --color-ambient-1: black;
+
+  --color-grey-1: #737373;
 
   --gradient-color-ambient-1a: black;
   --gradient-color-ambient-1b: black;

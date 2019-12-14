@@ -27,10 +27,6 @@
     run();
   });
 
-  function getData() {
-    run();
-  }
-
   function onSelectAxie(axie) {
     console.log("select axie", axie);
     selectedAxie = axie;
@@ -56,7 +52,11 @@
       owner: "0xe293390d7651234c6dfb1f41a47358b9377c004f"
     };
 
-    getAxieBriefList(params)
+    let criteria = {
+      numMystics: [1]
+    };
+
+    getAxieBriefList(params, criteria)
       .then(function(res) {
         console.log(res);
 
@@ -87,14 +87,13 @@
   <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
     <div slot="list">
       <div>
-        <AxieList mode="default" {axies} {total} {onSelectAxie} {loading} />
+        <AxieList mode="default" {axies} {total} {onSelectAxie} {loading}>
+          <div slot="pagination">
+            <Paginator {total} {pagesize} {onPageChange} startpage={1} />
+          </div>
+        </AxieList>
       </div>
     </div>
 
-    <div slot="pagination">
-      <div class="mt-4 mb-8">
-        <Paginator {total} {pagesize} {onPageChange} startpage={1} />
-      </div>
-    </div>
   </AxieHighlightLayout>
 </div>

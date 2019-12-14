@@ -6,14 +6,14 @@
 
   let currentpage = startpage || 0;
 
-  $: totalpages = Math.floor(total / pagesize);
+  $: totalpages = Math.ceil(total / pagesize);
 
   const clickPrev = () => () => {
-    currentpage--;
+    currentpage = Math.max(1, currentpage - 1);
     if (onPageChange) onPageChange(currentpage);
   };
   const clickNext = () => () => {
-    currentpage++;
+    currentpage = Math.min(totalpages, currentpage + 1);
     if (onPageChange) onPageChange(currentpage);
   };
 </script>

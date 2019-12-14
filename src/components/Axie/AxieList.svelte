@@ -19,7 +19,7 @@
 
 <style>
   .axielist {
-    width: 980px;
+    width: 950px;
   }
 
   .axies {
@@ -37,7 +37,11 @@
   {#if !_axies || !_axies.length}
     <Notice>No Axies around...</Notice>
   {:else if _axies && _axies.length}
-    <Title>Axies {total}</Title>
+    <div class="titlebar flex items-center justify-between mt-2 mb-4">
+      <Title>Axies {total}</Title>
+
+      <slot name="pagination" />
+    </div>
     <div class="axies" class:loading>
       {#each _axies as axie}
         <Axie type={mode} {axie} on:click={clickAxie(axie)} />

@@ -63,7 +63,7 @@
 
   .field-exp {
     font-size: 12px;
-    color: #93abab;
+    color: var(--color-grey-1);
   }
 
   :global(.axie_001 .axieid) {

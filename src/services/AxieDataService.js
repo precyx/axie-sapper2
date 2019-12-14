@@ -1,6 +1,9 @@
 const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
 
-export function getAxieBriefList({ from, size, sort, auctionType, owner }) {
+export function getAxieBriefList(
+  { from, size, sort, auctionType, owner },
+  { classes, numMystics }
+) {
   let query = {
     operationName: "GetAxieBriefList",
     variables: {
@@ -13,9 +16,9 @@ export function getAxieBriefList({ from, size, sort, auctionType, owner }) {
       criteria: {
         parts: null,
         bodyShapes: null,
-        classes: null,
+        classes: classes || null,
         stages: null,
-        numMystic: null,
+        numMystic: numMystics || null,
         pureness: null,
         title: null,
         breedable: null,
