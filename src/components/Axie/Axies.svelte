@@ -2,6 +2,8 @@
   import { onMount } from "svelte";
   //import axios from "axios";
 
+  import { filters } from "../../store/store.js";
+
   import AxieHighlightLayout from "./AxieHighlightLayout.svelte";
   import AxieList from "./AxieList.svelte";
   import AxieCard from "./AxieCard.svelte";
@@ -18,26 +20,23 @@
 
   let loading = false;
 
-  $: if (currentpage) {
-    console.log("currentpage", currentpage);
+  $: if (currentpage || $filters) {
     run();
   }
 
-  onMount(async () => {
+  /*onMount(async () => {
     run();
-  });
+  });*/
 
   function onPageChange(page) {
     currentpage = page;
   }
 
   function onSelectAxie(axie) {
-    console.log("select axie", axie);
     selectedAxie = axie;
   }
 
   let clickHideDetail = () => {
-    console.log("click uuu");
     selectedAxie = null;
   };
 
@@ -52,13 +51,13 @@
       owner: null
     };
     let criteria = {
-      /* _numMystics: [1]*/
+      classes: $filters.classes ? Array.from($filters.classes) : null
     };
+
+    //console.log("criteria", criteria);
 
     getAxieBriefList(params, criteria)
       .then(function(res) {
-        console.log("Axies...", res);
-
         resetImages();
         // use timeout to let images deload
         setTimeout(() => {

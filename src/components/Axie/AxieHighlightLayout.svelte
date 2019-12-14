@@ -5,12 +5,10 @@
   export let onClickClose;
 
   function onSelectAxie(axie) {
-    console.log("select axie", axie);
     selectedAxie = axie;
   }
 
   let clickHideDetail = () => {
-    console.log("click uuu");
     if (onClickClose) onClickClose();
   };
 </script>

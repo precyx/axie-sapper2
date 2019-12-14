@@ -1,11 +1,11 @@
 <script>
   export let auction;
 
-  $: priceEth = auction.currentPrice
-    ? round3prec(parseInt(auction.currentPrice) / 1000000000000000000)
-    : 0;
+  const WEI = 1000000000000000000;
 
-  console.log(parseInt(auction.currentPrice / 1000000000));
+  $: priceEth = auction.currentPrice
+    ? round3prec(parseInt(auction.currentPrice) / WEI)
+    : 0;
 
   function round3prec(num) {
     return Math.round(num * 1000) / 1000;

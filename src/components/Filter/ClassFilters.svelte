@@ -2,22 +2,27 @@
   import ClassFilter from "./ClassFilter.svelte";
 
   let classes = [
-    { value: "beast", name: "Beast" },
-    { value: "aquatic", name: "Aquatic" },
-    { value: "plant", name: "Plant" },
-    { value: "bird", name: "Bird" },
-    { value: "bug", name: "Bug" },
-    { value: "reptile", name: "Reptile" }
+    { value: "Beast", name: "Beast" },
+    { value: "Aquatic", name: "Aquatic" },
+    { value: "Plant", name: "Plant" },
+    { value: "Bird", name: "Bird" },
+    { value: "Bug", name: "Bug" },
+    { value: "Reptile", name: "Reptile" }
   ];
 
+  export let defaultValues = {};
   export let onChange;
 
   let selectedValues = new Set();
 
   function handleChange(val) {
-    if (selectedValues.has(val)) selectedValues.delete(val);
-    else selectedValues.add(val);
-    if (onChange) onChange(selectedValues);
+    if (onChange) onChange(val);
+  }
+
+  function isChecked(val, compareVal) {
+    if (!val) return false;
+    if (val.size && val.has(compareVal)) return true;
+    else return false;
   }
 </script>
 
@@ -26,9 +31,11 @@
 </style>
 
 <div class="classfilters">
+
   {#each classes as _class}
     <div>
       <ClassFilter
+        defaultChecked={isChecked(defaultValues, _class.value)}
         label={_class.name}
         value={_class.value}
         onChange={handleChange} />
