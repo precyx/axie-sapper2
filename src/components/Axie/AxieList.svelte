@@ -12,8 +12,6 @@
 
   $: _axies = axies;
 
-  $: console.log("axies", axies);
-
   const clickAxie = axie => x => {
     if (onSelectAxie) onSelectAxie(axie);
   };

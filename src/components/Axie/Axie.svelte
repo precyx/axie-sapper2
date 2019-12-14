@@ -95,7 +95,11 @@
       <div class="name">{axie.name}</div>
 
       {#if axie.exp}
-        <div class="field-exp font-normal">Exp: {axie.exp}</div>
+        <div class="field-exp font-normal">
+
+          <span>Exp:</span>
+          <span>{axie.exp}</span>
+        </div>
       {/if}
     {:else}
       <div class="name">{axie.name}</div>

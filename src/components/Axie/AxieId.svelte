@@ -13,12 +13,12 @@
       bird: "#ff8bbd",
       plant: "#6cc000",
       reptile: "#dc8be4",
-      "hidden-1": "#c6bdd4",
-      "hidden-2": "#beceff",
-      "hidden-3": "#129092"
+      hidden_1: "#c6bdd4",
+      hidden_2: "#beceff",
+      hidden_3: "#129092"
     };
 
-    return colors[_klass.toLowerCase()] || "#ff00aa";
+    return colors[_klass.toLowerCase()] || "#9d795a";
   }
 </script>
 
