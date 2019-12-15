@@ -1,18 +1,28 @@
 <script>
   import ClassFilters from "./ClassFilters.svelte";
+  import MysticFilters from "./MysticFilters.svelte";
+  import StageFilters from "./StageFilters.svelte";
+
   import { filters } from "../../store/store.js";
 
   $: _filters = $filters;
 
   $: console.log("--", _filters);
 
-  let handleChange = type => val => {
+  let handleChange = (id, uiType) => val => {
     filters.update(t => {
-      let newVal = new Set(t[type]);
-      if (newVal.has(val)) newVal.delete(val);
-      else newVal.add(val);
+      let newVal = t[id];
 
-      return { ...t, [type]: newVal };
+      if (uiType == "set") {
+        newVal = new Set(t[id]);
+        if (newVal.has(val)) newVal.delete(val);
+        else newVal.add(val);
+        if (!newVal.size) newVal = null;
+      } else if (uiType == "singleValue") {
+        newVal = val;
+      }
+
+      return { ...t, [id]: newVal };
     });
   };
 </script>
@@ -26,8 +36,26 @@
 </style>
 
 <div class="filtermaster bg-light-1">
-  <h1>Filter Master</h1>
-  <ClassFilters
-    defaultValues={_filters['classes']}
-    onChange={handleChange('classes')} />
+
+  <div class="mb-2">
+    <div class="text-lg">Classes</div>
+    <ClassFilters
+      defaultValues={_filters['classes']}
+      onChange={handleChange('classes', 'set')} />
+  </div>
+
+  <div class="mb-2">
+    <div class="text-lg">Stages</div>
+    <StageFilters
+      defaultValues={_filters['stages']}
+      onChange={handleChange('stages', 'set')} />
+  </div>
+
+  <div class="mb-2">
+    <div class="text-lg">Num Mystics</div>
+    <MysticFilters
+      defaultValues={_filters['numMystic']}
+      onChange={handleChange('numMystic', 'singleValue')} />
+  </div>
+
 </div>

@@ -52,7 +52,9 @@
     };
 
     let criteria = {
-      classes: $filters.classes ? Array.from($filters.classes) : null
+      classes: $filters.classes ? Array.from($filters.classes) : null,
+      numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
+      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null
     };
 
     getAxieBriefList(params, criteria)

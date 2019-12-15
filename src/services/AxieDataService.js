@@ -2,7 +2,7 @@ const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
 
 export function getAxieBriefList(
   { from, size, sort, auctionType, owner },
-  { classes, numMystics }
+  { classes, numMystics, stages }
 ) {
   let query = {
     operationName: "GetAxieBriefList",
@@ -17,7 +17,7 @@ export function getAxieBriefList(
         parts: null,
         bodyShapes: null,
         classes: classes || null,
-        stages: null,
+        stages: stages || null,
         numMystic: numMystics || null,
         pureness: null,
         title: null,

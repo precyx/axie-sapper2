@@ -5,6 +5,26 @@
   import AxieId from "./AxieId.svelte";
 
   export let axie;
+
+  function transformAdultImage(url) {
+    let segments = url.split("/");
+    segments.pop();
+    segments.pop();
+    let newUrl = segments.join("/") + "/axie/axie-full-transparent.png";
+    return newUrl;
+  }
+
+  $: getAxieImage(axie.image);
+
+  let axieimage;
+
+  function getAxieImage() {
+    axieimage = null;
+    window.setTimeout(() => {
+      if (axie.stage == 3) axieimage = transformAdultImage(axie.image);
+      else axieimage = axie.image;
+    }, 0);
+  }
 </script>
 
 <style>
@@ -36,12 +56,8 @@
   }
 
   img {
-    width: 260px;
+    max-width: 250px;
     height: auto;
-    position: absolute;
-    left: -11px;
-    top: -31px;
-    max-width: fit-content;
   }
 
   .field-exp {
@@ -63,9 +79,11 @@
 
     <div class="bg bg-dark-shimmer-1">
       <AxieId axieId={axie.id} axieClass={axie.class} />
-      <div class="image-cropper">
-        <img src={axie.image} alt="axie image" class="img" />
-      </div>
+
+      {#if axieimage}
+        <img src={axieimage} alt="axie image" class="img" />
+      {/if}
+
     </div>
 
     <div
