@@ -1,5 +1,34 @@
 <script>
+  import { onMount } from "svelte";
   import { ColorMap } from "../../services/AxieModelService.js";
+
+  import Aquatic from "../Misc/Icons/parts-simple/Aquatic.svelte";
+  import Beast from "../Misc/Icons/parts-simple/Beast.svelte";
+  import Plant from "../Misc/Icons/parts-simple/Plant.svelte";
+
+  import Reptile from "../Misc/Icons/parts-simple/Reptile.svelte";
+  import Bird from "../Misc/Icons/parts-simple/Bird.svelte";
+  import Bug from "../Misc/Icons/parts-simple/Bug.svelte";
+
+  import Mech from "../Misc/Icons/parts-simple/Mech.svelte";
+  import Dusk from "../Misc/Icons/parts-simple/Dusk.svelte";
+  import Dawn from "../Misc/Icons/parts-simple/Dawn.svelte";
+
+  import Check from "../Misc/Icons/general/check-24px.svelte";
+
+  import Checkbox from "../Misc/Checkbox.svelte";
+
+  const iconComponents = {
+    aquatic: Aquatic,
+    beast: Beast,
+    plant: Plant,
+    reptile: Reptile,
+    bird: Bird,
+    bug: Bug,
+    mech: Mech,
+    dawn: Dawn,
+    dusk: Dusk
+  };
 
   export let label;
   export let value;
@@ -11,36 +40,47 @@
   $: iconName = axieClass ? axieClass.toLowerCase() + "_24px" : "";
   $: color = ColorMap[axieClass] || "#ff00aa";
 
-  function handleChange(e) {
-    if (onChange) onChange(e.target.value);
+  function handleChange(val) {
+    if (onChange) onChange(val);
   }
 </script>
 
 <style>
-  .icon {
+  .outer {
+    width: 100px;
+  }
+  .classfilter {
     --color: black;
+    display: inline-flex;
+    margin: 1px;
+    padding-right: 10px;
+    cursor: pointer;
+    align-items: center;
+  }
+  .icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    background: var(--color);
-    width: 24px;
-    height: 24px;
+  .classfilter :global(svg) {
+    fill: var(--color);
+    width: 18px;
+    height: 18px;
   }
 </style>
 
-<div class="classfilter">
-  <input
-    id="check_{value}"
-    type="checkbox"
-    {value}
-    checked={defaultChecked}
-    on:change={handleChange} />
-  <label for={'check_' + value}>
+<div class="outer">
+  <div class="classfilter flex" style={'--color:' + color}>
 
-    <img
-      src={'./images/parts/' + iconName + '.svg'}
-      alt="icon"
-      class="icon"
-      style="--color:{color}" />
-    <span>{label}</span>
-  </label>
-
+    <Checkbox val="X" {defaultChecked} {value} onChange={handleChange}>
+      <div class="icon flex">
+        <svelte:component this={iconComponents[axieClass]} />
+      </div>
+      {label}
+    </Checkbox>
+  </div>
 </div>

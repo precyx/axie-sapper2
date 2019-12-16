@@ -23,10 +23,6 @@
     max-width: 1300px;
   }
 
-  .axiecard {
-    position: relative;
-    left: -40px;
-  }
   .closer {
     display: inline-flex;
     border-radius: 5px;

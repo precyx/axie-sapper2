@@ -27,6 +27,7 @@ body {
 
   --color-light-1: #eeffff;
   --color-light-2: #e5fcfd;
+  --color-light-3: #c6e4e4;
 
   --color-grey-1: #93abab;
 
@@ -51,6 +52,7 @@ body {
 body[data-theme="white"] {
   --color-light-1: white;
   --color-light-2: white;
+  --color-light-3: #e4e4e4;
 
   --color-dark-1: #1a3641;
   --color-dark-2: #3a3a3a;
@@ -66,6 +68,7 @@ body[data-theme="white"] {
 body[data-theme="anemone"] {
   --color-light-1: #14323e;
   --color-light-2: #3d7082;
+  --color-light-3: #296279;
 
   --color-dark-1: white;
   --color-dark-2: white;
@@ -82,6 +85,7 @@ body[data-theme="anemone"] {
 body[data-theme="space"] {
   --color-light-1: #132c46;
   --color-light-2: #1b2e42;
+  --color-light-3: #385b7f;
 
   --color-dark-1: white;
   --color-dark-2: white;
@@ -99,6 +103,7 @@ body[data-theme="space"] {
 body[data-theme="dark"] {
   --color-light-1: #2b2e2f;
   --color-light-2: #1b2e42; /* @todo set */
+  --color-light-3: #525b5f;
 
   --color-dark-1: white;
   --color-dark-2: white;
@@ -116,6 +121,7 @@ body[data-theme="dark"] {
 body[data-theme="black"] {
   --color-light-1: #101010;
   --color-light-2: #1b2e42;
+  --color-light-3: #333333;
 
   --color-dark-1: white;
   --color-dark-2: white;

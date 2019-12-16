@@ -16,7 +16,7 @@
 </script>
 
 <style>
-  .selectx {
+  .select {
     background: white;
   }
 </style>

@@ -32,27 +32,37 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
     border-radius: 8px;
     padding: 20px;
+
+    color: var(--color-dark-1);
+    font-size: 14px;
+  }
+
+  .filtertitle {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--color-dark-2);
   }
 </style>
 
 <div class="filtermaster bg-light-1">
 
   <div class="mb-2">
-    <div class="text-lg">Classes</div>
+    <div class="filtertitle">Classes</div>
     <ClassFilters
       defaultValues={_filters['classes']}
       onChange={handleChange('classes', 'set')} />
   </div>
 
   <div class="mb-2">
-    <div class="text-lg">Stages</div>
+    <div class="filtertitle">Stages</div>
     <StageFilters
       defaultValues={_filters['stages']}
       onChange={handleChange('stages', 'set')} />
   </div>
 
   <div class="mb-2">
-    <div class="text-lg">Num Mystics</div>
+    <div class="filtertitle">Num Mystics</div>
     <MysticFilters
       defaultValues={_filters['numMystic']}
       onChange={handleChange('numMystic', 'singleValue')} />

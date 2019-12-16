@@ -48,12 +48,6 @@
     align-items: center;
     justify-content: center;
   }
-  .image-cropper {
-    width: 230px;
-    height: 135px;
-    overflow: hidden;
-    position: relative;
-  }
 
   img {
     max-width: 250px;

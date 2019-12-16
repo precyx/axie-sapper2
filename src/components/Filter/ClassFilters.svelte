@@ -30,19 +30,21 @@
 </script>
 
 <style>
-
+  .classfilters {
+    display: flex;
+    flex-flow: wrap;
+    margin: -3px;
+  }
 </style>
 
 <div class="classfilters">
 
   {#each classes as _class}
-    <div>
-      <ClassFilter
-        defaultChecked={isChecked(defaultValues, _class.value)}
-        label={_class.name}
-        value={_class.value}
-        axieClass={_class.className}
-        onChange={handleChange} />
-    </div>
+    <ClassFilter
+      defaultChecked={isChecked(defaultValues, _class.value)}
+      label={_class.name}
+      value={_class.value}
+      axieClass={_class.className}
+      onChange={handleChange} />
   {/each}
 </div>
