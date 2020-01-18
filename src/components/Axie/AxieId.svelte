@@ -34,4 +34,8 @@
   }
 </style>
 
-<div class="axieid" style="background:{color}; color:white;">#{axieId}</div>
+<div class="axieid" style="background:{color}; color:white;">
+
+  <a href="https://axieinfinity.com/axie/{axieId}">#{axieId}</a>
+
+</div>

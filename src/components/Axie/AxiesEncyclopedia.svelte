@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-
   import { filters } from "../../store/store.js";
 
   import AxieHighlightLayout from "./AxieHighlightLayout.svelte";
@@ -23,16 +21,12 @@
     run();
   }
 
-  /*onMount(async () => {
-    run();
-  });*/
+  function onPageChange(page) {
+    currentpage = page;
+  }
 
   function onSelectAxie(axie) {
     selectedAxie = axie;
-  }
-
-  function onPageChange(page) {
-    currentpage = page;
   }
 
   let clickHideDetail = () => {
@@ -46,20 +40,20 @@
       from: currentpage * pagesize - pagesize,
       size: pagesize,
       sort: "IdDesc", //"PriceAsc",
-      auctionType: "All",
-      owner: "0xe293390d7651234c6dfb1f41a47358b9377c004f"
+      auctionType: null,
+      owner: null
     };
-
     let criteria = {
       classes: $filters.classes ? Array.from($filters.classes) : null,
       numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
       stages: $filters.stages ? Array.from($filters.stages).map(Number) : null
     };
 
+    console.log("$filters", $filters);
+    console.log("criteria", criteria);
+
     getAxieBriefList(params, criteria)
       .then(function(res) {
-        console.log(res);
-
         resetImages();
         // use timeout to let images deload
         setTimeout(() => {
@@ -83,15 +77,20 @@
   }
 </script>
 
+<style>
+
+</style>
+
 <div class="axies">
   <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
     <div slot="list">
       <div>
-        <AxieList mode="default" {axies} {total} {onSelectAxie} {loading}>
+        <AxieList mode="auction" {axies} {total} {onSelectAxie} {loading}>
           <div slot="pagination">
             <Paginator {total} {pagesize} {onPageChange} startpage={1} />
           </div>
         </AxieList>
+
       </div>
     </div>
 

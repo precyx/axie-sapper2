@@ -33,7 +33,6 @@
   .classfilters {
     display: flex;
     flex-flow: wrap;
-    margin: -3px;
   }
 </style>
 

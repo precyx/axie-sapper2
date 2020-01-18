@@ -1,10 +1,16 @@
 <script>
+  import { onMount } from "svelte";
+
   import Axie from "./Axie.svelte";
   import AxieParts from "./AxieParts.svelte";
   import AxieAuction from "./Plates/AxieAuction.svelte";
   import AxieId from "./AxieId.svelte";
+  import AxieOwner from "./AxieOwner.svelte";
+
+  import { getAxieDetail } from "../../services/AxieDataService.js";
 
   export let axie;
+  let detailAxie = {};
 
   function transformAdultImage(url) {
     let segments = url.split("/");
@@ -14,6 +20,7 @@
     return newUrl;
   }
 
+  $: loadDetailInfo(axie);
   $: getAxieImage(axie.image);
 
   let axieimage;
@@ -24,6 +31,16 @@
       if (axie.stage == 3) axieimage = transformAdultImage(axie.image);
       else axieimage = axie.image;
     }, 0);
+  }
+
+  async function loadDetailInfo(axie) {
+    if (axie && axie.id) {
+      let result = await getAxieDetail({ axieId: axie.id });
+      if (result.data.axie) {
+        detailAxie = result.data.axie;
+      }
+      console.log("Detail", detailAxie);
+    }
   }
 </script>
 
@@ -94,10 +111,19 @@
       {/if}
 
       {#if axie.auction}
-        <div class="text-center p-3">
+        <div class="text-center p-2">
           <AxieAuction auction={axie.auction} />
         </div>
       {/if}
+
+      {#if detailAxie.ownerProfile}
+        <div class="text-center">
+          <AxieOwner
+            ownerName={detailAxie.ownerProfile.name}
+            ownerAddress={detailAxie.owner} />
+        </div>
+      {/if}
+
     </div>
   </div>
 

@@ -14,8 +14,6 @@
   import Dusk from "../Misc/Icons/parts-simple/Dusk.svelte";
   import Dawn from "../Misc/Icons/parts-simple/Dawn.svelte";
 
-  import Check from "../Misc/Icons/general/check-24px.svelte";
-
   import Checkbox from "../Misc/Checkbox.svelte";
 
   const iconComponents = {
@@ -52,18 +50,16 @@
   .classfilter {
     --color: black;
     display: inline-flex;
-    margin: 1px;
     padding-right: 10px;
     cursor: pointer;
     align-items: center;
   }
   .icon {
-    width: 25px;
-    height: 25px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 5px;
   }
 
   .classfilter :global(svg) {
@@ -76,7 +72,7 @@
 <div class="outer">
   <div class="classfilter flex" style={'--color:' + color}>
 
-    <Checkbox val="X" {defaultChecked} {value} onChange={handleChange}>
+    <Checkbox val="X" checked={defaultChecked} {value} onChange={handleChange}>
       <div class="icon flex">
         <svelte:component this={iconComponents[axieClass]} />
       </div>

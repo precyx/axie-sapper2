@@ -6,26 +6,29 @@
   import AxieHighlightLayout from "./AxieHighlightLayout.svelte";
   import AxieList from "./AxieList.svelte";
   import AxieCard from "./AxieCard.svelte";
+  import AxieProfilePicker from "./AxieProfilePicker.svelte";
   import Paginator from "../Misc/Paginator.svelte";
 
   import { getAxieBriefList } from "../../services/AxieDataService";
 
+  // axie
   let axies = [];
   let selectedAxie = null;
 
+  // paging
   let total = 0;
   let pagesize = 12;
   let currentpage = 1;
 
+  // address
+  let currentaddress = "0xe293390d7651234c6dfb1f41a47358b9377c004f";
+
+  // loading
   let loading = false;
 
-  $: if (currentpage || $filters) {
+  $: if (currentpage || $filters || currentaddress) {
     run();
   }
-
-  /*onMount(async () => {
-    run();
-  });*/
 
   function onSelectAxie(axie) {
     selectedAxie = axie;
@@ -47,7 +50,7 @@
       size: pagesize,
       sort: "IdDesc", //"PriceAsc",
       auctionType: "All",
-      owner: "0xe293390d7651234c6dfb1f41a47358b9377c004f"
+      owner: currentaddress
     };
 
     let criteria = {
@@ -87,6 +90,9 @@
   <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
     <div slot="list">
       <div>
+
+        <AxieProfilePicker bind:address={currentaddress} />
+
         <AxieList mode="default" {axies} {total} {onSelectAxie} {loading}>
           <div slot="pagination">
             <Paginator {total} {pagesize} {onPageChange} startpage={1} />

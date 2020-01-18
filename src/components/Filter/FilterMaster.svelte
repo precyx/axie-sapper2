@@ -2,6 +2,7 @@
   import ClassFilters from "./ClassFilters.svelte";
   import MysticFilters from "./MysticFilters.svelte";
   import StageFilters from "./StageFilters.svelte";
+  import PurenessFilters from "./PurenessFilters.svelte";
 
   import { filters } from "../../store/store.js";
 
@@ -32,6 +33,8 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
     border-radius: 8px;
     padding: 20px;
+    width: 300px;
+    margin-left: 20px;
 
     color: var(--color-dark-1);
     font-size: 14px;
@@ -66,6 +69,12 @@
     <MysticFilters
       defaultValues={_filters['numMystic']}
       onChange={handleChange('numMystic', 'singleValue')} />
+  </div>
+  <div class="mb-2">
+    <div class="filtertitle">Purness</div>
+    <PurenessFilters
+      defaultValues={_filters['pureness']}
+      onChange={handleChange('pureness', 'singleValue')} />
   </div>
 
 </div>

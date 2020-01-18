@@ -18,12 +18,14 @@
   }
 
   .type-egg img {
-    --axie-image-width: 200px;
-    --axie-image-height: 110px;
+    --axie-image-width: 260px;
+    --axie-image-height: 240px;
+    margin-left: -15px;
+    margin-top: -5px;
   }
   .type-larva img {
-    --axie-image-width: 200px;
-    --axie-image-height: 110px;
+    --axie-image-width: 230px;
+    --axie-image-height: 220px;
   }
 
   .image-cropper {

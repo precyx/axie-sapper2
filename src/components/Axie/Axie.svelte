@@ -21,17 +21,30 @@
 
 <style>
   .axie {
+    cursor: pointer;
     display: inline-flex;
     flex-flow: column;
     margin: 5px;
     width: 230px;
   }
+/*
+  .axie:hover .bg {
+    background: rgba(39, 82, 93, 0.09);
+  }
+
+  .axie:hover .infoplate {
+    background: var(--color-dark-1);
+    color: var(--color-light-1);
+    background: #e4ffff;
+  }
+*/
   .bg {
     position: relative;
     padding: 0;
     padding-bottom: 0;
 
     border-radius: var(--border-radius-8);
+    border: 3px solid transparent;
 
     height: 200px;
     display: flex;
@@ -44,9 +57,13 @@
 
     background: var(--color-light-1);
     border-radius: var(--border-radius-8);
+    box-sizing: border-box;
+
+    transition: all 90ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+      all 90ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 
     margin-top: -15px;
-    padding: var(--spacing-8);
+    padding: 8px;
     color: var(--color-dark-1);
     font-size: var(--font-size-14);
     text-align: center;

@@ -1,4 +1,6 @@
 <script>
+  import Checkbox from "../Misc/Checkbox.svelte";
+
   let stages = [
     { value: "1", name: "Egg" },
     { value: "2", name: "Larva" },
@@ -9,8 +11,8 @@
   export let defaultValues = {};
   export let onChange;
 
-  function handleChange(e) {
-    if (onChange) onChange(e.target.value);
+  function handleChange(val) {
+    if (onChange) onChange(val);
   }
 
   function isChecked(val, compareVal) {
@@ -29,13 +31,12 @@
   {#each stages as _stage}
     <div>
 
-      <input
-        id="check_{_stage.value}"
-        type="checkbox"
+      <Checkbox
         value={_stage.value}
         checked={isChecked(defaultValues, _stage.value)}
-        on:change={handleChange} />
-      <label for={'check_' + _stage.value}>{_stage.name}</label>
+        onChange={handleChange}>
+        {_stage.name}
+      </Checkbox>
 
     </div>
   {/each}

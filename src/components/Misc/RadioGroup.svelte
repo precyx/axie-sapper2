@@ -55,22 +55,10 @@
   }
 </style>
 
-<div class="checkbox">
+<div class="radiogroup">
 
-  <input
-    id="check_{value}"
-    type="checkbox"
-    {value}
-    checked={_checked}
-    on:change={handleChange} />
-
-  <label for={'check_' + value} class="flex">
-    <div class="checker">
-      {#if _checked}
-        <Check />
-      {/if}
-    </div>
-    <slot />
-  </label>
+  {#each items as item}
+    <div class="radioitem">item</div>
+  {/each}
 
 </div>

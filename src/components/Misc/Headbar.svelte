@@ -53,18 +53,32 @@
 
     <div class="navigation flex ml-auto items-center">
       <a
+        href="Encyclopedia"
+        class="item flex cursor-pointer"
+        class:active={url.indexOf('Encyclopedia') != -1}>
+        <img src="images/navigation/encyclopedia.png" alt="navigation point" />
+        <p>Encyclopedia</p>
+      </a>
+      <a
         href="Market"
         class="item flex cursor-pointer"
         class:active={url.indexOf('Market') != -1}>
-        <img src="images/navigation/market.png" />
+        <img src="images/navigation/market.png" alt="navigation point" />
         <p>Market</p>
       </a>
       <a
         href="Profile"
         class="item flex cursor-pointer"
         class:active={url.indexOf('Profile') != -1}>
-        <img src="images/navigation/my_axies.png" />
+        <img src="images/navigation/my_axies.png" alt="navigation point" />
         <p>Profile</p>
+      </a>
+      <a
+        href="Player"
+        class="item flex cursor-pointer"
+        class:active={url.indexOf('Player') != -1}>
+        <img src="images/navigation/my_axies.png" alt="navigation point" />
+        <p>Player</p>
       </a>
 
     </div>
