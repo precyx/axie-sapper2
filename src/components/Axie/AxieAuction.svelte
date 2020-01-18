@@ -13,6 +13,9 @@
 </script>
 
 <style>
+  .price {
+    color: var(--color-dark-1);
+  }
   .dollar {
     font-size: 12px;
     color: var(--color-grey-1);

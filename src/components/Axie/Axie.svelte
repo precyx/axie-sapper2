@@ -1,6 +1,6 @@
 <script>
   import AxieId from "./AxieId.svelte";
-  import AxieAuction from "./Plates/AxieAuction.svelte";
+  import AxieAuction from "./AxieAuction.svelte";
   import AxieImage from "./AxieImage.svelte";
   import AxieParts from "./AxieParts.svelte";
 
@@ -27,7 +27,7 @@
     margin: 5px;
     width: 230px;
   }
-/*
+  /*
   .axie:hover .bg {
     background: rgba(39, 82, 93, 0.09);
   }

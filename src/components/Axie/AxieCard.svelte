@@ -3,14 +3,19 @@
 
   import Axie from "./Axie.svelte";
   import AxieParts from "./AxieParts.svelte";
-  import AxieAuction from "./Plates/AxieAuction.svelte";
+  import AxieStats from "./AxieStats.svelte";
+  import AxieAuction from "./AxieAuction.svelte";
   import AxieId from "./AxieId.svelte";
   import AxieOwner from "./AxieOwner.svelte";
+  import AxieModeSwitcher from "./AxieModeSwitcher.svelte";
+  import AxiePartsMode from "./Modes/AxiePartsMode.svelte";
+  import AxieAuctionMode from "./Modes/AxieAuctionMode.svelte";
 
   import { getAxieDetail } from "../../services/AxieDataService.js";
 
   export let axie;
   let detailAxie = {};
+  let selectedMode = "parts";
 
   function transformAdultImage(url) {
     let segments = url.split("/");
@@ -42,18 +47,31 @@
       console.log("Detail", detailAxie);
     }
   }
+
+  const onChangeMode = evt => {
+    selectedMode = evt.detail;
+  };
 </script>
 
 <style>
   .axiecard {
+    position: relative;
     margin-right: 15px;
   }
   .axie {
+    position: relative;
     display: inline-flex;
     flex-flow: column;
     margin: 5px;
     width: 250px;
   }
+
+  .axie-header {
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(104, 134, 146, 0.17);
+    padding-bottom: 5px;
+  }
+
   .bg {
     position: relative;
     padding: 0;
@@ -82,46 +100,57 @@
     top: 10px;
     left: 10px;
   }
+
+  :global(.axiecard .axie-mode-switcher) {
+    position: absolute;
+    z-index: 10;
+    right: 8px;
+    top: 8px;
+  }
 </style>
 
 <div class="axiecard">
 
   <div class="axie" on:click>
+    <AxieModeSwitcher on:change={onChangeMode} {axie} {detailAxie} />
 
     <div class="bg bg-dark-shimmer-1">
       <AxieId axieId={axie.id} axieClass={axie.class} />
-
       {#if axieimage}
         <img src={axieimage} alt="axie image" class="img" />
       {/if}
-
     </div>
 
     <div
       class="infoplate bg-light-1 rounded-lg relative p-2 text-base shadow -mt-3">
-      <div
-        class="name font-medium text-dark-1 text-center truncate whitespace-pre">
-        {axie.name}
+
+      <div class="axie-header">
+        <div
+          class="name font-medium text-dark-1 text-center truncate
+          whitespace-pre">
+          {axie.name}
+        </div>
+        {#if detailAxie.ownerProfile}
+          <div class="text-center">
+            <AxieOwner
+              ownerName={detailAxie.ownerProfile.name}
+              ownerAddress={detailAxie.owner} />
+          </div>
+        {/if}
       </div>
-      {#if axie.exp}
-        <div class="field-exp text-center">{axie.exp} EXP</div>
-      {/if}
-      {#if axie.parts}
-        <AxieParts parts={axie.parts} />
-      {/if}
 
-      {#if axie.auction}
-        <div class="text-center p-2">
-          <AxieAuction auction={axie.auction} />
-        </div>
-      {/if}
-
-      {#if detailAxie.ownerProfile}
-        <div class="text-center">
-          <AxieOwner
-            ownerName={detailAxie.ownerProfile.name}
-            ownerAddress={detailAxie.owner} />
-        </div>
+      {#if selectedMode == 'parts'}
+        <AxiePartsMode {axie} />
+      {:else if selectedMode == 'auction'}
+        <AxieAuctionMode {axie} />
+      {:else if selectedMode == 'xp'}
+        {#if axie.exp != null}
+          <div class="field-exp text-center">{axie.exp} EXP</div>
+        {/if}
+      {:else if selectedMode == 'stats'}
+        <AxieStats stats={detailAxie.stats} />
+      {:else}
+        <h1>Unknown Mode</h1>
       {/if}
 
     </div>
