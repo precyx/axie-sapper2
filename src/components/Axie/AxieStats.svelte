@@ -6,19 +6,23 @@
   .axiestats-list {
     display: flex;
     flex-flow: column;
+    text-align: left;
 
     font-size: 14px;
     align-items: center;
+    color: var(--color-dark-1);
   }
 
   .stat {
     display: flex;
+    font-weight: normal;
   }
 
   .label {
     width: 70px;
     display: block;
-    color: var(--color-grey-1);
+    font-weight: 500;
+    /*color: var(--color-grey-1);*/
   }
 </style>
 

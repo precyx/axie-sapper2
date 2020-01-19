@@ -3,6 +3,8 @@
   import AxieAuction from "./AxieAuction.svelte";
   import AxieImage from "./AxieImage.svelte";
   import AxieParts from "./AxieParts.svelte";
+  import AxieStats from "./AxieStats.svelte";
+  import AxieOwner from "./AxieOwner.svelte";
 
   export let axie;
   export let type;
@@ -108,7 +110,7 @@
         <AxieAuction auction={axie.auction} />
       {/if}
       <div class="name-secondary font-normal hidden">{axie.name}</div>
-    {:else if (type = 'experience')}
+    {:else if type == 'experience'}
       <div class="name">{axie.name}</div>
 
       {#if axie.exp}
@@ -118,6 +120,14 @@
           <span>{axie.exp}</span>
         </div>
       {/if}
+    {:else if type == 'encylopedia'}
+      <div>
+        <div class="name">{axie.name}</div>
+
+        <AxieOwner ownerProfile={axie.ownerProfile} />
+      </div>
+    {:else if type == 'profile'}
+      <div class="name">{axie.name}</div>
     {:else}
       <div class="name">{axie.name}</div>
     {/if}

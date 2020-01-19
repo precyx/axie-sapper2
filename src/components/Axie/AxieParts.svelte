@@ -10,6 +10,7 @@
     text-align: left;
     font-weight: normal;
     font-size: 14px;
+    color: var(--color-dark-1);
   }
 </style>
 

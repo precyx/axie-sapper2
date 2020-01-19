@@ -87,6 +87,10 @@ body[data-theme="space"] {
   --color-light-2: #1b2e42;
   --color-light-3: #385b7f;
 
+  --color-accent-1: #5633e2;
+  --color-accent-2: #4932a5;
+  --color-accent-shimmer-1: rgba(73, 50, 165, 0.14);
+
   --color-dark-1: white;
   --color-dark-2: white;
   --color-dark-shimmer-1: rgba(19, 51, 70, 0.21);
@@ -126,6 +130,10 @@ body[data-theme="black"] {
   --color-light-1: #101010;
   --color-light-2: #1b2e42;
   --color-light-3: #333333;
+
+  --color-accent-1: #8e2e5f;
+  --color-accent-2: #632746;
+  --color-accent-shimmer-1: rgba(99, 39, 70, 0.14);
 
   --color-dark-1: white;
   --color-dark-2: white;

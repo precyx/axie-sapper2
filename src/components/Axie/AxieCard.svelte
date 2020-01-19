@@ -67,9 +67,12 @@
   }
 
   .axie-header {
-    margin-bottom: 5px;
-    border-bottom: 1px solid rgba(104, 134, 146, 0.17);
-    padding-bottom: 5px;
+  }
+
+  .axie-dynamic-content > :global(*:first-child) {
+    margin-top: 5px;
+    border-top: 1px solid rgba(104, 134, 146, 0.17);
+    padding-top: 5px;
   }
 
   .bg {
@@ -91,7 +94,7 @@
 
   .field-exp {
     font-size: 12px;
-    color: #93abab;
+    color: var(--color-dark-1);
   }
 
   :global(.axiecard .axieid) {
@@ -132,26 +135,27 @@
         </div>
         {#if detailAxie.ownerProfile}
           <div class="text-center">
-            <AxieOwner
-              ownerName={detailAxie.ownerProfile.name}
-              ownerAddress={detailAxie.owner} />
+            <AxieOwner ownerProfile={detailAxie.ownerProfile} />
           </div>
         {/if}
       </div>
 
-      {#if selectedMode == 'parts'}
-        <AxiePartsMode {axie} />
-      {:else if selectedMode == 'auction'}
-        <AxieAuctionMode {axie} />
-      {:else if selectedMode == 'xp'}
-        {#if axie.exp != null}
-          <div class="field-exp text-center">{axie.exp} EXP</div>
+      <div class="axie-dynamic-content">
+
+        {#if selectedMode == 'parts'}
+          <AxiePartsMode {axie} />
+        {:else if selectedMode == 'auction'}
+          <AxieAuctionMode {axie} />
+        {:else if selectedMode == 'xp'}
+          {#if axie.exp != null}
+            <div class="field-exp text-center">{axie.exp} EXP</div>
+          {/if}
+        {:else if selectedMode == 'stats'}
+          <AxieStats stats={detailAxie.stats} />
+        {:else}
+          <h1>Unknown Mode</h1>
         {/if}
-      {:else if selectedMode == 'stats'}
-        <AxieStats stats={detailAxie.stats} />
-      {:else}
-        <h1>Unknown Mode</h1>
-      {/if}
+      </div>
 
     </div>
   </div>

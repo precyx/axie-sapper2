@@ -1,5 +1,5 @@
 <script>
-  export let ownerName = "";
+  export let ownerProfile;
 </script>
 
 <style>
@@ -13,4 +13,6 @@
   }
 </style>
 
-<div class="axieowner">{ownerName}</div>
+{#if ownerProfile && ownerProfile.name}
+  <div class="axieowner">{ownerProfile.name}</div>
+{/if}

@@ -85,7 +85,7 @@
   <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
     <div slot="list">
       <div>
-        <AxieList mode="auction" {axies} {total} {onSelectAxie} {loading}>
+        <AxieList mode="encylopedia" {axies} {total} {onSelectAxie} {loading}>
           <div slot="pagination">
             <Paginator {total} {pagesize} {onPageChange} startpage={1} />
           </div>
