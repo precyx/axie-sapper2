@@ -83,6 +83,36 @@ export function getAxieDetail({ axieId }) {
   return post(GRAPH_URL, query);
 }
 
+export function getParentsBrief({ matronId, sireId }) {
+  let query1 = `query GetParentsBrief($matronId: ID!, $sireId: ID!) {
+    matron: axie(axieId: $matronId) {
+      ...AxieBrief
+      __typename
+    }
+    sire: axie(axieId: $sireId) {
+      ...AxieBrief
+      __typename
+    }
+  }
+
+  ${AxiePart}
+  ${AxieCardAbility}
+  ${AxieStats}
+  ${AxieBrief}
+  `;
+
+  var query = {
+    operationName: "GetParentsBrief",
+    variables: {
+      matronId: matronId,
+      sireId: sireId
+    },
+    query: query1
+  };
+
+  return post(GRAPH_URL, query);
+}
+
 /* @deprecated */
 /*
 export function getProfileByEthAddress({ ethereumAddress }) {

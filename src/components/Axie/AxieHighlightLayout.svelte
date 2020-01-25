@@ -3,10 +3,11 @@
 
   export let selectedAxie = null;
   export let onClickClose;
+  export let onClickAxie;
 
-  function onSelectAxie(axie) {
-    selectedAxie = axie;
-  }
+  let _onClickAxie = axie => {
+    if (onClickAxie) onClickAxie(axie);
+  };
 
   let clickHideDetail = () => {
     if (onClickClose) onClickClose();
@@ -46,7 +47,7 @@
             X
           </div>
         </div>
-        <AxieCard axie={selectedAxie} />
+        <AxieCard axie={selectedAxie} onClickParent={_onClickAxie} />
       </div>
     {/if}
 

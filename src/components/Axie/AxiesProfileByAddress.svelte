@@ -42,6 +42,10 @@
     selectedAxie = null;
   };
 
+  let clickHighlightLayoutAxie = axie => {
+    selectedAxie = axie;
+  };
+
   async function run() {
     loading = true;
 
@@ -87,13 +91,16 @@
 </script>
 
 <div class="axies">
-  <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
+  <AxieHighlightLayout
+    {selectedAxie}
+    onClickClose={clickHideDetail}
+    onClickAxie={clickHighlightLayoutAxie}>
     <div slot="list">
       <div>
 
         <AxieProfilePicker bind:address={currentaddress} />
 
-        <AxieList mode="default" {axies} {total} {onSelectAxie} {loading}>
+        <AxieList mode="profile" {axies} {total} {onSelectAxie} {loading}>
           <div slot="pagination">
             <Paginator {total} {pagesize} {onPageChange} startpage={1} />
           </div>

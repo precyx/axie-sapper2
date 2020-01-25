@@ -10,21 +10,31 @@
 
   const MODES = {
     PARTS: { id: "parts", name: "Parts" },
+    ABILITIES: { id: "abilities", name: "Abilities" },
     AUCTION: { id: "auction", name: "Auction" },
     EXP: { id: "xp", name: "Xp" },
-    STATS: { id: "stats", name: "Stats" }
+    STATS: { id: "stats", name: "Stats" },
+    PARENTS: { id: "parents", name: "Parents" }
   };
 
-  let modes = [MODES.PARTS, MODES.AUCTION, MODES.EXP];
+  let modes = [
+    MODES.PARTS,
+    MODES.ABILITIES,
+    MODES.AUCTION,
+    MODES.EXP,
+    MODES.PARENTS
+  ];
 
   $: if (axie || detailAxie) {
     let _modes = [];
 
-    if (axie.parts && axie.parts.length) _modes.push(MODES.PARTS);
+    if (axie.parts && axie.parts.length)
+      _modes.push(MODES.PARTS, MODES.ABILITIES);
     if (axie.auction) _modes.push(MODES.AUCTION);
     if (axie.exp != null) _modes.push(MODES.EXP);
     if (detailAxie.stats && detailAxie.stats.hp != null)
       _modes.push(MODES.STATS);
+    if (detailAxie.matronId && detailAxie.sireId) _modes.push(MODES.PARENTS);
 
     modes = _modes;
   }

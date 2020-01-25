@@ -39,6 +39,10 @@
     selectedAxie = null;
   };
 
+  let clickHighlightLayoutAxie = axie => {
+    selectedAxie = axie;
+  };
+
   async function run() {
     loading = true;
 
@@ -84,7 +88,10 @@
 </script>
 
 <div class="axies">
-  <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
+  <AxieHighlightLayout
+    {selectedAxie}
+    onClickClose={clickHideDetail}
+    onClickAxie={clickHighlightLayoutAxie}>
     <div slot="list">
       <div>
         <AxieList mode="profile" {axies} {total} {onSelectAxie} {loading}>

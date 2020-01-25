@@ -40,6 +40,12 @@
     selectedAxie = null;
   };
 
+  let clickHighlightLayoutAxie = axie => {
+    console.log("click axie 3", axie);
+
+    selectedAxie = axie;
+  };
+
   async function run() {
     loading = true;
 
@@ -89,7 +95,10 @@
 </style>
 
 <div class="axies">
-  <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
+  <AxieHighlightLayout
+    {selectedAxie}
+    onClickClose={clickHideDetail}
+    onClickAxie={clickHighlightLayoutAxie}>
     <div slot="list">
       <div>
         <AxieList mode="auction" {axies} {total} {onSelectAxie} {loading}>

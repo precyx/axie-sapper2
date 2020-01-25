@@ -2,18 +2,24 @@
   import { onMount } from "svelte";
 
   import Axie from "./Axie.svelte";
+  import AxieCard from "./AxieCard.svelte";
   import AxieParts from "./AxieParts.svelte";
   import AxieStats from "./AxieStats.svelte";
   import AxieAuction from "./AxieAuction.svelte";
   import AxieId from "./AxieId.svelte";
   import AxieOwner from "./AxieOwner.svelte";
+  import AxieParents from "./AxieParents.svelte";
   import AxieModeSwitcher from "./AxieModeSwitcher.svelte";
   import AxiePartsMode from "./Modes/AxiePartsMode.svelte";
   import AxieAuctionMode from "./Modes/AxieAuctionMode.svelte";
+  import AxieExpMode from "./Modes/AxieExpMode.svelte";
+  import AxieStatsMode from "./Modes/AxieStatsMode.svelte";
+  import AxieAbilitiesMode from "./Modes/AxieAbilitiesMode.svelte";
 
   import { getAxieDetail } from "../../services/AxieDataService.js";
 
   export let axie;
+  export let onClickParent;
   let detailAxie = {};
   let selectedMode = "parts";
 
@@ -63,7 +69,7 @@
     display: inline-flex;
     flex-flow: column;
     margin: 5px;
-    width: 250px;
+    width: 280px;
   }
 
   .axie-header {
@@ -90,11 +96,6 @@
   img {
     max-width: 250px;
     height: auto;
-  }
-
-  .field-exp {
-    font-size: 12px;
-    color: var(--color-dark-1);
   }
 
   :global(.axiecard .axieid) {
@@ -147,11 +148,13 @@
         {:else if selectedMode == 'auction'}
           <AxieAuctionMode {axie} />
         {:else if selectedMode == 'xp'}
-          {#if axie.exp != null}
-            <div class="field-exp text-center">{axie.exp} EXP</div>
-          {/if}
+          <AxieExpMode {axie} />
         {:else if selectedMode == 'stats'}
-          <AxieStats stats={detailAxie.stats} />
+          <AxieStatsMode {axie} />
+        {:else if selectedMode == 'abilities'}
+          <AxieAbilitiesMode {axie} />
+        {:else if selectedMode == 'parents'}
+          <AxieParents axie={detailAxie} {onClickParent} />
         {:else}
           <h1>Unknown Mode</h1>
         {/if}

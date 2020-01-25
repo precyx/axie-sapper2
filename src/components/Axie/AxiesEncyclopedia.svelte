@@ -29,6 +29,10 @@
     selectedAxie = axie;
   }
 
+  let clickHighlightLayoutAxie = axie => {
+    selectedAxie = axie;
+  };
+
   let clickHideDetail = () => {
     selectedAxie = null;
   };
@@ -82,7 +86,10 @@
 </style>
 
 <div class="axies">
-  <AxieHighlightLayout {selectedAxie} onClickClose={clickHideDetail}>
+  <AxieHighlightLayout
+    {selectedAxie}
+    onClickClose={clickHideDetail}
+    onClickAxie={clickHighlightLayoutAxie}>
     <div slot="list">
       <div>
         <AxieList mode="encylopedia" {axies} {total} {onSelectAxie} {loading}>

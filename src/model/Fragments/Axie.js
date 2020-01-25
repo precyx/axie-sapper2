@@ -7,6 +7,7 @@ fragment AxieBrief on Axie {
   exp
   image
   title
+  breedCount
   ownerProfile {
     name
     __typename

@@ -85,6 +85,12 @@
     color: var(--color-grey-1);
   }
 
+  .field-breedcount {
+    font-size: 12px;
+    color: var(--color-grey-1);
+    font-weight: normal;
+  }
+
   :global(.axie_001 .axieid) {
     position: absolute;
     z-index: 10;
@@ -109,6 +115,7 @@
       {#if axie.auction}
         <AxieAuction auction={axie.auction} />
       {/if}
+      <div class="field-breedcount">Breed count: {axie.breedCount}</div>
       <div class="name-secondary font-normal hidden">{axie.name}</div>
     {:else if type == 'experience'}
       <div class="name">{axie.name}</div>
@@ -128,6 +135,7 @@
       </div>
     {:else if type == 'profile'}
       <div class="name">{axie.name}</div>
+      <div class="field-breedcount">Breed count: {axie.breedCount}</div>
     {:else}
       <div class="name">{axie.name}</div>
     {/if}
