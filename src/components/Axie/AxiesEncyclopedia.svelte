@@ -44,13 +44,16 @@
       from: currentpage * pagesize - pagesize,
       size: pagesize,
       sort: "IdDesc", //"PriceAsc",
-      auctionType: null,
-      owner: null
+      auctionType: "All",
+      owner: null,
+      region: $filters.region ? $filters.region[0] : null
     };
     let criteria = {
       classes: $filters.classes ? Array.from($filters.classes) : null,
       numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
-      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null
+      pureness: $filters.pureness ? [parseInt([$filters.pureness])] : null,
+      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null,
+      title: $filters.title ? Array.from($filters.title) : null
     };
 
     console.log("$filters", $filters);

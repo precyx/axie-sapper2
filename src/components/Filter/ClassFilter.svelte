@@ -28,19 +28,14 @@
     dusk: Dusk
   };
 
+  export let group;
   export let label;
   export let value;
 
-  export let defaultChecked;
-  export let onChange;
   export let axieClass;
 
   $: iconName = axieClass ? axieClass.toLowerCase() + "_24px" : "";
   $: color = ColorMap[axieClass] || "#ff00aa";
-
-  function handleChange(val) {
-    if (onChange) onChange(val);
-  }
 </script>
 
 <style>
@@ -72,7 +67,7 @@
 <div class="outer">
   <div class="classfilter flex" style={'--color:' + color}>
 
-    <Checkbox val="X" checked={defaultChecked} {value} onChange={handleChange}>
+    <Checkbox val="X" bind:group {value}>
       <div class="icon flex">
         <svelte:component this={iconComponents[axieClass]} />
       </div>

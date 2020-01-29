@@ -13,20 +13,7 @@
     { value: "Hidden_3", name: "Dusk", className: "dusk" }
   ];
 
-  export let defaultValues = {};
-  export let onChange;
-
-  let selectedValues = new Set();
-
-  function handleChange(val) {
-    if (onChange) onChange(val);
-  }
-
-  function isChecked(val, compareVal) {
-    if (!val) return false;
-    if (val.size && val.has(compareVal)) return true;
-    else return false;
-  }
+  export let group = [];
 </script>
 
 <style>
@@ -40,10 +27,9 @@
 
   {#each classes as _class}
     <ClassFilter
-      defaultChecked={isChecked(defaultValues, _class.value)}
+      bind:group
       label={_class.name}
       value={_class.value}
-      axieClass={_class.className}
-      onChange={handleChange} />
+      axieClass={_class.className} />
   {/each}
 </div>

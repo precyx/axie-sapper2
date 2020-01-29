@@ -11,6 +11,8 @@
 
   import { getAxieBriefList } from "../../services/AxieDataService";
 
+  let HAS_MOUNTED = false;
+
   let axies = [];
   let selectedAxie = null;
 
@@ -20,13 +22,14 @@
 
   let loading = false;
 
-  $: if (currentpage || $filters) {
+  $: if (HAS_MOUNTED || currentpage || $filters) {
     run();
   }
 
-  /*onMount(async () => {
-    run();
-  });*/
+  onMount(async () => {
+    //run();
+    HAS_MOUNTED = true;
+  });
 
   function onPageChange(page) {
     currentpage = page;
@@ -41,8 +44,6 @@
   };
 
   let clickHighlightLayoutAxie = axie => {
-    console.log("click axie 3", axie);
-
     selectedAxie = axie;
   };
 
@@ -54,12 +55,15 @@
       size: pagesize,
       sort: "PriceAsc",
       auctionType: "Sale",
-      owner: null
+      owner: null,
+      region: $filters.region ? $filters.region[0] : null
     };
     let criteria = {
       classes: $filters.classes ? Array.from($filters.classes) : null,
       numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
-      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null
+      pureness: $filters.pureness ? [parseInt([$filters.pureness])] : null,
+      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null,
+      title: $filters.title ? Array.from($filters.title) : null
     };
 
     console.log("$filters", $filters);

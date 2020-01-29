@@ -3,6 +3,8 @@
   import MysticFilters from "./MysticFilters.svelte";
   import StageFilters from "./StageFilters.svelte";
   import PurenessFilters from "./PurenessFilters.svelte";
+  import TagFilters from "./TagFilters.svelte";
+  import RegionFilters from "./RegionFilters.svelte";
 
   import { filters } from "../../store/store.js";
 
@@ -12,26 +14,53 @@
 
   $: console.log("--", _filters);
 
-  let handleChange = (id, uiType) => val => {
+  let toggleFilterMaster = () => {
+    toggled = !toggled;
+  };
+
+  let setFilterVal = (id, val) => {
     filters.update(t => {
-      let newVal = t[id];
-
-      if (uiType == "set") {
-        newVal = new Set(t[id]);
-        if (newVal.has(val)) newVal.delete(val);
-        else newVal.add(val);
-        if (!newVal.size) newVal = null;
-      } else if (uiType == "singleValue") {
-        newVal = val;
-      }
-
+      let newVal = val;
+      if (newVal == "any") newVal = null;
       return { ...t, [id]: newVal };
     });
   };
 
-  let toggleFilterMaster = () => {
-    toggled = !toggled;
-  };
+  let pureness = $filters["pureness"];
+  $: if (pureness) {
+    console.log("change pureness", pureness);
+    setFilterVal("pureness", pureness);
+  }
+
+  let mystic = $filters["numMystic"];
+  $: if (mystic) {
+    console.log("mystic change", mystic);
+    setFilterVal("numMystic", mystic);
+  }
+
+  let stages = $filters["stages"];
+  $: if (stages) {
+    console.log("stages change", stages);
+    setFilterVal("stages", stages);
+  }
+
+  let classes = $filters["classes"];
+  $: if (classes) {
+    console.log("classes change", classes);
+    setFilterVal("classes", classes);
+  }
+
+  let tag = $filters["title"];
+  $: if (tag) {
+    console.log("tag change", tag);
+    setFilterVal("title", tag);
+  }
+
+  let region = $filters["region"];
+  $: if (region) {
+    console.log("region change", region);
+    setFilterVal("region", region);
+  }
 </script>
 
 <style>
@@ -74,31 +103,30 @@
     <div>
       <div class="mb-2">
         <div class="filtertitle">Classes</div>
-        <ClassFilters
-          defaultValues={_filters['classes']}
-          onChange={handleChange('classes', 'set')} />
+        <ClassFilters bind:group={classes} />
       </div>
 
       <div class="mb-2">
         <div class="filtertitle">Stages</div>
-        <StageFilters
-          defaultValues={_filters['stages']}
-          onChange={handleChange('stages', 'set')} />
+        <StageFilters bind:group={stages} />
       </div>
 
       <div class="mb-2">
         <div class="filtertitle">Num Mystics</div>
-        <MysticFilters
-          defaultValues={_filters['numMystic']}
-          onChange={handleChange('numMystic', 'singleValue')} />
+        <MysticFilters bind:group={mystic} />
       </div>
       <div class="mb-2">
-        <div class="filtertitle">Purness</div>
-        <PurenessFilters
-          defaultValues={_filters['pureness']}
-          onChange={handleChange('pureness', 'singleValue')} />
+        <div class="filtertitle">Pureness</div>
+        <PurenessFilters bind:group={pureness} />
       </div>
-
+      <div class="mb-2">
+        <div class="filtertitle">Tag</div>
+        <TagFilters bind:group={tag} />
+      </div>
+      <div class="mb-2">
+        <div class="filtertitle">Region</div>
+        <RegionFilters bind:group={region} />
+      </div>
     </div>
   {:else}{/if}
 

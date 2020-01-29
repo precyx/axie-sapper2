@@ -2,14 +2,29 @@
   import Check from "../Misc/Icons/general/check-24px.svelte";
 
   export let checked;
-  export let defaultChecked = false;
   export let value;
-  export let onChange;
+  export let group = [];
 
-  $: _checked = checked != null ? checked : defaultChecked;
+  $: updateChekbox(group);
+  $: updateGroup(checked);
 
-  function handleChange(e) {
-    if (onChange) onChange(e.target.value);
+  function updateChekbox(group) {
+    checked = group.indexOf(value) >= 0;
+  }
+  /* handle update group cause of svelte no correctly binding bind:group on custom component */
+  function updateGroup(checked) {
+    const index = group.indexOf(value);
+    if (checked) {
+      if (index < 0) {
+        group.push(value);
+        group = group;
+      }
+    } else {
+      if (index >= 0) {
+        group.splice(index, 1);
+        group = group;
+      }
+    }
   }
 </script>
 
@@ -57,16 +72,11 @@
 
 <div class="checkbox">
 
-  <input
-    id="check_{value}"
-    type="checkbox"
-    {value}
-    checked={_checked}
-    on:change={handleChange} />
+  <input id="check_{value}" type="checkbox" {value} bind:checked />
 
   <label for={'check_' + value} class="flex">
     <div class="checker">
-      {#if _checked}
+      {#if checked}
         <Check />
       {/if}
     </div>

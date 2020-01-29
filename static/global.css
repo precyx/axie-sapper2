@@ -110,9 +110,9 @@ body[data-theme="dark"] {
   --color-light-2: #1b2e42; /* @todo set */
   --color-light-3: #525b5f;
 
-  --color-accent-1: #e87e23;
-  --color-accent-2: #96451e;
-  --color-accent-shimmer-1: rgba(232, 126, 35, 0.08);
+  --color-accent-1: #18aaff;
+  --color-accent-2: #3898d0;
+  --color-accent-shimmer-1: rgba(56, 152, 208, 0.14);
 
   --color-dark-1: white;
   --color-dark-2: white;
@@ -138,7 +138,7 @@ body[data-theme="black"] {
 
   --color-dark-1: white;
   --color-dark-2: white;
-  --color-dark-shimmer-1: black;
+  --color-dark-shimmer-1: rgba(0, 0, 0, 0.15);
   --color-dark-shimmer-2: rgba(255, 255, 255, 0.05);
   --color-ambient-1: black;
 

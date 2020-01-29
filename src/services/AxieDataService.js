@@ -11,8 +11,8 @@ import {
 const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
 
 export function getAxieBriefList(
-  { from, size, sort, auctionType, owner },
-  { classes, numMystics, stages }
+  { from, size, sort, auctionType, owner, region },
+  { classes, numMystics, stages, pureness, title }
 ) {
   var query1 = `query GetAxieBriefList($auctionType: AxieAuctionType, $region: String, $criteria: AxieCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {
     axies(auctionType: $auctionType, region: $region, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {
@@ -39,15 +39,15 @@ export function getAxieBriefList(
       sort: sort || "PriceAsc",
       auctionType: auctionType || null,
       owner: owner || null,
-      region: null,
+      region: region || null,
       criteria: {
         parts: null,
         bodyShapes: null,
         classes: classes || null,
         stages: stages || null,
         numMystic: numMystics || null,
-        pureness: null,
-        title: null,
+        pureness: pureness || null,
+        title: title || null,
         breedable: null,
         breedCount: null
       }

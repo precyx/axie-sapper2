@@ -28,7 +28,14 @@
 </script>
 
 <style>
+  .axie-parents {
+    display: flex;
+    flex-flow: wrap;
+  }
 
+  .axie-parents :global(.axie) {
+    width: 100%;
+  }
 </style>
 
 <div class="axie-parents">

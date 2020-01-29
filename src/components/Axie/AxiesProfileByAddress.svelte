@@ -54,13 +54,16 @@
       size: pagesize,
       sort: "IdDesc", //"PriceAsc",
       auctionType: "All",
-      owner: currentaddress
+      owner: currentaddress,
+      region: $filters.region ? $filters.region[0] : null
     };
 
     let criteria = {
       classes: $filters.classes ? Array.from($filters.classes) : null,
       numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
-      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null
+      pureness: $filters.pureness ? [parseInt([$filters.pureness])] : null,
+      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null,
+      title: $filters.title ? Array.from($filters.title) : null
     };
 
     getAxieBriefList(params, criteria)
