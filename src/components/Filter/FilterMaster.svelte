@@ -67,9 +67,10 @@
   .filtermaster {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
     border-radius: 0 8px 8px 0;
+    border-radius: 8px;
     padding: 20px;
     width: 300px;
-    margin-left: 0;
+    margin-left: 15px;
 
     color: var(--color-dark-1);
     font-size: 14px;

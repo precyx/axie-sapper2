@@ -7,6 +7,7 @@
   import AxieStats from "./AxieStats.svelte";
   import AxieAuction from "./AxieAuction.svelte";
   import AxieId from "./AxieId.svelte";
+  import AxieTag from "./AxieTag.svelte";
   import AxieOwner from "./AxieOwner.svelte";
   import AxieParents from "./AxieParents.svelte";
   import AxieModeSwitcher from "./AxieModeSwitcher.svelte";
@@ -98,11 +99,16 @@
     height: auto;
   }
 
-  :global(.axiecard .axieid) {
+  :global(.axiecard .axietopbar) {
     position: absolute;
+    display: flex;
     z-index: 10;
     top: 10px;
     left: 10px;
+  }
+
+  :global(.axiecard .axietitle) {
+    margin-left: 5px;
   }
 
   :global(.axiecard .axie-mode-switcher) {
@@ -119,7 +125,11 @@
     <AxieModeSwitcher on:change={onChangeMode} {axie} {detailAxie} />
 
     <div class="bg bg-dark-shimmer-1">
-      <AxieId axieId={axie.id} axieClass={axie.class} />
+      <div class="axietopbar">
+        <AxieId axieId={axie.id} axieClass={axie.class} />
+        <AxieTag axieTitle={axie.title} axieClass={axie.class} />
+      </div>
+
       {#if axieimage}
         <img src={axieimage} alt="axie image" class="img" />
       {/if}

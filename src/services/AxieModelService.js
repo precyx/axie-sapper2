@@ -1,4 +1,4 @@
-const AxieClasses = {
+export const AxieClasses = {
   beast: {
     value: "beast",
     name: "Beast",

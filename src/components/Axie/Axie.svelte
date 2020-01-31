@@ -1,5 +1,6 @@
 <script>
   import AxieId from "./AxieId.svelte";
+  import AxieTag from "./AxieTag.svelte";
   import AxieAuction from "./AxieAuction.svelte";
   import AxieImage from "./AxieImage.svelte";
   import AxieParts from "./AxieParts.svelte";
@@ -91,11 +92,16 @@
     font-weight: normal;
   }
 
-  :global(.axie_001 .axieid) {
+  :global(.axie_001 .axietopbar) {
     position: absolute;
+    display: flex;
     z-index: 10;
     top: 8px;
     left: 8px;
+  }
+
+  :global(.axie_001 .axietitle) {
+    margin-left: 5px;
   }
 </style>
 
@@ -103,7 +109,10 @@
 
   <div class="bg bg-dark-shimmer-1">
 
-    <AxieId axieId={axie.id} axieClass={axie.class} class="axieid" />
+    <div class="axietopbar">
+      <AxieId axieId={axie.id} axieClass={axie.class} />
+      <AxieTag axieTitle={axie.title} axieClass={axie.class} />
+    </div>
 
     <AxieImage image={axie.image} type={entitiyType} />
 
