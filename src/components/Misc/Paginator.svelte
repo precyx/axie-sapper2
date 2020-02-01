@@ -1,20 +1,15 @@
 <script>
   export let total = 0;
-  export let startpage;
   export let pagesize = 0;
-  export let onPageChange;
-
-  let currentpage = startpage || 0;
+  export let currentpage = 1;
 
   $: totalpages = Math.ceil(total / pagesize);
 
   const clickPrev = () => () => {
     currentpage = Math.max(1, currentpage - 1);
-    if (onPageChange) onPageChange(currentpage);
   };
   const clickNext = () => () => {
     currentpage = Math.min(totalpages, currentpage + 1);
-    if (onPageChange) onPageChange(currentpage);
   };
 </script>
 

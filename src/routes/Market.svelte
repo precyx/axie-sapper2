@@ -1,5 +1,5 @@
 <script>
-  import Axies from "../components/Axie/Axies.svelte";
+  import AxiesMarketplace from "../components/Axie/Pages/AxiesMarketplace.svelte";
   import Headbar from "../components/Misc/Headbar.svelte";
   import SideSpace from "../components/Misc/SideSpace.svelte";
   import FilterMaster from "../components/Filter/FilterMaster.svelte";
@@ -14,7 +14,7 @@
       <FilterMaster />
 
     </SideSpace>
-    <Axies />
+    <AxiesMarketplace />
     <SideSpace />
   </div>
 </div>

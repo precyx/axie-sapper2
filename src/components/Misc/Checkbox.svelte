@@ -11,7 +11,7 @@
   function updateChekbox(group) {
     checked = group.indexOf(value) >= 0;
   }
-  /* handle update group cause of svelte no correctly binding bind:group on custom component */
+  /* handle update group cause of svelte not correctly binding bind:group on custom component */
   function updateGroup(checked) {
     const index = group.indexOf(value);
     if (checked) {

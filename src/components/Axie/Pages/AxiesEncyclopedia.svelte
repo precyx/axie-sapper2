@@ -1,33 +1,37 @@
 <script>
-  import { filters } from "../../store/store.js";
+  import { onMount } from "svelte";
+  import { filters } from "../../../store/store.js";
+  import AxieHighlightLayout from "../AxieHighlightLayout.svelte";
+  import AxieList from "../AxieList.svelte";
+  import AxieCard from "../AxieCard.svelte";
+  import Paginator from "../../Misc/Paginator.svelte";
 
-  import AxieHighlightLayout from "./AxieHighlightLayout.svelte";
-  import AxieList from "./AxieList.svelte";
-  import AxieCard from "./AxieCard.svelte";
-  import Paginator from "../Misc/Paginator.svelte";
+  import { getAxieBriefList } from "../../../services/AxieDataService";
 
-  import { getAxieBriefList } from "../../services/AxieDataService";
+  // lifecycle
+  let HAS_MOUNTED = false;
 
+  // axies
   let axies = [];
   let selectedAxie = null;
 
+  // paging
   let total = 0;
   let pagesize = 12;
   let currentpage = 1;
 
+  // loading
   let loading = false;
 
-  $: if (currentpage || $filters) {
+  $: if (HAS_MOUNTED && (currentpage || $filters)) {
     run();
   }
 
-  function onPageChange(page) {
-    currentpage = page;
-  }
-
-  function onSelectAxie(axie) {
-    selectedAxie = axie;
-  }
+  onMount(async () => {
+    window.setTimeout(() => {
+      HAS_MOUNTED = true;
+    }, 0);
+  });
 
   let clickHighlightLayoutAxie = axie => {
     selectedAxie = axie;
@@ -95,9 +99,14 @@
     onClickAxie={clickHighlightLayoutAxie}>
     <div slot="list">
       <div>
-        <AxieList mode="encylopedia" {axies} {total} {onSelectAxie} {loading}>
+        <AxieList
+          mode="encylopedia"
+          {axies}
+          {total}
+          bind:selectedAxie
+          {loading}>
           <div slot="pagination">
-            <Paginator {total} {pagesize} {onPageChange} startpage={1} />
+            <Paginator {total} {pagesize} bind:currentpage />
           </div>
         </AxieList>
 

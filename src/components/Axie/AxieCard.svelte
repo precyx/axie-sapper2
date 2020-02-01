@@ -73,8 +73,8 @@
     width: 280px;
   }
 
-  .axie-header {
-  }
+  /*.axie-header {
+  }*/
 
   .axie-dynamic-content > :global(*:first-child) {
     margin-top: 5px;

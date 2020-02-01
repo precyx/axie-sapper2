@@ -1,39 +1,41 @@
 <script>
   import { onMount } from "svelte";
+  import { filters } from "../../../store/store.js";
+  import AxieHighlightLayout from "../AxieHighlightLayout.svelte";
+  import AxieList from "../AxieList.svelte";
+  import AxieCard from "../AxieCard.svelte";
+  import AxieProfilePicker from "../AxieProfilePicker.svelte";
+  import Paginator from "../../Misc/Paginator.svelte";
 
-  import { filters } from "../../store/store.js";
+  import { getAxieBriefList } from "../../../services/AxieDataService";
 
-  import AxieHighlightLayout from "./AxieHighlightLayout.svelte";
-  import AxieList from "./AxieList.svelte";
-  import AxieCard from "./AxieCard.svelte";
-  import Paginator from "../Misc/Paginator.svelte";
+  // lifecycle
+  let HAS_MOUNTED = false;
 
-  import { getAxieBriefList } from "../../services/AxieDataService";
-
+  // axie
   let axies = [];
   let selectedAxie = null;
 
+  // paging
   let total = 0;
   let pagesize = 12;
   let currentpage = 1;
 
+  // address
+  let currentaddress = "0xe293390d7651234c6dfb1f41a47358b9377c004f";
+
+  // loading
   let loading = false;
 
-  $: if (currentpage || $filters) {
+  $: if (HAS_MOUNTED && (currentpage || $filters || currentaddress)) {
     run();
   }
 
-  /*onMount(async () => {
-    run();
-  });*/
-
-  function onSelectAxie(axie) {
-    selectedAxie = axie;
-  }
-
-  function onPageChange(page) {
-    currentpage = page;
-  }
+  onMount(async () => {
+    window.setTimeout(() => {
+      HAS_MOUNTED = true;
+    }, 0);
+  });
 
   let clickHideDetail = () => {
     selectedAxie = null;
@@ -51,7 +53,7 @@
       size: pagesize,
       sort: "IdDesc", //"PriceAsc",
       auctionType: "All",
-      owner: "0xe293390d7651234c6dfb1f41a47358b9377c004f",
+      owner: currentaddress,
       region: $filters.region ? $filters.region[0] : null
     };
 
@@ -97,9 +99,12 @@
     onClickAxie={clickHighlightLayoutAxie}>
     <div slot="list">
       <div>
-        <AxieList mode="profile" {axies} {total} {onSelectAxie} {loading}>
+
+        <AxieProfilePicker bind:address={currentaddress} />
+
+        <AxieList mode="profile" {axies} {total} bind:selectedAxie {loading}>
           <div slot="pagination">
-            <Paginator {total} {pagesize} {onPageChange} startpage={1} />
+            <Paginator {total} {pagesize} bind:currentpage />
           </div>
         </AxieList>
       </div>

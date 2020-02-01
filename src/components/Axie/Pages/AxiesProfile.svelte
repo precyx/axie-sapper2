@@ -1,43 +1,37 @@
 <script>
   import { onMount } from "svelte";
-  //import axios from "axios";
+  import { filters } from "../../../store/store.js";
+  import AxieHighlightLayout from "../AxieHighlightLayout.svelte";
+  import AxieList from "../AxieList.svelte";
+  import AxieCard from "../AxieCard.svelte";
+  import Paginator from "../../Misc/Paginator.svelte";
 
-  import { filters } from "../../store/store.js";
+  import { getAxieBriefList } from "../../../services/AxieDataService";
 
-  import AxieHighlightLayout from "./AxieHighlightLayout.svelte";
-  import AxieList from "./AxieList.svelte";
-  import AxieCard from "./AxieCard.svelte";
-  import Paginator from "../Misc/Paginator.svelte";
-
-  import { getAxieBriefList } from "../../services/AxieDataService";
-
+  // lifecycle
   let HAS_MOUNTED = false;
 
+  // axie
   let axies = [];
   let selectedAxie = null;
 
+  // paging
   let total = 0;
   let pagesize = 12;
   let currentpage = 1;
 
+  // loading
   let loading = false;
 
-  $: if (HAS_MOUNTED || currentpage || $filters) {
+  $: if (HAS_MOUNTED && (currentpage || $filters)) {
     run();
   }
 
   onMount(async () => {
-    //run();
-    HAS_MOUNTED = true;
+    window.setTimeout(() => {
+      HAS_MOUNTED = true;
+    }, 0);
   });
-
-  function onPageChange(page) {
-    currentpage = page;
-  }
-
-  function onSelectAxie(axie) {
-    selectedAxie = axie;
-  }
 
   let clickHideDetail = () => {
     selectedAxie = null;
@@ -53,11 +47,12 @@
     let params = {
       from: currentpage * pagesize - pagesize,
       size: pagesize,
-      sort: "PriceAsc",
-      auctionType: "Sale",
-      owner: null,
+      sort: "IdDesc", //"PriceAsc",
+      auctionType: "All",
+      owner: "0xe293390d7651234c6dfb1f41a47358b9377c004f",
       region: $filters.region ? $filters.region[0] : null
     };
+
     let criteria = {
       classes: $filters.classes ? Array.from($filters.classes) : null,
       numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
@@ -66,11 +61,10 @@
       title: $filters.title ? Array.from($filters.title) : null
     };
 
-    console.log("$filters", $filters);
-    console.log("criteria", criteria);
-
     getAxieBriefList(params, criteria)
       .then(function(res) {
+        console.log(res);
+
         resetImages();
         // use timeout to let images deload
         setTimeout(() => {
@@ -94,10 +88,6 @@
   }
 </script>
 
-<style>
-
-</style>
-
 <div class="axies">
   <AxieHighlightLayout
     {selectedAxie}
@@ -105,12 +95,11 @@
     onClickAxie={clickHighlightLayoutAxie}>
     <div slot="list">
       <div>
-        <AxieList mode="auction" {axies} {total} {onSelectAxie} {loading}>
+        <AxieList mode="profile" {axies} {total} bind:selectedAxie {loading}>
           <div slot="pagination">
-            <Paginator {total} {pagesize} {onPageChange} startpage={1} />
+            <Paginator {total} {pagesize} bind:currentpage />
           </div>
         </AxieList>
-
       </div>
     </div>
 

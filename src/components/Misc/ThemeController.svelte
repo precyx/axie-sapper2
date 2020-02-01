@@ -25,13 +25,13 @@
 </script>
 
 <style>
-  .switch {
+  /*.switch {
     color: grey;
-  }
-  .active {
+  }*/
+  /*.active {
     color: black;
     font-weight: 500;
-  }
+  }*/
   .select {
     background: rgba(24, 96, 105, 0.1);
   }

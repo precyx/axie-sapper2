@@ -1,5 +1,5 @@
 <script>
-  import AxiesProfileByAddress from "../components/Axie/AxiesProfileByAddress.svelte";
+  import AxiesProfileByAddress from "../components/Axie/Pages/AxiesProfileByAddress.svelte";
   import Headbar from "../components/Misc/Headbar.svelte";
   import SideSpace from "../components/Misc/SideSpace.svelte";
   import FilterMaster from "../components/Filter/FilterMaster.svelte";

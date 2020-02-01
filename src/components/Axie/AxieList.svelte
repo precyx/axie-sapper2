@@ -10,10 +10,13 @@
   export let loading = false;
   export let mode = "simple";
 
+  export let selectedAxie;
+
   $: _axies = axies;
 
   const clickAxie = axie => x => {
-    if (onSelectAxie) onSelectAxie(axie);
+    /*if (onSelectAxie) onSelectAxie(axie);*/
+    selectedAxie = axie;
   };
 </script>
 

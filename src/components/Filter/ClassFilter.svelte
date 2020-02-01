@@ -67,7 +67,7 @@
 <div class="outer">
   <div class="classfilter flex" style={'--color:' + color}>
 
-    <Checkbox val="X" bind:group {value}>
+    <Checkbox bind:group {value}>
       <div class="icon flex">
         <svelte:component this={iconComponents[axieClass]} />
       </div>

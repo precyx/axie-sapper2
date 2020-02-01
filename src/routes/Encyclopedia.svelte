@@ -1,5 +1,5 @@
 <script>
-  import AxiesEncyclopedia from "../components/Axie/AxiesEncyclopedia.svelte";
+  import AxiesEncyclopedia from "../components/Axie/Pages/AxiesEncyclopedia.svelte";
   import Headbar from "../components/Misc/Headbar.svelte";
   import SideSpace from "../components/Misc/SideSpace.svelte";
   import FilterMaster from "../components/Filter/FilterMaster.svelte";
