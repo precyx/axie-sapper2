@@ -1,4 +1,6 @@
 <script>
+  import Button from "../Misc/Button.svelte";
+
   export let address = "";
 
   let _address = address;
@@ -32,6 +34,11 @@
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
   }
 
+  .val {
+    display: flex;
+    align-items: center;
+  }
+
   .btn {
     margin-left: 10px;
   }
@@ -42,13 +49,15 @@
   {#if isedit}
     <div>
       <input class="input" type="text" bind:value={_address} />
-      <button on:click={handleClickSave}>save</button>
+      <Button on:click={handleClickSave}>save</Button>
     </div>
   {:else}
     <div class="address">
       <div class="val">{address}</div>
 
-      <button class="btn" on:click={handleClickEdit}>edit</button>
+      <div class="btn">
+        <Button on:click={handleClickEdit}>edit</Button>
+      </div>
 
     </div>
   {/if}

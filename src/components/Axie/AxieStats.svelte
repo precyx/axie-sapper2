@@ -68,7 +68,7 @@
 
   .bar-fill {
     height: 100%;
-    background: var(--color-accent-1);
+    background: rgb(var(--color-primary-800));
     border-radius: 50px;
   }
 

@@ -14,8 +14,6 @@ module.exports = {
 
         "ambient-1": "var(--color-ambient-1)",
 
-        "accent-1": "var(--color-accent-1)",
-        "accent-2": "var(--color-accent-2)",
         "accent-shimmer-2": "var(--color-accent-shimmer-1)"
       }
     }

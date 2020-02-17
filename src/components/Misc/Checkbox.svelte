@@ -43,6 +43,7 @@
     margin-right: 10px;
     border-radius: 4px;
     background: var(--color-light-3);
+    background: rgba(var(--color-primary-900), 0.2);
 
     display: flex;
     align-items: center;
@@ -52,7 +53,7 @@
   }
 
   input:checked + label .checker {
-    background: var(--color-accent-1);
+    background: rgb(var(--color-primary-800));
   }
 
   label {
@@ -66,7 +67,7 @@
   }
 
   .checkbox .checker :global(svg) {
-    fill: white;
+    fill: rgb(var(--color-on-primary-800));
   }
 </style>
 

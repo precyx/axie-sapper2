@@ -6,11 +6,13 @@
   export let onClickAxie;
 
   let _onClickAxie = axie => {
-    if (onClickAxie) onClickAxie(axie);
+    //if (onClickAxie) onClickAxie(axie);
+    selectedAxie = axie;
   };
 
   let clickHideDetail = () => {
-    if (onClickClose) onClickClose();
+    //if (onClickClose) onClickClose();
+    selectedAxie = null;
   };
 </script>
 

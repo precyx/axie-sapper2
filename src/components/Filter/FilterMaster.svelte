@@ -1,4 +1,5 @@
 <script>
+  import Button from "../Misc/Button.svelte";
   import ClassFilters from "./ClassFilters.svelte";
   import MysticFilters from "./MysticFilters.svelte";
   import StageFilters from "./StageFilters.svelte";
@@ -6,9 +7,9 @@
   import TagFilters from "./TagFilters.svelte";
   import RegionFilters from "./RegionFilters.svelte";
 
-  import { filters } from "../../store/store.js";
+  import { filters, filtersToggled } from "../../store/store.js";
 
-  let toggled = false;
+  let toggled = $filtersToggled;
 
   $: _filters = $filters;
 
@@ -16,6 +17,9 @@
 
   let toggleFilterMaster = () => {
     toggled = !toggled;
+    filtersToggled.update(t => {
+      return !t;
+    });
   };
 
   let setFilterVal = (id, val) => {
@@ -26,41 +30,37 @@
     });
   };
 
+  let resetFilters = () => {
+    pureness = null;
+    mystic = null;
+    tag = [];
+    region = [];
+    stages = [];
+    classes = [];
+  };
+
+  let onChangeFilter = (label, val) => {
+    console.log("onchange", label, val);
+    setFilterVal(label, val);
+  };
+
   let pureness = $filters["pureness"];
-  $: if (pureness) {
-    console.log("change pureness", pureness);
-    setFilterVal("pureness", pureness);
-  }
+  $: onChangeFilter("pureness", pureness);
 
   let mystic = $filters["numMystic"];
-  $: if (mystic) {
-    console.log("mystic change", mystic);
-    setFilterVal("numMystic", mystic);
-  }
+  $: onChangeFilter("numMystic", mystic);
 
   let stages = $filters["stages"];
-  $: if (stages) {
-    console.log("stages change", stages);
-    setFilterVal("stages", stages);
-  }
+  $: onChangeFilter("stages", stages);
 
   let classes = $filters["classes"];
-  $: if (classes) {
-    console.log("classes change", classes);
-    setFilterVal("classes", classes);
-  }
+  $: onChangeFilter("classes", classes);
 
   let tag = $filters["title"];
-  $: if (tag) {
-    console.log("tag change", tag);
-    setFilterVal("title", tag);
-  }
+  $: onChangeFilter("title", tag);
 
   let region = $filters["region"];
-  $: if (region) {
-    console.log("region change", region);
-    setFilterVal("region", region);
-  }
+  $: onChangeFilter("region", region);
 </script>
 
 <style>
@@ -92,15 +92,24 @@
     height: 20px;
     cursor: pointer;
   }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>
 
 <div class="filtermaster bg-light-1" class:toggled>
 
-  <div>
-    <div class="toggler" on:click={toggleFilterMaster}>X</div>
-  </div>
-
-  {#if !toggled}
+  {#if toggled}
+    <div>
+      <div class="toggler" on:click={toggleFilterMaster}>X</div>
+    </div>
+  {:else}
+    <div class="topbar">
+      <div class="toggler" on:click={toggleFilterMaster}>X</div>
+      <Button on:click={resetFilters} type="secondary">Reset</Button>
+    </div>
     <div>
       <div class="mb-2">
         <div class="filtertitle">Classes</div>
@@ -129,6 +138,6 @@
         <RegionFilters bind:group={region} />
       </div>
     </div>
-  {:else}{/if}
+  {/if}
 
 </div>

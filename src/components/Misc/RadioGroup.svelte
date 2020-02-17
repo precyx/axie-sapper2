@@ -37,7 +37,7 @@
   }
 
   input:checked + label .checker {
-    background: var(--color-accent-1);
+    background: rgb(var(--color-primary-800));
   }
 
   label {

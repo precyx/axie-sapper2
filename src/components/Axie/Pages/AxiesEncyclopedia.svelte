@@ -27,19 +27,15 @@
     run();
   }
 
+  const _unsubscribeFilters = filters.subscribe(v => {
+    currentpage = 1;
+  });
+
   onMount(async () => {
     window.setTimeout(() => {
       HAS_MOUNTED = true;
     }, 0);
   });
-
-  let clickHighlightLayoutAxie = axie => {
-    selectedAxie = axie;
-  };
-
-  let clickHideDetail = () => {
-    selectedAxie = null;
-  };
 
   async function run() {
     loading = true;
@@ -93,10 +89,7 @@
 </style>
 
 <div class="axies">
-  <AxieHighlightLayout
-    {selectedAxie}
-    onClickClose={clickHideDetail}
-    onClickAxie={clickHighlightLayoutAxie}>
+  <AxieHighlightLayout bind:selectedAxie>
     <div slot="list">
       <div>
         <AxieList

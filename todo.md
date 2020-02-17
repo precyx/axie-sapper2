@@ -3,9 +3,6 @@
 [Core]
 - Add axie overview layout switcher (grid layout / compare layout)
 
-[Bugs]
-- Fix non resetting page index on filter switch
-
 [General]
 - Add stage progress axie mode
 - Add nicer loading indicator (spinner)
@@ -33,6 +30,7 @@
 - Make filters collapsable / shrinkable to sidebar
 
 [Done]
+- [DONE] Fix non resetting page index on filter switch
 - [DONE] Add Origin tag to axie id
 - [DONE] Add mystic badge to axies
 - [DONE] Restyle and apply custom components on mystic filter, pureness filter

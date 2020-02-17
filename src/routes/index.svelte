@@ -8,6 +8,4 @@
   <title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
 <div class="bg-black p-2" />

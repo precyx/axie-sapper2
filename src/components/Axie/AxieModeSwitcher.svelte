@@ -59,13 +59,18 @@
     border-radius: 50px;
     padding: 5px 10px;
     font-size: 12px;
-    background: var(--color-accent-1);
+    background: rgb(var(--color-primary-700));
     color: #ffffff;
+    color: rgb(var(--color-on-primary-700));
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: normal;
     cursor: pointer;
+    transition: all 0.15s;
+  }
+  .axie-mode-switcher .text:hover {
+    background: rgb(var(--color-primary-800));
   }
 
   .modes {
@@ -84,6 +89,7 @@
     padding: 5px 10px;
     font-size: 12px;
     background-color: var(--color-light-1);
+
     color: var(--color-dark-1);
     display: flex;
     align-items: center;

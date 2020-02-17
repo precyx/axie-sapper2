@@ -1,8 +1,13 @@
 # Changelog
 Changelog of Axie Sapper(Svelte) Dex Project.
 
+## [1.0.4] - 2020-02-17
 
-## [1.0.3] - 2020-02-01 - [TODO]
+## Changed 
+- Replace color variables
+
+
+## [1.0.3] - 2020-02-01
 
 ## Changed 
 - Move axie pages into seperate folder

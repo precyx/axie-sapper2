@@ -25,6 +25,7 @@
     height: 18px;
     border-radius: 50%;
     background: var(--color-light-3);
+    background: rgba(var(--color-primary-900), 0.2);
 
     transition: all 0.15s;
 
@@ -43,11 +44,11 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: white;
+    background: rgb(var(--color-on-primary-800));
   }
 
   .radiobutton.active .circ {
-    background: var(--color-accent-1);
+    background: rgb(var(--color-primary-800));
   }
   .radiobutton.active .inner_circ {
     display: flex;

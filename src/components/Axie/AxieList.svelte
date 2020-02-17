@@ -34,6 +34,10 @@
   .loading {
     opacity: 0.55;
   }
+
+  .btn {
+    display: inline-block;
+  }
 </style>
 
 <div class="axielist">
@@ -43,7 +47,13 @@
     <div class="titlebar flex items-center justify-between mt-2 mb-4">
       <Title>Axies {total}</Title>
 
-      <slot name="pagination" />
+      <div class="flex">
+        <div class=" mr-8">
+          <div class="btn_secondary btn">Grid</div>
+          <div class="btn_secondary btn">List</div>
+        </div>
+        <slot name="pagination" />
+      </div>
     </div>
     <div class="axies" class:loading>
       {#each _axies as axie}
