@@ -14,7 +14,8 @@
     AUCTION: { id: "auction", name: "Auction" },
     EXP: { id: "xp", name: "Xp" },
     STATS: { id: "stats", name: "Stats" },
-    PARENTS: { id: "parents", name: "Parents" }
+    PARENTS: { id: "parents", name: "Parents" },
+    STAGE: { id: "stage", name: "Stage" }
   };
 
   let modes = [
@@ -22,7 +23,8 @@
     MODES.ABILITIES,
     MODES.AUCTION,
     MODES.EXP,
-    MODES.PARENTS
+    MODES.PARENTS,
+    MODES.STAGE
   ];
 
   $: if (axie || detailAxie) {
@@ -35,6 +37,7 @@
     if (detailAxie.stats && detailAxie.stats.hp != null)
       _modes.push(MODES.STATS);
     if (detailAxie.matronId && detailAxie.sireId) _modes.push(MODES.PARENTS);
+    if (detailAxie.birthDate != null) _modes.push(MODES.STAGE);
 
     modes = _modes;
   }

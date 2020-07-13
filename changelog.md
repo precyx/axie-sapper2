@@ -1,6 +1,10 @@
 # Changelog
 Changelog of Axie Sapper(Svelte) Dex Project.
 
+## [1.0.5] - 2020-02-17
+
+...
+
 ## [1.0.4] - 2020-02-17
 
 ## Changed 

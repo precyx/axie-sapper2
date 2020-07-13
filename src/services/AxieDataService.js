@@ -4,7 +4,6 @@ import {
   AxieStats,
   AxieDetail,
   AxieCardAbility,
-  AxieBattleInfo,
   AxieAuction
 } from "../model/Fragments/Axie.js";
 
@@ -70,7 +69,6 @@ export function getAxieDetail({ axieId }) {
   ${AxiePart}
   ${AxieCardAbility}
   ${AxieStats}
-  ${AxieBattleInfo}
   ${AxieAuction}
   `;
 

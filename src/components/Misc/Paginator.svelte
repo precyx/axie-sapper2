@@ -1,4 +1,6 @@
 <script>
+  import ArrowRightIcon from "../Misc/Icons/general/keyboard-arrow-right.svelte";
+  import ArrowLeftIcon from "../Misc/Icons/general/keyboard-arrow-left.svelte";
   import Button from "./Button.svelte";
 
   export let total = 0;
@@ -19,6 +21,18 @@
   .text {
     font-size: 14px;
   }
+
+  .paginator .btn :global(svg) {
+    fill: rgb(var(--color-on-primary-800));
+  }
+
+  .paginator .btn :global(.button) {
+    padding: 0 5px;
+  }
+
+  .btn {
+    display: flex;
+  }
 </style>
 
 <div class="paginator">
@@ -26,13 +40,21 @@
   <slot {currentpage}>
 
     <div class="flex items-center justify-center">
-      <Button on:click={clickPrev()}>left</Button>
+      <div class="btn">
+        <Button on:click={clickPrev()}>
+          <ArrowLeftIcon />
+        </Button>
+      </div>
       <div class="text ml-3 mr-3 flex color-dark-1">
         <div class="px-2">{currentpage}</div>
         <div>/</div>
         <div class="px-2">{totalpages}</div>
       </div>
-      <Button on:click={clickNext()} class="btn_primary">right</Button>
+      <div class="btn">
+        <Button on:click={clickNext()}>
+          <ArrowRightIcon />
+        </Button>
+      </div>
     </div>
 
   </slot>

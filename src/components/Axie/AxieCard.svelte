@@ -5,6 +5,7 @@
   import AxieCard from "./AxieCard.svelte";
   import AxieParts from "./AxieParts.svelte";
   import AxieStats from "./AxieStats.svelte";
+  import AxieStage from "./AxieStage.svelte";
   import AxieAuction from "./AxieAuction.svelte";
   import AxieId from "./AxieId.svelte";
   import AxieTag from "./AxieTag.svelte";
@@ -63,7 +64,7 @@
 <style>
   .axiecard {
     position: relative;
-    margin-right: 15px;
+    /*margin-right: 15px;*/
   }
   .axie {
     position: relative;
@@ -165,6 +166,8 @@
           <AxieAbilitiesMode {axie} />
         {:else if selectedMode == 'parents'}
           <AxieParents axie={detailAxie} {onClickParent} />
+        {:else if selectedMode == 'stage'}
+          <AxieStage birthDate={detailAxie.birthDate} />
         {:else}
           <h1>Unknown Mode</h1>
         {/if}

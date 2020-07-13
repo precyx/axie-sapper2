@@ -35,7 +35,7 @@ export default {
       resolve(),
       commonjs(),
       json(),
-      //svg()
+      //svg(),
 
       legacy &&
         babel({

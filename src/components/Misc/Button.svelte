@@ -9,7 +9,8 @@
     outline: none;
     background: rgb(var(--color-primary-800));
     color: rgb(var(--color-on-primary-800));
-    padding: 5px 10px;
+    height: 30px;
+    padding: 0 10px;
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
     font-size: 14px;
@@ -22,6 +23,7 @@
 
   .primary:focus {
     outline: none;
+    background: rgb(var(--color-primary-900));
   }
 
   .primary:active {
@@ -38,7 +40,8 @@
 
     color: rgb(var(--color-primary-1000));
 
-    padding: 5px 10px;
+    height: 30px;
+    padding: 0 10px;
     border-radius: 5px;
     font-size: 14px;
     transition: all 0.15s;
@@ -49,6 +52,11 @@
 
   .secondary:hover {
     background: rgba(var(--color-primary-800), 0.2);
+    border-color: rgba(var(--color-primary-1000), 0.8);
+  }
+
+  .secondary:active {
+    background: rgba(var(--color-primary-800), 0.3);
     border-color: rgba(var(--color-primary-1000), 0.8);
   }
 </style>

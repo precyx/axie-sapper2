@@ -1,4 +1,6 @@
 <script>
+  import CloseIcon from "../Misc/Icons/general/close.svelte";
+
   import Button from "../Misc/Button.svelte";
   import ClassFilters from "./ClassFilters.svelte";
   import MysticFilters from "./MysticFilters.svelte";
@@ -70,7 +72,8 @@
     border-radius: 8px;
     padding: 20px;
     width: 300px;
-    margin-left: 15px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
 
     color: var(--color-dark-1);
     font-size: 14px;
@@ -91,6 +94,15 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .toggler:hover {
+    opacity: 1;
+  }
+
+  .filtermaster .toggler :global(svg) {
+    fill: rgb(var(--color-black));
   }
 
   .topbar {
@@ -103,11 +115,15 @@
 
   {#if toggled}
     <div>
-      <div class="toggler" on:click={toggleFilterMaster}>X</div>
+      <div class="toggler" on:click={toggleFilterMaster}>
+        <CloseIcon />
+      </div>
     </div>
   {:else}
     <div class="topbar">
-      <div class="toggler" on:click={toggleFilterMaster}>X</div>
+      <div class="toggler" on:click={toggleFilterMaster}>
+        <CloseIcon />
+      </div>
       <Button on:click={resetFilters} type="secondary">Reset</Button>
     </div>
     <div>

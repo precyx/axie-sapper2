@@ -1,4 +1,5 @@
 <script>
+  import CloseIcon from "../Misc/Icons/general/close.svelte";
   import AxieCard from "./AxieCard.svelte";
 
   export let selectedAxie = null;
@@ -18,12 +19,13 @@
 
 <style>
   .axieview {
-    max-width: 980px;
+    max-width: var(--axie-view-width);
     margin: 0 auto;
     display: flex;
+    margin-top: 40px;
   }
   .axieview.expanded {
-    max-width: 1300px;
+    max-width: calc(var(--axie-view-width) + 320px);
   }
 
   .closer {
@@ -36,6 +38,24 @@
     font-weight: 500;
     cursor: pointer;
   }
+
+  .axiehighlightlayout .closer :global(svg) {
+    width: 18px;
+    height: 18px;
+    fill: rgb(var(--color-black));
+  }
+
+  @media only screen and (max-width: 90000px) {
+    :root {
+      --axie-view-width: 980px;
+    }
+  }
+
+  @media only screen and (max-width: 1850px) {
+    .axieview {
+      --axie-view-width: 710px;
+    }
+  }
 </style>
 
 <div class="axiehighlightlayout">
@@ -43,10 +63,10 @@
   <div class="axieview" class:expanded={selectedAxie != null}>
 
     {#if selectedAxie}
-      <div class="flex flex-col">
+      <div class="flex flex-col mr-3">
         <div style="margin:0 5px; height:35px;">
           <div class="closer bg-light-1 text-dark-1" on:click={clickHideDetail}>
-            X
+            <CloseIcon />
           </div>
         </div>
         <AxieCard axie={selectedAxie} onClickParent={_onClickAxie} />

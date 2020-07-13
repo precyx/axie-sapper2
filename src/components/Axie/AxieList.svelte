@@ -1,5 +1,8 @@
 <script>
+  import Button from "../Misc/Button.svelte";
   import Axie from "./Axie.svelte";
+  import AxieCard from "./AxieCard.svelte";
+  import DynamicAxie from "./DynamicAxie.svelte";
 
   import Notice from "../Misc/Notice.svelte";
   import Title from "../Misc/Title.svelte";
@@ -9,6 +12,8 @@
   export let onSelectAxie;
   export let loading = false;
   export let mode = "simple";
+
+  let viewMode = true;
 
   export let selectedAxie;
 
@@ -38,6 +43,12 @@
   .btn {
     display: inline-block;
   }
+
+  @media only screen and (max-width: 1850px) {
+    .axielist {
+      width: 710px;
+    }
+  }
 </style>
 
 <div class="axielist">
@@ -48,18 +59,29 @@
       <Title>Axies {total}</Title>
 
       <div class="flex">
+
+        <input type="checkbox" bind:checked={viewMode} />
         <div class=" mr-8">
-          <div class="btn_secondary btn">Grid</div>
-          <div class="btn_secondary btn">List</div>
+          <Button class="btn_secondary btn" type="secondary">Grid</Button>
+          <Button class="btn_secondary btn" type="secondary">List</Button>
         </div>
         <slot name="pagination" />
       </div>
     </div>
-    <div class="axies" class:loading>
-      {#each _axies as axie}
-        <Axie type={mode} {axie} on:click={clickAxie(axie)} />
-      {/each}
-    </div>
+
+    {#if viewMode}
+      <div class="axies" class:loading>
+        {#each _axies as axie}
+          <Axie type={mode} {axie} on:click={clickAxie(axie)} />
+        {/each}
+      </div>
+    {:else}
+      <div class="axies" class:loading>
+        {#each _axies as axie}
+          <DynamicAxie type={'parts'} {axie} />
+        {/each}
+      </div>
+    {/if}
   {/if}
 
 </div>

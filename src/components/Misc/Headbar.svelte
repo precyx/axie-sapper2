@@ -6,7 +6,7 @@
 
 <style>
   .headbar {
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
     height: 60px;
   }
 
@@ -45,7 +45,7 @@
 </style>
 
 <div class="headbar bg-dark-shimmer-2 flex">
-  <div class="sidespace">
+  <div class="sidespace sidespace-left">
     <ThemeController />
   </div>
 
@@ -84,5 +84,5 @@
     </div>
   </div>
 
-  <div class="sidespace" />
+  <div class="sidespace sidespace-right" />
 </div>
