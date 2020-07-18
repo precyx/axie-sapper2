@@ -1,7 +1,12 @@
 <script>
   import ThemeController from "./ThemeController.svelte";
+  import { onMount } from "svelte";
 
-  let url = window.location.href;
+  let url = "";
+
+  onMount(() => {
+    url = window.location.href;
+  });
 </script>
 
 <style>

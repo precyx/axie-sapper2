@@ -1,7 +1,10 @@
 <script>
   import { goto } from "@sapper/app";
+  import { onMount } from "svelte";
 
-  goto("Market");
+  onMount(async () => {
+    await goto("Market");
+  });
 </script>
 
 <svelte:head>

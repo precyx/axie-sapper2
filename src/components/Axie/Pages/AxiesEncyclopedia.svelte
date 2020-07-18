@@ -31,7 +31,7 @@
     currentpage = 1;
   });
 
-  onMount(async () => {
+  onMount(() => {
     window.setTimeout(() => {
       HAS_MOUNTED = true;
     }, 0);
