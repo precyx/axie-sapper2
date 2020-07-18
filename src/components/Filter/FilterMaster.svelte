@@ -71,16 +71,24 @@
     border-radius: 0 8px 8px 0;
     border-radius: 8px;
     padding: 20px;
-    width: 300px;
-    height: calc(100vh - 60px);
+    width: 100%;
+    margin-top: 50px;
+    height: calc(100vh - 110px);
     overflow-y: auto;
+    z-index: 10000;
+
+    position: fixed;
+    bottom: 0;
+    width: 300px;
+
+    transition: height 0.2s ease;
 
     color: var(--color-dark-1);
     font-size: 14px;
   }
 
   .filtermaster.toggled {
-    width: 60px;
+    height: 70px;
   }
 
   .filtertitle {
@@ -109,6 +117,20 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .link {
+    color: rgb(var(--color-primary-1000));
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .link:hover {
+    color: rgb(var(--color-primary-900));
+  }
+
+  @media only screen and (max-width: 1850px) {
+    .filtermaster {
+    }
+  }
 </style>
 
 <div class="filtermaster bg-light-1" class:toggled>
@@ -124,7 +146,7 @@
       <div class="toggler" on:click={toggleFilterMaster}>
         <CloseIcon />
       </div>
-      <Button on:click={resetFilters} type="secondary">Reset</Button>
+      <div class="link" on:click={resetFilters}>Reset</div>
     </div>
     <div>
       <div class="mb-2">

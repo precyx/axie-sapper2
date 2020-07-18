@@ -1,3 +1,7 @@
+<script>
+  export let className;
+</script>
+
 <style>
   .sidespace {
     --sidespace-width: 250px;
@@ -5,7 +9,7 @@
   }
 </style>
 
-<div class="sidespace">
+<div class="sidespace + {className}">
 
   <slot />
 </div>
