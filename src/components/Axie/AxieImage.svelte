@@ -3,6 +3,12 @@
   export let type = "";
 
   $: _img = image;
+
+  let error = false;
+
+  const onerror = () => {
+    error = true;
+  };
 </script>
 
 <style>
@@ -36,6 +42,10 @@
 
 <div class="image-cropper type-{type}">
   {#if _img}
-    <img src={_img} alt="axie image" />
+    {#if !error}
+      <img src={_img} alt="axie" on:error={onerror} />
+    {:else if error}
+      <div class="error_image" />
+    {/if}
   {/if}
 </div>

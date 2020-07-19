@@ -1,6 +1,7 @@
 <script>
   import SideSpace from "../Misc/SideSpace.svelte";
   import Headbar from "../Misc/Headbar.svelte";
+  import AppBackground from "../Misc/AppBackground.svelte";
 </script>
 
 <style>
@@ -35,4 +36,6 @@
     </SideSpace>
 
   </div>
+
+  <AppBackground />
 </div>

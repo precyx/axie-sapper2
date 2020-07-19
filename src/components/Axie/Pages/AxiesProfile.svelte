@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { filters } from "../../../store/store.js";
-  import AxieHighlightLayout from "../AxieHighlightLayout.svelte";
+  import AxieHighlightLayout from "../Layouts/AxieHighlightLayout.svelte";
   import AxieList from "../AxieList.svelte";
   import AxieCard from "../AxieCard.svelte";
   import Paginator from "../../Misc/Paginator.svelte";

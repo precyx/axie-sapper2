@@ -2,6 +2,8 @@
   import ThemeController from "./ThemeController.svelte";
   import { onMount } from "svelte";
 
+  export let className = "";
+
   let url = "";
 
   onMount(() => {
@@ -13,6 +15,11 @@
   .headbar {
     /*margin-bottom: 40px;*/
     height: 60px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(20px);
   }
 
   .center {
@@ -49,7 +56,7 @@
   }
 </style>
 
-<div class="headbar bg-dark-shimmer-2 flex">
+<div class="headbar bg-dark-shimmer-2 flex {className}">
   <div class="sidespace sidespace-left">
     <ThemeController />
   </div>

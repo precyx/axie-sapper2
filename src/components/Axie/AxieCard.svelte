@@ -63,7 +63,7 @@
 
 <style>
   .axiecard {
-    position: relative;
+    /*position: relative;*/
     /*margin-right: 15px;*/
   }
   .axie {
@@ -98,6 +98,12 @@
   img {
     max-width: 250px;
     height: auto;
+  }
+
+  :global(.axiecard) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
   }
 
   :global(.axiecard .axietopbar) {

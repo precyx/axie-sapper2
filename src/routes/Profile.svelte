@@ -3,18 +3,16 @@
   import Headbar from "../components/Misc/Headbar.svelte";
   import SideSpace from "../components/Misc/SideSpace.svelte";
   import FilterMaster from "../components/Filter/FilterMaster.svelte";
+  import ThreeColumns from "../components/Layouts/ThreeColumns.svelte";
 </script>
 
-<div>
-  <Headbar />
+<ThreeColumns>
 
-  <div class="flex justify-between">
-    <SideSpace>
-
-      <FilterMaster />
-
-    </SideSpace>
-    <AxiesProfile />
-    <SideSpace />
+  <div slot="column-left">
+    <FilterMaster />
   </div>
-</div>
+  <div slot="column-center">
+    <AxiesProfile />
+  </div>
+
+</ThreeColumns>

@@ -8,14 +8,14 @@
   import PurenessFilters from "./PurenessFilters.svelte";
   import TagFilters from "./TagFilters.svelte";
   import RegionFilters from "./RegionFilters.svelte";
+  import Checkbox from "../Misc/Checkbox.svelte";
+  import Checkbox2 from "../Misc/Checkbox2.svelte";
+  import Checkbox3 from "../Misc/Checkbox3.svelte";
+  import { arraysEqual } from "../../utils/Utils";
 
   import { filters, filtersToggled } from "../../store/store.js";
 
   let toggled = $filtersToggled;
-
-  $: _filters = $filters;
-
-  $: console.log("--", _filters);
 
   let toggleFilterMaster = () => {
     toggled = !toggled;
@@ -41,10 +41,16 @@
     classes = [];
   };
 
-  let onChangeFilter = (label, val) => {
-    console.log("onchange", label, val);
-    setFilterVal(label, val);
+  let onChangeFilter = (id, val) => {
+    console.log("onchange", id, val);
+    setFilterVal(id, val);
   };
+
+  /**
+   * Known problem
+   * Reactivity updates twice when binding array or object
+   * @see - Issue #4265 - https://github.com/sveltejs/svelte/issues/4265
+   */
 
   let pureness = $filters["pureness"];
   $: onChangeFilter("pureness", pureness);
@@ -66,29 +72,37 @@
 </script>
 
 <style>
+  .container {
+    position: relative;
+  }
+
   .filtermaster {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
     border-radius: 0 8px 8px 0;
     border-radius: 8px;
     padding: 20px;
-    width: 100%;
-    margin-top: 50px;
-    height: calc(100vh - 110px);
+
     overflow-y: auto;
     z-index: 10000;
-
-    position: fixed;
-    bottom: 0;
-    width: 300px;
-
-    transition: height 0.2s ease;
 
     color: var(--color-dark-1);
     font-size: 14px;
   }
 
-  .filtermaster.toggled {
+  .filtermaster,
+  .container {
+    /*margin-top: 50px;*/
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: fixed;
+    bottom: 0;
+    width: 300px;
+  }
+
+  .filtermaster.toggled,
+  .container.toggled {
     height: 70px;
+    margin-bottom: -15px;
   }
 
   .filtertitle {
@@ -103,19 +117,32 @@
     height: 20px;
     cursor: pointer;
     opacity: 0.8;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px #00000030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -15px;
+    right: -12px;
+    z-index: 50000;
   }
 
   .toggler:hover {
     opacity: 1;
   }
 
-  .filtermaster .toggler :global(svg) {
-    fill: rgb(var(--color-black));
+  .toggler :global(svg) {
+    width: 20px;
+    fill: var(--color-dark-1);
   }
 
   .topbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .link {
@@ -128,54 +155,54 @@
   }
 
   @media only screen and (max-width: 1850px) {
-    .filtermaster {
-    }
+    /*.filtermaster {
+    }*/
   }
 </style>
 
-<div class="filtermaster bg-light-1" class:toggled>
+<div class="container" class:toggled>
 
-  {#if toggled}
-    <div>
-      <div class="toggler" on:click={toggleFilterMaster}>
-        <CloseIcon />
-      </div>
-    </div>
-  {:else}
-    <div class="topbar">
-      <div class="toggler" on:click={toggleFilterMaster}>
-        <CloseIcon />
-      </div>
-      <div class="link" on:click={resetFilters}>Reset</div>
-    </div>
-    <div>
-      <div class="mb-2">
-        <div class="filtertitle">Classes</div>
-        <ClassFilters bind:group={classes} />
-      </div>
+  <div class="toggler bg-light-1" on:click={toggleFilterMaster}>
+    <CloseIcon />
+  </div>
 
-      <div class="mb-2">
-        <div class="filtertitle">Stages</div>
-        <StageFilters bind:group={stages} />
-      </div>
+  <div class="filtermaster bg-light-1" class:toggled>
 
-      <div class="mb-2">
-        <div class="filtertitle">Num Mystics</div>
-        <MysticFilters bind:group={mystic} />
+    {#if toggled}
+      <div />
+    {:else}
+      <div class="topbar">
+        <div class="link" on:click={resetFilters}>Reset</div>
       </div>
-      <div class="mb-2">
-        <div class="filtertitle">Pureness</div>
-        <PurenessFilters bind:group={pureness} />
-      </div>
-      <div class="mb-2">
-        <div class="filtertitle">Tag</div>
-        <TagFilters bind:group={tag} />
-      </div>
-      <div class="mb-2">
-        <div class="filtertitle">Region</div>
-        <RegionFilters bind:group={region} />
-      </div>
-    </div>
-  {/if}
+      <div>
+        <div class="mb-2">
+          <div class="filtertitle">Classes</div>
+          <ClassFilters bind:group={classes} />
+        </div>
 
+        <div class="mb-2">
+          <div class="filtertitle">Stages</div>
+          <StageFilters bind:group={stages} />
+        </div>
+
+        <div class="mb-2">
+          <div class="filtertitle">Num Mystics</div>
+          <MysticFilters bind:group={mystic} />
+        </div>
+        <div class="mb-2">
+          <div class="filtertitle">Pureness</div>
+          <PurenessFilters bind:group={pureness} />
+        </div>
+        <div class="mb-2">
+          <div class="filtertitle">Tag</div>
+          <TagFilters bind:group={tag} />
+        </div>
+        <div class="mb-2">
+          <div class="filtertitle">Region</div>
+          <RegionFilters bind:group={region} />
+        </div>
+      </div>
+    {/if}
+
+  </div>
 </div>

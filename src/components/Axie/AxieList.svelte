@@ -82,6 +82,10 @@
         {/each}
       </div>
     {/if}
+
+    <div class="mt-4 mb-4">
+      <slot name="pagination" />
+    </div>
   {/if}
 
 </div>

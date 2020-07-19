@@ -469,7 +469,8 @@ code {
 
 img,
 svg,
-canvas {
+canvas,
+object {
   display: block;
   vertical-align: middle;
 }
@@ -590,6 +591,10 @@ img {
   margin-left: 0.75rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -629,6 +634,10 @@ img {
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .top-0 {

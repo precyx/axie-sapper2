@@ -54,9 +54,9 @@
 </script>
 
 <style>
-  .axie-mode-switcher {
+  /*.axie-mode-switcher {
     position: relative;
-  }
+  }*/
   .axie-mode-switcher .text {
     height: 24px;
     border-radius: 50px;
