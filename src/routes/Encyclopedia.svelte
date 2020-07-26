@@ -3,10 +3,10 @@
   import Headbar from "../components/Misc/Headbar.svelte";
   import SideSpace from "../components/Misc/SideSpace.svelte";
   import FilterMaster from "../components/Filter/FilterMaster.svelte";
-  import ThreeColumns from "../components/Layouts/ThreeColumns.svelte";
+  import ThreeColumnsLayout from "../components/Layouts/ThreeColumnsLayout.svelte";
 </script>
 
-<ThreeColumns>
+<ThreeColumnsLayout>
 
   <div slot="column-left">
     <FilterMaster />
@@ -15,4 +15,4 @@
     <AxiesEncyclopedia />
   </div>
 
-</ThreeColumns>
+</ThreeColumnsLayout>

@@ -1,3 +1,14 @@
+<script>
+  export let tone = "cold"; // cold or warm
+
+  let toneClasses = "";
+  $: if (tone == "cold") {
+    toneClasses = "bg_ambient_1";
+  } else if (tone == "warm") {
+    toneClasses = "bg_ambient_2";
+  }
+</script>
+
 <style>
   .appBackground {
   }
@@ -12,5 +23,5 @@
 </style>
 
 <div
-  class="bg_ambient_1 w-full h-full fixed left-0 top-0 appBackground"
+  class="w-full h-full fixed left-0 top-0 appBackground {toneClasses}"
   style="z-index:-1" />

@@ -113,6 +113,7 @@
   }
 
   .toggler {
+    display: none;
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -122,13 +123,16 @@
     height: 30px;
     border-radius: 50%;
     box-shadow: 0 2px 2px #00000030;
-    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     top: -15px;
     right: -12px;
     z-index: 50000;
+  }
+
+  .container:hover .toggler {
+    display: flex;
   }
 
   .toggler:hover {

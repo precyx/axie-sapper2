@@ -3,10 +3,20 @@
   export let type = "";
 
   $: _img = image;
+  let altImg = "";
 
   let error = false;
 
   const onerror = () => {
+    if (type == "larva") {
+      if (
+        image.indexOf("mech") != -1 ||
+        image.indexOf("dusk") != -1 ||
+        image.indexOf("dawn") != -1
+      ) {
+        altImg = "https://storage.googleapis.com/axie-cdn/avatars/larva/meo-larva-full-transparent.png"; // prettier-ignore
+      }
+    }
     error = true;
   };
 </script>
@@ -45,7 +55,7 @@
     {#if !error}
       <img src={_img} alt="axie" on:error={onerror} />
     {:else if error}
-      <div class="error_image" />
+      <img src={altImg} alt="axie" />
     {/if}
   {/if}
 </div>

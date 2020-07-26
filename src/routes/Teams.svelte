@@ -3,17 +3,14 @@
   import Headbar from "../components/Misc/Headbar.svelte";
   import SideSpace from "../components/Misc/SideSpace.svelte";
   import FilterMaster from "../components/Filter/FilterMaster.svelte";
-  import ThreeColumnsLayout from "../components/Layouts/ThreeColumnsLayout.svelte";
+  import TeamsLayout from "../components/Layouts/TeamsLayout.svelte";
 </script>
 
-<ThreeColumnsLayout>
+<TeamsLayout>
 
-  <div slot="column-left">
-    test
-    <FilterMaster />
-  </div>
+  <div slot="column-left" />
   <div slot="column-center">
-    <AxiesProfile />
+    <div style="margin-top:100px">Teams</div>
   </div>
 
-</ThreeColumnsLayout>
+</TeamsLayout>

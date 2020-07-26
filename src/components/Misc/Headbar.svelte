@@ -82,15 +82,23 @@
         href="Profile"
         class="item flex cursor-pointer"
         class:active={url.indexOf('Profile') != -1}>
-        <img src="images/navigation/my_axies.png" alt="navigation point" />
+        <img src="images/navigation/puff.png" alt="navigation point" />
         <p>Profile</p>
       </a>
       <a
         href="Player"
         class="item flex cursor-pointer"
         class:active={url.indexOf('Player') != -1}>
-        <img src="images/navigation/my_axies.png" alt="navigation point" />
+        <img src="images/navigation/puff.png" alt="navigation point" />
         <p>Player</p>
+      </a>
+
+      <a
+        href="Teams"
+        class="item flex cursor-pointer"
+        class:active={url.indexOf('Teams') != -1}>
+        <img src="images/navigation/puff.png" alt="navigation point" />
+        <p>Teams</p>
       </a>
 
     </div>

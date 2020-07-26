@@ -5,6 +5,7 @@
   import DynamicAxie from "./DynamicAxie.svelte";
 
   import Notice from "../Misc/Notice.svelte";
+  import Loader from "../UI/Loader.svelte";
   import Title from "../Misc/Title.svelte";
 
   export let axies;
@@ -53,18 +54,30 @@
 
 <div class="axielist">
   {#if !_axies || !_axies.length}
-    <Notice>No Axies around...</Notice>
+    <div class="flex items-center justify-center">
+      <Loader />
+    </div>
   {:else if _axies && _axies.length}
+    {#if loading}
+      <div
+        class="absolute"
+        style="left:50%; margin-left:-30px; z-index:1000; top:50%;
+        margin-top:-30px;">
+        <Loader />
+      </div>
+    {/if}
     <div class="titlebar flex items-center justify-between mt-2 mb-4">
       <Title>Axies {total}</Title>
 
       <div class="flex">
 
-        <input type="checkbox" bind:checked={viewMode} />
-        <div class=" mr-8">
-          <Button class="btn_secondary btn" type="secondary">Grid</Button>
-          <Button class="btn_secondary btn" type="secondary">List</Button>
-        </div>
+        {#if false}
+          <input type="checkbox" bind:checked={viewMode} />
+          <div class=" mr-8">
+            <Button class="btn_secondary btn" type="secondary">Grid</Button>
+            <Button class="btn_secondary btn" type="secondary">List</Button>
+          </div>
+        {/if}
         <slot name="pagination" />
       </div>
     </div>
