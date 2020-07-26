@@ -44,6 +44,7 @@ body {
   --color-dark-2: #0b333a;
   --color-dark-shimmer-1: rgba(39, 82, 93, 0.05);
   --color-dark-shimmer-2: rgba(0, 156, 156, 0.15);
+  --color-dark-shimmer-A-2: rgb(214, 130, 52, 0.15);
 
   --color-accent-shimmer-1: rgba(24, 96, 105, 0.1);
   --color-accent-shimmer-2: rgba(40, 113, 113, 0.09);

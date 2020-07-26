@@ -3,6 +3,14 @@
   import { onMount } from "svelte";
 
   export let className = "";
+  export let tone = "cold"; // cold or warm
+
+  let toneClasses = "";
+  $: if (tone == "cold") {
+    toneClasses = "bg-dark-shimmer-2";
+  } else if (tone == "warm") {
+    toneClasses = "bg-dark-shimmer-A-2";
+  }
 
   let url = "";
 
@@ -56,7 +64,7 @@
   }
 </style>
 
-<div class="headbar bg-dark-shimmer-2 flex {className}">
+<div class="headbar flex {className} {toneClasses}">
   <div class="sidespace sidespace-left">
     <ThemeController />
   </div>

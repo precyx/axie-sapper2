@@ -25,7 +25,7 @@
 </style>
 
 <div>
-  <Headbar />
+  <Headbar tone="warm" />
   <div class="flex justify-between three-columns">
     <SideSpace className="sidespace-left">
       <slot name="column-left" class="column-left" />

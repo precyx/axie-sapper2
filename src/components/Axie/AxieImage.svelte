@@ -23,7 +23,7 @@
 
 <style>
   img {
-    --axie-image-width: 230px;
+    --axie-image-width: 210px;
     --axie-image-height: 220px;
 
     max-width: var(--axie-image-width);
@@ -34,13 +34,13 @@
   }
 
   .type-egg img {
-    --axie-image-width: 260px;
+    --axie-image-width: 240px;
     --axie-image-height: 240px;
-    margin-left: -15px;
+    margin-left: -5px;
     margin-top: -5px;
   }
   .type-larva img {
-    --axie-image-width: 230px;
+    --axie-image-width: 210px;
     --axie-image-height: 220px;
   }
 

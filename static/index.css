@@ -487,6 +487,34 @@ img {
   height: auto;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -509,6 +537,10 @@ img {
 
 .bg-dark-shimmer-2 {
   background-color: var(--color-dark-shimmer-2);
+}
+
+.bg-dark-shimmer-A-2 {
+  background-color: var(--color-dark-shimmer-A-2);
 }
 
 .rounded {
