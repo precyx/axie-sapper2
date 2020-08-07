@@ -95,7 +95,13 @@
 
         <AxieProfilePicker bind:address={currentaddress} />
 
-        <AxieList mode="profile" {axies} {total} bind:selectedAxie {loading}>
+        <AxieList
+          infobarTitle="Profile by address"
+          mode="profile"
+          {axies}
+          {total}
+          bind:selectedAxie
+          {loading}>
           <div slot="pagination">
             <Paginator {total} {pagesize} bind:currentpage />
           </div>

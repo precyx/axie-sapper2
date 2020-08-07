@@ -74,6 +74,8 @@
 <style>
   .container {
     position: relative;
+    margin-left: 15px;
+    margin-bottom: -5px;
   }
 
   .filtermaster {

@@ -92,7 +92,13 @@
   <AxieHighlightLayout bind:selectedAxie>
     <div slot="list">
       <div>
-        <AxieList mode="auction" {axies} {total} bind:selectedAxie {loading}>
+        <AxieList
+          infobarTitle="Marketplace"
+          mode="auction"
+          {axies}
+          {total}
+          bind:selectedAxie
+          {loading}>
           <div slot="pagination">
             <Paginator {total} {pagesize} bind:currentpage />
           </div>

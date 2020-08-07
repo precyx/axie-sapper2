@@ -88,7 +88,13 @@
   <AxieHighlightLayout bind:selectedAxie>
     <div slot="list">
       <div>
-        <AxieList mode="profile" {axies} {total} bind:selectedAxie {loading}>
+        <AxieList
+          infobarTitle="My Axies"
+          mode="profile"
+          {axies}
+          {total}
+          bind:selectedAxie
+          {loading}>
           <div slot="pagination">
             <Paginator {total} {pagesize} bind:currentpage />
           </div>

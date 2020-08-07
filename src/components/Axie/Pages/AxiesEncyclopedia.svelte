@@ -93,6 +93,7 @@
     <div slot="list">
       <div>
         <AxieList
+          infobarTitle="Encyclopedia"
           mode="encylopedia"
           {axies}
           {total}

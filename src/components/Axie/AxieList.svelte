@@ -8,6 +8,7 @@
   import Loader from "../UI/Loader.svelte";
   import Title from "../Misc/Title.svelte";
 
+  export let infobarTitle;
   export let axies;
   export let total;
   export let onSelectAxie;
@@ -29,6 +30,15 @@
 <style>
   .axielist {
     width: 950px;
+  }
+
+  .infobar {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-dark-1);
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.5;
   }
 
   .axies {
@@ -66,6 +76,7 @@
         <Loader />
       </div>
     {/if}
+    <div class="infobar">{infobarTitle}</div>
     <div class="titlebar flex items-center justify-between mt-2 mb-4">
       <Title>Axies {total}</Title>
 

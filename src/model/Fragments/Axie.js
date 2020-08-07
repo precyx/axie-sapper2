@@ -4,7 +4,6 @@ fragment AxieBrief on Axie {
   name
   stage
   class
-  exp
   image
   title
   breedCount
@@ -34,9 +33,6 @@ fragment AxiePart on AxiePart {
   name
   class
   type
-  mystic
-  bionic
-  xmas
   stage
   abilities {
     ...AxieCardAbility
@@ -113,7 +109,6 @@ fragment AxieAuction on Auction {
   suggestedPrice
   seller
   listingIndex
-  auctionType
   __typename
 }`;
 
@@ -133,10 +128,7 @@ fragment AxieDetail on Axie {
   stage
   title
   breedCount
-  breedable
-  exp
   level
-  unlocked
   figure {
     atlas
     model

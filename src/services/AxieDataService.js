@@ -4,17 +4,17 @@ import {
   AxieStats,
   AxieDetail,
   AxieCardAbility,
-  AxieAuction
+  AxieAuction,
 } from "../model/Fragments/Axie.js";
 
 const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
 
 export function getAxieBriefList(
-  { from, size, sort, auctionType, owner, region },
+  { from, size, sort, auctionType, owner },
   { classes, numMystics, stages, pureness, title }
 ) {
-  var query1 = `query GetAxieBriefList($auctionType: AxieAuctionType, $region: String, $criteria: AxieCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {
-    axies(auctionType: $auctionType, region: $region, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {
+  var query1 = `query GetAxieBriefList($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {
+    axies(auctionType: $auctionType, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {
       total
       results {
         ...AxieBrief
@@ -38,7 +38,6 @@ export function getAxieBriefList(
       sort: sort || "PriceAsc",
       auctionType: auctionType || null,
       owner: owner || null,
-      region: region || null,
       criteria: {
         parts: null,
         bodyShapes: null,
@@ -48,10 +47,10 @@ export function getAxieBriefList(
         pureness: pureness || null,
         title: title || null,
         breedable: null,
-        breedCount: null
-      }
+        breedCount: null,
+      },
     },
-    query: query1
+    query: query1,
   };
 
   return post(GRAPH_URL, query);
@@ -75,7 +74,7 @@ export function getAxieDetail({ axieId }) {
   var query = {
     operationName: "GetAxieDetail",
     variables: { axieId: axieId },
-    query: query1
+    query: query1,
   };
 
   return post(GRAPH_URL, query);
@@ -103,9 +102,9 @@ export function getParentsBrief({ matronId, sireId }) {
     operationName: "GetParentsBrief",
     variables: {
       matronId: matronId,
-      sireId: sireId
+      sireId: sireId,
     },
-    query: query1
+    query: query1,
   };
 
   return post(GRAPH_URL, query);
@@ -130,9 +129,9 @@ function post(url, data) {
   return fetch(url, {
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     method: "POST",
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   }).then(response => response.json());
 }
