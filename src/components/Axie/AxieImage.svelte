@@ -8,7 +8,9 @@
   let error = false;
 
   const onerror = () => {
-    if (type == "larva") {
+    altImg = "/images/axie/preview_axie2.svg"; // prettier-ignore
+
+    /*if (type == "larva") {
       if (
         image.indexOf("mech") != -1 ||
         image.indexOf("dusk") != -1 ||
@@ -16,7 +18,7 @@
       ) {
         altImg = "https://storage.googleapis.com/axie-cdn/avatars/larva/meo-larva-full-transparent.png"; // prettier-ignore
       }
-    }
+    }*/
     error = true;
   };
 </script>
@@ -31,6 +33,10 @@
 
     width: auto;
     height: auto;
+  }
+
+  .error_img {
+    width: 80px;
   }
 
   .type-egg img {
@@ -55,7 +61,7 @@
     {#if !error}
       <img src={_img} alt="axie" on:error={onerror} />
     {:else if error}
-      <img src={altImg} alt="axie" />
+      <img class="error_img" src={altImg} alt="axie" width="100" />
     {/if}
   {/if}
 </div>
