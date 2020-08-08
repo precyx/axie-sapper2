@@ -8,6 +8,8 @@
   import Loader from "../UI/Loader.svelte";
   import Title from "../Misc/Title.svelte";
 
+  import { _selectedAxie } from "../../store/store.js";
+
   export let infobarTitle;
   export let axies;
   export let total;
@@ -23,7 +25,12 @@
 
   const clickAxie = axie => x => {
     /*if (onSelectAxie) onSelectAxie(axie);*/
-    selectedAxie = axie;
+    //selectedAxie = axie;
+
+    // trigger store
+    _selectedAxie.update(t => {
+      return axie;
+    });
   };
 </script>
 

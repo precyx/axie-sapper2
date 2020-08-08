@@ -1,7 +1,7 @@
 <style>
   .title {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 600;
   }
 </style>
 

@@ -1,6 +1,7 @@
 <script>
   import CloseIcon from "../../Misc/Icons/general/close.svelte";
   import AxieCard from "../AxieCard.svelte";
+  import { _selectedAxie } from "../../../store/store.js";
 
   export let selectedAxie = null;
   export let onClickClose;
@@ -8,6 +9,7 @@
 
   let _onClickAxie = axie => {
     //if (onClickAxie) onClickAxie(axie);
+    console.log("axie", axie);
     selectedAxie = axie;
   };
 

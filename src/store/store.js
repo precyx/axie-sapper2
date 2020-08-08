@@ -7,3 +7,6 @@ export const theme = writable("light");
 export const filters = writable({});
 export const previous_filters = writable({});
 export const filtersToggled = writable(false);
+
+// selected axie
+export const _selectedAxie = writable({});

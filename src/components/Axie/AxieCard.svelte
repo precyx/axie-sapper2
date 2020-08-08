@@ -22,8 +22,12 @@
 
   export let axie;
   export let onClickParent;
+
   let detailAxie = {};
   let selectedMode = "parts";
+
+  // lifecycle
+  let HAS_MOUNTED = false;
 
   function transformAdultImage(url) {
     let segments = url.split("/");
@@ -33,8 +37,18 @@
     return newUrl;
   }
 
-  $: loadDetailInfo(axie);
-  $: getAxieImage(axie.image);
+  onMount(() => {
+    window.setTimeout(() => {
+      HAS_MOUNTED = true;
+    }, 0);
+  });
+
+  $: if (HAS_MOUNTED) {
+    loadDetailInfo(axie);
+  }
+  $: if (HAS_MOUNTED) {
+    getAxieImage(axie.image);
+  }
 
   let axieimage;
 
