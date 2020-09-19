@@ -14,6 +14,8 @@
 
   let url = "";
 
+  const isActive = () => {};
+
   onMount(() => {
     url = window.location.href;
   });
@@ -107,6 +109,14 @@
         class:active={url.indexOf('Teams') != -1}>
         <img src="images/navigation/puff.png" alt="navigation point" />
         <p>Teams</p>
+      </a>
+
+      <a
+        href="PromotionLeekPool"
+        class="item flex cursor-pointer"
+        class:active={url.indexOf('PromotionLeekPool') != -1}>
+        <img src="images/navigation/leek.png" alt="navigation point" />
+        <p>Promotion</p>
       </a>
 
     </div>
