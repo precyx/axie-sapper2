@@ -5,7 +5,8 @@
 <style>
   .item {
     position: relative;
-    width: 170px;
+    /*width: 170px;*/
+    display: flex;
 
     margin-right: 10px;
     margin-bottom: 10px;

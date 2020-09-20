@@ -8,6 +8,7 @@
 
   import AxieImage from "../../LeekPromotion/AxieImage.svelte";
   import Tabs from "../../LeekPromotion/Tabs.svelte";
+  import Button from "../../Misc/Button.svelte";
 
   let axies = [
     { id: "86258", status: "a" },
@@ -133,6 +134,13 @@
     margin-right: 4px;
   }
 
+  .stronk {
+    border: 1px solid rgb(var(--palette-teal-900));
+    padding: 3px 15px;
+    border-radius: 5px;
+    color: rgb(var(--palette-teal-900));
+  }
+
   .axielist {
     display: flex;
     flex-flow: wrap;
@@ -162,6 +170,10 @@
     right: 50px;
     top: 50px;
   }
+
+  .axie {
+    width: 180px;
+  }
 </style>
 
 <div class="leek-pool-promotion ">
@@ -178,13 +190,16 @@
     <div class="h3">Overview</div>
 
     <ul style="margin-top:20px;">
-      <li>
+      <li style="display:none">
         <a
           class="link"
           target="_blank"
           href="https://app.rarible.com/token/0xd07dc4262bcdbf85190c01c996b4c06a461d2430:13125:0xe293390d7651234c6dfb1f41a47358b9377c004f">
           Buy Blooming Leeks here
         </a>
+      </li>
+      <li>
+        <span class="fat stronk">Blooming Leeks edition #1 are sold out</span>
       </li>
       <li>
         <span class="fat">50</span>
@@ -199,25 +214,32 @@
         <span class="fat">0.06 ETH</span>
         per item
       </li>
-    </ul>
-  </div>
-
-  <div class="text-dark-2" style="margin-top:40px">
-    <div class="h3">Distribution</div>
-
-    <ul style="margin-top:20px;">
-      <li>
-        After every
-        <span class="fat">25</span>
-        blooming leeks are sold, Axies will be picked from the pool and
-        distributed
-      </li>
       <li>
         Axies are only sent out to the buyers when gas is at
         <span class="fat">100</span>
         or lower
       </li>
     </ul>
+  </div>
+
+  <div class="text-dark-2" style="display:none; margin-top:40px">
+    <div class="h3">Distribution</div>
+
+    <ul style="margin-top:20px;">
+      <li style="display:none;">
+        After every
+        <span class="fat">25</span>
+        blooming leeks are sold, Axies will be picked from the pool and
+        distributed
+      </li>
+
+    </ul>
+  </div>
+
+  <div style="margin-top:20px;">
+    <a href="/PromotionLeekPool/PrizeDraw">
+      <Button>Go to prize draw page</Button>
+    </a>
   </div>
 
   <div style="margin-top:40px" class="text-dark-2">
@@ -230,7 +252,9 @@
 
     <div class="axielist plate" style="margin-top:20px;">
       {#each visibleAxies as axie}
-        <AxieImage id={axie.id} />
+        <div class="axie">
+          <AxieImage id={axie.id} />
+        </div>
       {/each}
     </div>
   </div>
