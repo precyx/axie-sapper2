@@ -11,71 +11,71 @@
   import Button from "../../Misc/Button.svelte";
 
   let axies = [
-    { id: "86258", status: "r" },
-    { id: "80665", status: "r" },
-    { id: "74760", status: "r" },
-    { id: "74495", status: "r" },
-    { id: "18951", status: "r" },
-    { id: "74753", status: "r" },
-    { id: "91256", status: "r" },
-    { id: "18450", status: "r" },
-    { id: "42910", status: "r" },
-    { id: "84633", status: "r" },
-    { id: "24294", status: "r" },
-    { id: "86651", status: "r" },
-    { id: "74472", status: "r" },
-    { id: "28381", status: "r" },
-    { id: "26592", status: "r" },
-    { id: "24326", status: "r" },
-    { id: "21291", status: "r" },
-    { id: "16521", status: "r" },
-    { id: "87514", status: "r" },
-    { id: "84934", status: "r" },
-    { id: "80561", status: "r" },
-    { id: "44643", status: "r" },
-    { id: "33774", status: "r" },
-    { id: "16039", status: "r" },
-    { id: "69295", status: "r" },
-    { id: "66981", status: "r" },
-    { id: "66967", status: "r" },
-    { id: "39097", status: "r" },
-    { id: "56345", status: "r" },
-    { id: "31068", status: "r" },
-    { id: "86647", status: "r" },
-    { id: "82767", status: "r" },
-    { id: "53315", status: "r" },
-    { id: "59100", status: "r" },
-    { id: "29763", status: "r" },
-    { id: "24873", status: "r" },
-    { id: "85945", status: "r" },
-    { id: "66919", status: "r" },
-    { id: "46742", status: "r" },
-    { id: "43833", status: "r" },
-    { id: "24286", status: "r" },
-    { id: "67263", status: "r" },
-    { id: "24657", status: "r" },
-    { id: "24850", status: "r" },
-    { id: "33349", status: "r" },
-    { id: "25343", status: "r" },
-    { id: "17579", status: "r" },
-    { id: "16159", status: "r" },
-    { id: "10366", status: "r" },
-    { id: "12872", status: "r" }
+    { id: "86258", status: "d" },
+    { id: "80665", status: "d" },
+    { id: "74760", status: "d" },
+    { id: "74495", status: "d" },
+    { id: "18951", status: "d" },
+    { id: "74753", status: "d" },
+    { id: "91256", status: "d" },
+    { id: "18450", status: "d" },
+    { id: "42910", status: "d" },
+    { id: "84633", status: "d" },
+    { id: "24294", status: "d" },
+    { id: "86651", status: "d" },
+    { id: "74472", status: "d" },
+    { id: "28381", status: "d" },
+    { id: "26592", status: "d" },
+    { id: "24326", status: "d" },
+    { id: "21291", status: "d" },
+    { id: "16521", status: "d" },
+    { id: "87514", status: "d" },
+    { id: "84934", status: "d" },
+    { id: "80561", status: "d" },
+    { id: "44643", status: "d" },
+    { id: "33774", status: "d" },
+    { id: "16039", status: "d" },
+    { id: "69295", status: "d" },
+    { id: "66981", status: "d" },
+    { id: "66967", status: "d" },
+    { id: "39097", status: "d" },
+    { id: "56345", status: "d" },
+    { id: "31068", status: "d" },
+    { id: "86647", status: "d" },
+    { id: "82767", status: "d" },
+    { id: "53315", status: "d" },
+    { id: "59100", status: "d" },
+    { id: "29763", status: "d" },
+    { id: "24873", status: "d" },
+    { id: "85945", status: "d" },
+    { id: "66919", status: "d" },
+    { id: "46742", status: "d" },
+    { id: "43833", status: "d" },
+    { id: "24286", status: "d" },
+    { id: "67263", status: "d" },
+    { id: "24657", status: "d" },
+    { id: "24850", status: "d" },
+    { id: "33349", status: "d" },
+    { id: "25343", status: "d" },
+    { id: "17579", status: "d" },
+    { id: "16159", status: "d" },
+    { id: "10366", status: "d" },
+    { id: "12872", status: "d" }
   ];
 
   let activeAxies = axies.filter(axie => axie.status == "a");
   let readyForDistriAxies = axies.filter(axie => axie.status == "r");
   let distributedAxies = axies.filter(axie => axie.status == "d");
 
-  let visibleAxies = readyForDistriAxies;
+  let visibleAxies = distributedAxies;
 
   let tabdata = [
     { text: "Available" },
-    { text: "Ready for Distribution", active: true },
-    { text: "Distributed" }
+    { text: "Ready for Distribution" },
+    { text: "Distributed", active: true }
   ];
 
-  let activeTabText = "Ready for Distribution";
+  let activeTabText = "Distributed";
   let onChangeTab = text => {
     activeTabText = text.toLowerCase();
 
@@ -245,7 +245,7 @@
   <div style="margin-top:40px" class="text-dark-2">
 
     <div class="bar">
-      <div class="h3">Axie Pool {activeAxies.length}</div>
+      <div class="h3">Axie Pool {visibleAxies.length}</div>
 
       <Tabs tabs={tabdata} onChange={onChangeTab} />
     </div>
