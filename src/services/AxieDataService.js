@@ -1,33 +1,27 @@
-import {
-  AxieBrief,
-  AxiePart,
-  AxieStats,
-  AxieDetail,
-  AxieCardAbility,
-  AxieAuction,
-} from "../model/Fragments/Axie.js";
+import { AxieBrief, AxiePart, AxieStats, AxieDetail, AxieCardAbility, AxieAuction } from "../model/Fragments/Axie.js";
 
+const AXIE_V2_URL = "https://axieinfinity.com/api/v2";
 const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
 
-export function getAxieBriefList(
-  { from, size, sort, auctionType, owner },
-  { classes, numMystics, stages, pureness, title }
-) {
+export function getAxieBriefList({ from, size, sort, auctionType, owner, parts, querySelect }, { classes, numMystics, stages, pureness, title }) {
   var query1 = `query GetAxieBriefList($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {
     axies(auctionType: $auctionType, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {
       total
-      results {
-        ...AxieBrief
-        __typename
-      }
+
+      ${querySelect == "minimal"
+        ? ""
+        : `results {
+          ...AxieBrief
+          __typename
+        }`}
       __typename
     }
   }
 
-  ${AxieCardAbility}
-  ${AxieBrief}
-  ${AxiePart}
-  ${AxieStats}
+  ${querySelect == "minimal" ? "" : AxieCardAbility}
+  ${querySelect == "minimal" ? "" : AxieBrief}
+  ${querySelect == "minimal" ? "" : AxiePart}
+  ${querySelect == "minimal" ? "" : AxieStats}
   `;
 
   let query = {
@@ -39,7 +33,7 @@ export function getAxieBriefList(
       auctionType: auctionType || null,
       owner: owner || null,
       criteria: {
-        parts: null,
+        parts: parts || null,
         bodyShapes: null,
         classes: classes || null,
         stages: stages || null,
@@ -124,6 +118,21 @@ export function getProfileByEthAddress({ ethereumAddress }) {
 
   return post(GRAPH_URL, query);
 }*/
+
+export function getBodyParts() {
+  let url = `${AXIE_V2_URL}/body-parts`;
+  return get(url);
+}
+
+function get(url) {
+  return fetch(url, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  }).then(response => response.json());
+}
 
 function post(url, data) {
   return fetch(url, {
