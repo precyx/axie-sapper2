@@ -1,14 +1,9 @@
 <script>
   import { onMount } from "svelte";
-  import { filters } from "../../../store/store.js";
-  import AxieHighlightLayout from "../Layouts/AxieHighlightLayout.svelte";
-  import AxieList from "../AxieList.svelte";
-  import AxieCard from "../AxieCard.svelte";
-  import Paginator from "../../Misc/Paginator.svelte";
 
-  import AxieImage from "../../LeekPromotion/AxieImage.svelte";
-  import Tabs from "../../LeekPromotion/Tabs.svelte";
-  import Button from "../../Misc/Button.svelte";
+  import AxieImage from "../../../LeekPromotion/AxieImage.svelte";
+  import Tabs from "../../../LeekPromotion/Tabs.svelte";
+  import Button from "../../../Misc/Button.svelte";
 
   let axies = [
     { id: "86258", status: "d" },

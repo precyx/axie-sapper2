@@ -32,6 +32,7 @@ fragment AxiePart on AxiePart {
   id
   name
   class
+  specialGenes
   type
   stage
   abilities {
@@ -116,6 +117,7 @@ export const AxieDetail = `
 fragment AxieDetail on Axie {
   id
   name
+  image
   genes
   owner
   birthDate

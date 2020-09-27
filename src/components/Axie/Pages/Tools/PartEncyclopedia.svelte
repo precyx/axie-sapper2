@@ -13,12 +13,15 @@
 
   let bodyParts = [];
   let bodyParts_all = [];
+  let address = "0xE293390d7651234c6DFB1f41a47358B9377C004F";
+  let sortProp = "";
+  let sortDirection = 1;
 
   const loadParts = async () => {
     let id = 244;
 
     let params = {
-      owner: "0xE293390d7651234c6DFB1f41a47358B9377C004F",
+      owner: address,
       querySelect: "minimal"
       /*parts: ["tail-yam"]*/
     };
@@ -27,6 +30,7 @@
 
     try {
       bodyParts = await getBodyParts();
+      sortBy("name");
       bodyParts_all = bodyParts;
     } catch (err) {
       console.error("could not fetch body parts", err);
@@ -52,7 +56,7 @@
           bodyParts = _newBodyParts;
         });
         promises.push(promise);
-        await sleep(8000);
+        await sleep(1200);
       });
     } catch (err) {
       console.error("could not fetch axies", err);
@@ -62,7 +66,25 @@
     console.log("total", axies.total);
   };
 
-  const sortBy = propName => {};
+  const sortBy = propName => {
+    // set sorting direction
+    let _sortDirection;
+    if (sortProp != propName) _sortDirection = -1;
+    else _sortDirection = sortDirection == 1 ? -1 : 1;
+    sortDirection = _sortDirection;
+
+    // sort items
+    let _sorted = bodyParts.sort((a, b) => {
+      let a_prop = a[propName] ? a[propName].toString() : "";
+      let b_prop = b[propName] ? b[propName].toString() : "";
+      return sortDirection == -1
+        ? a_prop.localeCompare(b_prop, "en-US", { numeric: "true" })
+        : b_prop.localeCompare(a_prop, "en-US", { numeric: "true" });
+    });
+
+    bodyParts = _sorted;
+    sortProp = propName;
+  };
 
   //parts = [{ img: "Balloon_back_bird" }];
 
@@ -90,13 +112,14 @@
     /*width: 50px;*/
     align-items: center;
     display: flex;
-    margin: 20px 0px;
+    /*margin: 20px 0px;*/
     font-size: 12px;
+    height: 30px;
   }
 
   .part img {
-    max-width: 44px;
-    max-height: 30px;
+    max-width: 34px;
+    max-height: 20px;
     height: auto;
   }
 
@@ -116,18 +139,41 @@
     display: flex;
     font-size: 14px;
     font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .header-cell {
+    cursor: pointer;
+  }
+  .header-cell:hover {
+    opacity: 0.8;
+    cursor: pointer;
   }
 </style>
 
 <div class="part-encyclopedia text-dark-2">
 
   <Text type="h1" style="margin-bottom:25px;">Part Encylopedia</Text>
+
+  <p>{address}</p>
+
   <Plate>
 
     <div class="header">
-      <div class="img-wrap">Img</div>
-      <div class="name">Name</div>
-      <div class="count" on:click={sortBy('count')}>Count</div>
+      <div class="header-cell img-wrap">Img</div>
+      <div
+        class="header-cell name"
+        on:click={() => {
+          sortBy('name');
+        }}>
+        Name
+      </div>
+      <div
+        class="header-cell count"
+        on:click={() => {
+          sortBy('count');
+        }}>
+        Count
+      </div>
     </div>
     <div>
       {#each bodyParts as part}

@@ -1,6 +1,6 @@
 <script>
   import ThreeColumnsLayout from "../../components/Layouts/ThreeColumnsLayout.svelte";
-  import LeekPoolPromotion from "../../components/Axie/Pages/LeekPromotion/LeekPoolPromotion.svelte";
+  import LeekPoolPromotion2 from "../../components/Axie/Pages/LeekPromotion/LeekPoolPromotion2.svelte";
 </script>
 
 <ThreeColumnsLayout>
@@ -8,7 +8,7 @@
   <div slot="column-left" />
   <div slot="column-center">
     <div style="margin-top:100px">
-      <LeekPoolPromotion />
+      <LeekPoolPromotion2 />
     </div>
   </div>
   <div slot="column-right" />

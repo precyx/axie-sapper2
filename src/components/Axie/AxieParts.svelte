@@ -3,14 +3,21 @@
   export let parts = [];
 
   let hasTag = part => {
-    return part.mystic || part.bionic || part.xmas;
+    return (
+      part.specialGenes == "Mystic" ||
+      part.specialGenes == "Bionic" ||
+      part.specialGenes == "Xmas" ||
+      part.specialGenes == "Xmas2018"
+    );
   };
 
   let getTags = part => {
     let tags = [];
-    if (part.mystic) tags.push("Mystic");
-    if (part.bionic) tags.push("Bionic");
-    if (part.xmas) tags.push("Xams");
+    if (part.specialGenes == "Mystic") tags.push("Mystic");
+    if (part.specialGenes == "Bionic") tags.push("Bionic");
+    if (part.specialGenes == "Xmas") tags.push("Xmas");
+    if (part.specialGenes == "Xmas2018") tags.push("Xmas2018");
+
     return tags;
   };
 </script>
