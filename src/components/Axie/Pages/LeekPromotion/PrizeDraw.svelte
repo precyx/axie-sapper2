@@ -296,6 +296,7 @@
     width: 500px;
   }
   .axie {
+    display: flex;
     width: 90px;
     margin-left: -20px;
     margin-right: -20px;

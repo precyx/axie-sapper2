@@ -11,6 +11,15 @@
     font-size: 32px;
     font-weight: 600;
   }
+
+  .infobar {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-dark-1);
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+  }
 </style>
 
 <div class="text {className} {type}" {style}>

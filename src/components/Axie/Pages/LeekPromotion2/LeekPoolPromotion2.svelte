@@ -220,6 +220,7 @@
   }
 
   .axie {
+    display: flex;
     width: 180px;
   }
 
@@ -238,7 +239,7 @@
 </style>
 
 <div class="leek-pool-promotion ">
-  <h1 class="infobar text-dark-2">The Last Mystic</h1>
+  <h1 class="infobar text-dark-2">Rising Leaf Promotion</h1>
   <h1 class="title text-dark-2">Axie Raffle #2</h1>
 
   <div class="plate1 plate text-dark-2" style="margin-top:40px">
@@ -304,8 +305,8 @@
     </ul>
   </div>
 
-  <div style="margin-top:20px; display:none;">
-    <a href="/PromotionLeekPool/PrizeDraw">
+  <div style="margin-top:20px;">
+    <a href="/PromotionLeekPool2/PrizeDraw">
       <Button>Go to prize draw page</Button>
     </a>
   </div>

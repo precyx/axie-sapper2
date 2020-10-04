@@ -32,6 +32,8 @@
     position: relative;
     /*width: 170px;*/
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     margin-right: 10px;
     margin-bottom: 10px;
@@ -50,9 +52,16 @@
     padding: 0px 10px;
     line-height: 155%;
   }
+
+  .item.land-mystic img,
+  .item.land-forest img,
+  .item.land-savannah img,
+  .item.land-arctic img {
+    max-width: 50%;
+  }
 </style>
 
-<a class="item" target="_blank" href={link_url}>
+<a class="item {type}" target="_blank" href={link_url}>
   <img src={img_url} alt="" />
   <div class="text-dark-2 id">#{id}</div>
 </a>

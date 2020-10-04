@@ -20,19 +20,30 @@
     padding: 5px 0px;
     font-size: 14px;
     position: relative;
+    width: 100%;
   }
 
   .name {
-    width: 240px;
+    /*width: 240px;*/
+    display: flex;
+    flex: 1;
+  }
+  .name-inner {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
   }
   .axies {
     display: flex;
     position: absolute;
+    align-items: center;
 
     display: flex;
     position: absolute;
-    right: 12px;
-    top: 15px;
+    right: 20px;
+    top: 12px;
+    height: 37px;
   }
   .axie {
     width: 90px;
@@ -50,12 +61,14 @@
 
   {#each users as user}
     <div class="user text-dark-2">
-      <div class="name">{user.name}</div>
+      <div class="name">
+        <span class="name-inner">{user.name}</span>
+      </div>
       <div class="tickets">{user.tickets}</div>
       <div class="axies">
         {#each user.axies as axie}
           <div class="axie">
-            <AxieImage id={axie.id} />
+            <AxieImage {...axie} />
           </div>
         {/each}
       </div>

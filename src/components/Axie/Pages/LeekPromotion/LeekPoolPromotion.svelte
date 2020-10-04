@@ -173,7 +173,7 @@
 
 <div class="leek-pool-promotion ">
   <h1 class="infobar text-dark-2">Make Leeks Bloom Again</h1>
-  <h1 class="title text-dark-2">Axie Promotion on Rarible</h1>
+  <h1 class="title text-dark-2">Axie Raffle #1</h1>
 
   <div class="plate1 plate text-dark-2" style="margin-top:40px">
 

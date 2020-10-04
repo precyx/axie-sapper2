@@ -112,9 +112,9 @@
       </a>
 
       <a
-        href="PromotionLeekPool"
+        href="Promotion/Overview"
         class="item flex cursor-pointer"
-        class:active={url.indexOf('PromotionLeekPool') != -1}>
+        class:active={url.indexOf('Promotion/Overview') != -1}>
         <img src="images/navigation/leek.png" alt="navigation point" />
         <p>Promotion</p>
       </a>
