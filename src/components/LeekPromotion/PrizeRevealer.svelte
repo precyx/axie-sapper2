@@ -21,26 +21,34 @@
       ]
     },
     golden: {
-      numParticles: 250,
+      numParticles: 280,
       particleColors: [
         "rgb(248, 183, 63)",
         "rgb(196, 132, 6)",
-        "rgb(242, 39, 124)"
+        "rgb(242, 39, 124)",
+        "rgb(37, 204, 251)"
       ]
     },
     grey: {
+      numParticles: 220,
       particleColors: [
-        "rgb(169, 40, 249)",
-        "rgb(64, 16, 140)",
-        "rgb(231, 58, 153)",
-        "rgb(234, 184, 66)"
+        "rgb(146, 125, 223)",
+        "rgb(235, 224, 180)",
+        "rgb(255, 116, 16)",
+        "rgb(174, 254, 0)",
+        "rgb(255, 107, 171)",
+        "rgb(152, 119, 235)",
+        "rgb(113, 198, 150)",
+        "rgb(209, 243, 35)",
+        "rgb(248, 63, 158)"
       ]
     },
     green: {
       particleColors: [
         "rgb(169, 204, 42)",
         "rgb(68, 145, 24)",
-        "rgb(238, 206, 47)"
+        "rgb(238, 206, 47)",
+        "rgb(219, 19, 69)"
       ]
     },
     white: {
@@ -52,11 +60,17 @@
       ]
     },
     black: {
+      numParticles: 50,
       particleColors: [
-        "rgb(169, 40, 249)",
-        "rgb(64, 16, 140)",
-        "rgb(231, 58, 153)",
-        "rgb(234, 184, 66)"
+        "rgb(146, 125, 223)",
+        "rgb(235, 224, 180)",
+        "rgb(255, 116, 16)",
+        "rgb(174, 254, 0)",
+        "rgb(255, 107, 171)",
+        "rgb(152, 119, 235)",
+        "rgb(113, 198, 150)",
+        "rgb(209, 243, 35)",
+        "rgb(248, 63, 158)"
       ]
     },
     purple: {
@@ -64,7 +78,32 @@
         "rgb(169, 40, 249)",
         "rgb(64, 16, 140)",
         "rgb(189, 37, 194)",
-        "rgb(193, 32, 225)"
+        "rgb(193, 32, 225)",
+        "rgb(254, 198, 76)"
+      ]
+    },
+    blue: {
+      particleColors: [
+        "rgb(51, 98, 237)",
+        "rgb(14, 40, 135)",
+        "rgb(179, 81, 174)",
+        "rgb(255, 184, 20)"
+      ]
+    },
+    red: {
+      particleColors: [
+        "rgb(159, 169, 11)",
+        "rgb(255, 96, 10)",
+        "rgb(248, 0, 37)",
+        "rgb(167, 13, 69)"
+      ]
+    },
+    pink: {
+      particleColors: [
+        "rgb(230, 16, 98)",
+        "rgb(90, 12, 41)",
+        "rgb(138, 22, 146)",
+        "rgb(116, 23, 197)"
       ]
     }
   };
@@ -90,7 +129,7 @@
   const generateParticles = () => {
     // generate particles
     console.log("theme", lastPickedAxie.color, getThemeVars());
-    let numParticles = getThemeVars().numParticles || 50;
+    let numParticles = getThemeVars().numParticles || 100;
 
     for (var i = 0; i < numParticles; i++) {
       let particle = document.createElement("div");
@@ -295,6 +334,8 @@
 
   .revealed-axie :global(.id) {
     display: none;
+    /*font-size: 35px;
+    padding: 0px 30px;*/
   }
 
   .winner-reveal-text {

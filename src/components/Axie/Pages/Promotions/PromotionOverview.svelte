@@ -14,10 +14,11 @@
   }
 
   .group a {
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid;
+    background-color: var(--color-light-1);
+    border-radius: 8px;
+    padding: 10px 25px;
     margin-bottom: 10px;
+    box-shadow: 0 2px 2px rgb(0 0 1 / 18%);
   }
 </style>
 

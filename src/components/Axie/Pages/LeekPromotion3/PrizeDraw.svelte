@@ -204,7 +204,7 @@
   }
 
   .leek-pool-promotion {
-    width: 800px;
+    width: 950px;
     position: relative;
   }
 
@@ -288,13 +288,15 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    background-color: var(--color-light-1);
+    border-radius: 20px;
+    padding: 35px;
   }
 
   .axielist {
     background-color: var(--color-light-1);
     border-radius: 20px;
-    padding: 25px;
-
+    margin-top: 10px;
     width: 500px;
   }
   .axie {
@@ -641,11 +643,11 @@
     <div style="display:flex; flex-flow:column;" class="text-dark-2">
 
       <div class="plate-text">Winner list</div>
-      <Plate>
+      <div>
         <div class="winnerlist">
           <WinnerList users={winners} />
         </div>
-      </Plate>
+      </div>
     </div>
   </div>
 </div>
