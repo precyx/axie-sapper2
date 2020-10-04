@@ -55,6 +55,10 @@
   .axie :global(.id) {
     display: none;
   }
+
+  .axie :global(img) {
+    max-height: 50px;
+  }
 </style>
 
 <div class="users">

@@ -34,6 +34,6 @@
   <div class="text-dark-2 group">
     <a href="/PromotionLeekPool">Leek Promotion #1</a>
     <a href="/PromotionLeekPool2">Leek Promotion #2</a>
-    <a href="/PromotionLeekPool3">Leek Promotion #3</a>
+    <a href="/PromotionLeekPool3/PrizeDraw">Leek Promotion #3</a>
   </div>
 </div>

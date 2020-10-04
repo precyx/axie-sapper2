@@ -1,9 +1,8 @@
 <script>
   export let id;
   export let type;
-
-  let img_url = "";
-  let link_url = "";
+  export let img_url = "";
+  export let link_url = "";
 
   $: if (id || type) setUrl();
 
@@ -23,6 +22,17 @@
       img_url =
         "https://marketplace.axieinfinity.com/static/image/land/arctic.png";
       link_url = `https://marketplace.axieinfinity.com/land/${id}`;
+    } else if (type == "rarible-art") {
+      link_url = `https://app.rarible.com/token/${id}`;
+    } else if (type == "currency-whale") {
+      link_url = `https://www.coingecko.com/en/coins/whale`;
+      img_url = "/images/promotion/whale.png";
+    } else if (type == "currency-slp") {
+      link_url = `https://www.coingecko.com/en/coins/small-love-potion`;
+      img_url = "/images/promotion/slp.png";
+    } else if (type == "currency-eth") {
+      link_url = `https://www.coingecko.com/en/coins/ethereum`;
+      img_url = "/images/promotion/ethereum.png";
     }
   };
 </script>
