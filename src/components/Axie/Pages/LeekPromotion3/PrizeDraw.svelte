@@ -124,7 +124,7 @@
     {name:"Aume", axies:[], tickets:1},
     {name:"udinujang", axies:[], tickets:1},
     {name:"gp115c24", axies:[], tickets:1},
-    {name:"Chief | Axie.gg", axies:[], tickets:1},
+    {name:"Binary Assets", axies:[], tickets:1},
     {name:"Napoleon", axies:[], tickets:1},
     {name:"Akasha | Axie.gg", axies:[], tickets:1},
     {name:"Tuerd", axies:[], tickets:1},
@@ -455,6 +455,11 @@
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 650px;
+  }
+
+  .revealed-axie :global(.count) {
+    font-size: 51px;
+    padding: 0 40px;
   }
 
   .revealed-axie .scaler:hover {

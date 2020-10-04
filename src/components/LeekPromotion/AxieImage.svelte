@@ -1,6 +1,7 @@
 <script>
   export let id;
   export let type;
+  export let count;
   export let img_url = "";
   export let link_url = "";
 
@@ -63,6 +64,20 @@
     line-height: 155%;
   }
 
+  .count {
+    font-size: 11px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-weight: bold;
+    font-family: monospace;
+    background: rgb(var(--color-primary-900));
+    color: rgba(var(--color-on-primary-900), 0.9);
+    border-radius: 500px;
+    padding: 0px 10px;
+    line-height: 155%;
+  }
+
   .item.land-mystic img,
   .item.land-forest img,
   .item.land-savannah img,
@@ -74,4 +89,8 @@
 <a class="item {type}" target="_blank" href={link_url}>
   <img src={img_url} alt="" />
   <div class="text-dark-2 id">#{id}</div>
+
+  {#if count}
+    <div class="text-dark-2 count">{count}</div>
+  {/if}
 </a>
