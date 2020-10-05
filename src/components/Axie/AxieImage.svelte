@@ -19,7 +19,11 @@
         altImg = "https://storage.googleapis.com/axie-cdn/avatars/larva/meo-larva-full-transparent.png"; // prettier-ignore
       }
     }*/
-    error = true;
+    //error = true;
+    _img = altImg;
+    window.setTimeout(() => {
+      _img = _img;
+    }, 450);
   };
 </script>
 
@@ -58,10 +62,6 @@
 
 <div class="image-cropper type-{type}">
   {#if _img}
-    {#if !error}
-      <img src={_img} alt="axie" on:error={onerror} />
-    {:else if error}
-      <img class="error_img" src={altImg} alt="axie" width="100" />
-    {/if}
+    <img src={_img} alt="axie" on:error={onerror} />
   {/if}
 </div>
