@@ -12,6 +12,11 @@
     font-weight: 600;
   }
 
+  .h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
   .infobar {
     text-transform: uppercase;
     font-weight: 600;
