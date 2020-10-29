@@ -33,8 +33,7 @@
   </Text>
 
   <div class="text-dark-2 group">
-    <a href="/Experimental/AxieTeams">Axie Teams</a>
-    <a href="/Experimental/SLPCount">SLP Count</a>
-    <a href="/Experimental/3">-</a>
+    <a href="/Playground/AxieTeams">Axie Teams</a>
+    <a href="/Playground/SLPCount">SLP Count</a>
   </div>
 </div>
