@@ -53,6 +53,7 @@
             if (elem.partId == part.partId) return { ...elem, count: count };
             return elem;
           });
+
           bodyParts = _newBodyParts;
         });
         promises.push(promise);
@@ -123,8 +124,20 @@
     height: auto;
   }
 
+  .field {
+    display: flex;
+    flex: 1;
+  }
+
   .name {
-    width: 200px;
+    width: 120px;
+  }
+  .special-genes {
+    width: 100px;
+  }
+  .count {
+    width: 50px;
+    text-align: right;
   }
   .img-wrap {
     width: 100px;
@@ -143,6 +156,8 @@
   }
   .header-cell {
     cursor: pointer;
+    display: flex;
+    flex: 1;
   }
   .header-cell:hover {
     opacity: 0.8;
@@ -168,6 +183,27 @@
         Name
       </div>
       <div
+        class="header-cell name"
+        on:click={() => {
+          sortBy('specialGenes');
+        }}>
+        Genes
+      </div>
+      <div
+        class="header-cell name"
+        on:click={() => {
+          sortBy('class');
+        }}>
+        Class
+      </div>
+      <div
+        class="header-cell name"
+        on:click={() => {
+          sortBy('type');
+        }}>
+        Type
+      </div>
+      <div
         class="header-cell count"
         on:click={() => {
           sortBy('count');
@@ -178,14 +214,17 @@
     <div>
       {#each bodyParts as part}
         <div class="part">
-          <div class="img-wrap">
+          <div class="field img-wrap">
             <img
               class="img"
               src={`images/parts/full-color/${part.name}_${part.type}_${part.class}.png`}
               alt="a" />
           </div>
-          <div class="name">{part.name}</div>
-          <div class="count">
+          <div class="field name">{part.name}</div>
+          <div class="field special-genes">{part.specialGenes}</div>
+          <div class="field class">{part.class}</div>
+          <div class="field type">{part.type}</div>
+          <div class="field count">
             {#if part.count >= 0}
               {part.count}
             {:else}

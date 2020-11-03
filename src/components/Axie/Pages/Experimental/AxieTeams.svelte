@@ -147,6 +147,33 @@
     ["https://marketplace.axieinfinity.com/45716",	"https://marketplace.axieinfinity.com/83653",	  "https://marketplace.axieinfinity.com/106228"],
     ["https://marketplace.axieinfinity.com/54844",	"https://marketplace.axieinfinity.com/119042",	"https://marketplace.axieinfinity.com/33283"],
   ];
+
+
+  //prettier-ignore
+  let dean_batch_5 = [
+    ["https://marketplace.axieinfinity.com/36243",	  "https://marketplace.axieinfinity.com/102658",	"https://marketplace.axieinfinity.com/45449"],
+    ["https://marketplace.axieinfinity.com/42467",	  "https://marketplace.axieinfinity.com/103070",	"https://marketplace.axieinfinity.com/46716"],
+    ["https://marketplace.axieinfinity.com/43853",	  "https://marketplace.axieinfinity.com/103079",	"https://marketplace.axieinfinity.com/47763"],
+    ["https://marketplace.axieinfinity.com/43890",	  "https://marketplace.axieinfinity.com/103089",	"https://marketplace.axieinfinity.com/54844"],
+    ["https://marketplace.axieinfinity.com/56253",	  "https://marketplace.axieinfinity.com/104786",	"https://marketplace.axieinfinity.com/66561"],
+    ["https://marketplace.axieinfinity.com/58526",	  "https://marketplace.axieinfinity.com/104786",	"https://marketplace.axieinfinity.com/66970"],
+    ["https://marketplace.axieinfinity.com/58787",	  "https://marketplace.axieinfinity.com/104787",	"https://marketplace.axieinfinity.com/74758"],
+    ["https://marketplace.axieinfinity.com/92393",	  "https://marketplace.axieinfinity.com/105046",	"https://marketplace.axieinfinity.com/80148"],
+    ["https://marketplace.axieinfinity.com/117530",  	"https://marketplace.axieinfinity.com/105344",	"https://marketplace.axieinfinity.com/80630"],
+    ["https://marketplace.axieinfinity.com/124315",  	"https://marketplace.axieinfinity.com/105346",	"https://marketplace.axieinfinity.com/86304"],
+    ["https://marketplace.axieinfinity.com/126381",  	"https://marketplace.axieinfinity.com/106259",	"https://marketplace.axieinfinity.com/91670"],
+    ["https://marketplace.axieinfinity.com/134592",  	"https://marketplace.axieinfinity.com/106604",	"https://marketplace.axieinfinity.com/32050"],
+    ["https://marketplace.axieinfinity.com/154818",  	"https://marketplace.axieinfinity.com/106620",	"https://marketplace.axieinfinity.com/33669"],
+    ["https://marketplace.axieinfinity.com/156869",  	"https://marketplace.axieinfinity.com/108443",	"https://marketplace.axieinfinity.com/36225"],
+    ["https://marketplace.axieinfinity.com/26605",	  "https://marketplace.axieinfinity.com/126632",	"https://marketplace.axieinfinity.com/91265"],
+  ];
+
+  // prettier-ignore
+  let coco_batch_1 = [
+    ["https://marketplace.axieinfinity.com/axie/91694",	  "https://marketplace.axieinfinity.com/axie/47854",	"https://marketplace.axieinfinity.com/axie/52018"],
+    ["https://marketplace.axieinfinity.com/axie/108563",	"https://marketplace.axieinfinity.com/axie/51051",	"https://marketplace.axieinfinity.com/axie/52142"],
+    ["https://marketplace.axieinfinity.com/axie/106149",	"https://marketplace.axieinfinity.com/axie/49677",	"https://marketplace.axieinfinity.com/axie/47762"],
+  ];
 </script>
 
 <style>
@@ -185,11 +212,11 @@
 
   <Plate>
 
-    <Text type="h1">Batch #4</Text>
+    <Text type="h1">Batch #1</Text>
 
     <div class="teams">
 
-      {#each teams_reillz_batch_1 as team, i}
+      {#each coco_batch_1 as team, i}
         <div class="team">
           <div class="team-id">#{i + 1}</div>
           <div class="axies">
