@@ -1,6 +1,6 @@
 <script>
-  import ThreeColumnsLayout from "../../components/Layouts/ThreeColumnsLayout.svelte";
-  import LeekPoolPromotion from "../../components/Axie/Pages/LeekPromotion/LeekPoolPromotion.svelte";
+  import ThreeColumnsLayout from "../../../components/Layouts/ThreeColumnsLayout.svelte";
+  import LeekPoolPromotion from "../../../components/Axie/Pages/Promotions/LeekPromotion/LeekPoolPromotion.svelte";
 </script>
 
 <ThreeColumnsLayout>

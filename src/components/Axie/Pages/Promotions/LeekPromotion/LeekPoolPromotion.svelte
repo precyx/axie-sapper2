@@ -1,9 +1,9 @@
 <script>
   import { onMount } from "svelte";
 
-  import AxieImage from "../../../LeekPromotion/AxieImage.svelte";
-  import Tabs from "../../../LeekPromotion/Tabs.svelte";
-  import Button from "../../../Misc/Button.svelte";
+  import AxieImage from "../../../../LeekPromotion/AxieImage.svelte";
+  import Tabs from "../../../../LeekPromotion/Tabs.svelte";
+  import Button from "../../../../Misc/Button.svelte";
 
   let axies = [
     { id: "86258", status: "d" },
@@ -232,7 +232,7 @@
   </div>
 
   <div style="margin-top:20px;">
-    <a href="/PromotionLeekPool/PrizeDraw">
+    <a href="/Promotion/PromotionLeekPool/PrizeDraw">
       <Button>Go to prize draw page</Button>
     </a>
   </div>

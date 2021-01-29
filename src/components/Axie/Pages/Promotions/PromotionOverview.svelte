@@ -33,8 +33,10 @@
   </Text>
 
   <div class="text-dark-2 group">
-    <a href="/PromotionLeekPool">Leek Promotion #1</a>
-    <a href="/PromotionLeekPool2">Leek Promotion #2</a>
-    <a href="/PromotionLeekPool3/PrizeDraw">Leek Promotion #3</a>
+    <a href="/Promotion/PromotionLeekPool">#1 - Blooming Leek</a>
+    <a href="/Promotion/PromotionLeekPool2">#2 - Rising Leaf</a>
+    <a href="/Promotion/PromotionLeekPool3/PrizeDraw">#3 - Hype & Hair</a>
+    <a href="/Promotion/PromotionLeekPool4/PrizeDraw">#4 - Whaxie 3.0 (Saturday) </a>
+    <a href="/Promotion/PromotionLeekPool5/PrizeDraw">#5 - Whaxie 3.0 (Sunday) </a>
   </div>
 </div>

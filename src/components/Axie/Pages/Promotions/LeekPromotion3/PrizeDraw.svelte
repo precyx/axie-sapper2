@@ -1,15 +1,11 @@
 <script>
   import { onMount } from "svelte";
 
-  import AxieImage from "../../../LeekPromotion/AxieImage.svelte";
-  import Tabs from "../../../LeekPromotion/Tabs.svelte";
-  import Button from "../../../Misc/Button.svelte";
-  import BigButton from "../../../LeekPromotion/BigButton.svelte";
-  import WinnerList from "../../../LeekPromotion/WinnerList.svelte";
-  import Plate from "../../../UI/Plate.svelte";
-  import Loader from "../../../UI/Loader.svelte";
-  import AppBackground from "../../../Misc/AppBackground.svelte";
-  import CloseIcon from "../../../Misc/Icons/general/close.svelte";
+  import AxieImage from "../../../../LeekPromotion/AxieImage.svelte";
+  import BigButton from "../../../../LeekPromotion/BigButton.svelte";
+  import WinnerList from "../../../../LeekPromotion/WinnerList.svelte";
+  import Loader from "../../../../UI/Loader.svelte";
+  import CloseIcon from "../../../../Misc/Icons/general/close.svelte";
 
   import gsap, { Linear, Sine } from "gsap";
 
@@ -198,6 +194,7 @@
 </script>
 
 <style>
+
   .title {
     font-size: 32px;
     font-weight: 600;

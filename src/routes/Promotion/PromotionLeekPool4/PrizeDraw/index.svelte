@@ -1,6 +1,6 @@
 <script>
-  import ThreeColumnsLayout from "../../../components/Layouts/ThreeColumnsLayout.svelte";
-  import PrizeDraw from "../../../components/Axie/Pages/LeekPromotion3/PrizeDraw.svelte";
+  import ThreeColumnsLayout from "../../../../components/Layouts/ThreeColumnsLayout.svelte";
+  import PrizeDraw from "../../../../components/Axie/Pages/Promotions/LeekPromotion4/PrizeDraw.svelte";
 </script>
 
 <ThreeColumnsLayout>

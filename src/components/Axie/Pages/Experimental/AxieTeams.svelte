@@ -148,7 +148,6 @@
     ["https://marketplace.axieinfinity.com/54844",	"https://marketplace.axieinfinity.com/119042",	"https://marketplace.axieinfinity.com/33283"],
   ];
 
-
   //prettier-ignore
   let dean_batch_5 = [
     ["https://marketplace.axieinfinity.com/36243",	  "https://marketplace.axieinfinity.com/102658",	"https://marketplace.axieinfinity.com/45449"],
@@ -174,7 +173,71 @@
     ["https://marketplace.axieinfinity.com/axie/108563",	"https://marketplace.axieinfinity.com/axie/51051",	"https://marketplace.axieinfinity.com/axie/52142"],
     ["https://marketplace.axieinfinity.com/axie/106149",	"https://marketplace.axieinfinity.com/axie/49677",	"https://marketplace.axieinfinity.com/axie/47762"],
   ];
+
+  // prettier-ignore
+  let dean_batch_6 = [
+    ["https://marketplace.axieinfinity.com/axie/158712",	"https://marketplace.axieinfinity.com/axie/24041",	"https://marketplace.axieinfinity.com/axie/143731"],
+    ["https://marketplace.axieinfinity.com/axie/131638",	"https://marketplace.axieinfinity.com/axie/21256",	"https://marketplace.axieinfinity.com/axie/142175"],
+    ["https://marketplace.axieinfinity.com/axie/97619",	  "https://marketplace.axieinfinity.com/axie/21254",	"https://marketplace.axieinfinity.com/axie/138847"],
+    ["https://marketplace.axieinfinity.com/axie/95548",	  "https://marketplace.axieinfinity.com/axie/19871",	"https://marketplace.axieinfinity.com/axie/138593"],
+    ["https://marketplace.axieinfinity.com/axie/95547",	  "https://marketplace.axieinfinity.com/axie/19168",	"https://marketplace.axieinfinity.com/axie/138228"],
+    ["https://marketplace.axieinfinity.com/axie/92907",	  "https://marketplace.axieinfinity.com/axie/18834",	"https://marketplace.axieinfinity.com/axie/136137"],
+    ["https://marketplace.axieinfinity.com/axie/92856",	  "https://marketplace.axieinfinity.com/axie/18441",	"https://marketplace.axieinfinity.com/axie/121438"],
+    ["https://marketplace.axieinfinity.com/axie/88040",	  "https://marketplace.axieinfinity.com/axie/17661",	"https://marketplace.axieinfinity.com/axie/106254"],
+    ["https://marketplace.axieinfinity.com/axie/84605",	  "https://marketplace.axieinfinity.com/axie/17659",	"https://marketplace.axieinfinity.com/axie/105601"],
+    ["https://marketplace.axieinfinity.com/axie/80623",	  "https://marketplace.axieinfinity.com/axie/17296",	"https://marketplace.axieinfinity.com/axie/105357"],
+    ["https://marketplace.axieinfinity.com/axie/42686",	  "https://marketplace.axieinfinity.com/axie/16495",	"https://marketplace.axieinfinity.com/axie/105043"],
+    ["https://marketplace.axieinfinity.com/axie/33805",	  "https://marketplace.axieinfinity.com/axie/15812",	"https://marketplace.axieinfinity.com/axie/104803"],
+    ["https://marketplace.axieinfinity.com/axie/33716",	  "https://marketplace.axieinfinity.com/axie/15811",	"https://marketplace.axieinfinity.com/axie/104798"],
+    ["https://marketplace.axieinfinity.com/axie/27532",	  "https://marketplace.axieinfinity.com/axie/14224",	"https://marketplace.axieinfinity.com/axie/102625"],
+  ];
+
+  let dean_batch_7 = [
+    /*["https://marketplace.axieinfinity.com/axie/97476"],
+    ["https://marketplace.axieinfinity.com/axie/172868"],
+    ["https://marketplace.axieinfinity.com/axie/172862"],
+    ["https://marketplace.axieinfinity.com/axie/167747"],*/
+    //
+    /*["https://marketplace.axieinfinity.com/axie/109313"],
+    ["https://marketplace.axieinfinity.com/axie/115216"],
+    ["https://marketplace.axieinfinity.com/axie/110414"],
+    ["https://marketplace.axieinfinity.com/axie/123921"],
+    ["https://marketplace.axieinfinity.com/axie/131563"],
+    ["https://marketplace.axieinfinity.com/axie/182519"],*/
+    //
+    /*["https://marketplace.axieinfinity.com/axie/161288"],
+    ["https://marketplace.axieinfinity.com/axie/188952"],
+    ["https://marketplace.axieinfinity.com/axie/188947"],
+    ["https://marketplace.axieinfinity.com/axie/188840"],
+    ["https://marketplace.axieinfinity.com/axie/182376"],
+    ["https://marketplace.axieinfinity.com/axie/181954"],*/
+    //
+    /*["https://marketplace.axieinfinity.com/axie/167229"],
+    ["https://marketplace.axieinfinity.com/axie/161389"],
+    ["https://marketplace.axieinfinity.com/axie/161287"],
+    ["https://marketplace.axieinfinity.com/axie/188719"],
+    ["https://marketplace.axieinfinity.com/axie/167227"],
+    ["https://marketplace.axieinfinity.com/axie/166970"],*/
+    //
+    /*["https://marketplace.axieinfinity.com/axie/187066"],
+    ["https://marketplace.axieinfinity.com/axie/189665"],
+    ["https://marketplace.axieinfinity.com/axie/182516"],
+    ["https://marketplace.axieinfinity.com/axie/161299"],
+    ["https://marketplace.axieinfinity.com/axie/188720"],
+    ["https://marketplace.axieinfinity.com/axie/182517"],
+    ["https://marketplace.axieinfinity.com/axie/182378"],
+    ["https://marketplace.axieinfinity.com/axie/182371"],*/
+    //
+    ["https://marketplace.axieinfinity.com/axie/154733"],
+    ["https://marketplace.axieinfinity.com/axie/156870"],
+    ["https://marketplace.axieinfinity.com/axie/123866"],
+    ["https://marketplace.axieinfinity.com/axie/154728"],
+    ["https://marketplace.axieinfinity.com/axie/130872"],
+  ];
 </script>
+
+
+
 
 <style>
   .experimental-page {
@@ -212,11 +275,11 @@
 
   <Plate>
 
-    <Text type="h1">Batch #1</Text>
+    <Text type="h1">Batch #7.5</Text>
 
     <div class="teams">
 
-      {#each coco_batch_1 as team, i}
+      {#each dean_batch_7 as team, i}
         <div class="team">
           <div class="team-id">#{i + 1}</div>
           <div class="axies">

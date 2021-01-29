@@ -1,11 +1,11 @@
 <script>
   import { onMount } from "svelte";
 
-  import AxieImage from "../../../LeekPromotion/AxieImage.svelte";
-  import Tabs from "../../../LeekPromotion/Tabs.svelte";
-  import Button from "../../../Misc/Button.svelte";
-  import DynamicAxie from "../../../Axie/DynamicAxie.svelte";
-  import { getAxieDetail } from "../../../../services/AxieDataService";
+  import AxieImage from "../../../../LeekPromotion/AxieImage.svelte";
+  import Tabs from "../../../../LeekPromotion/Tabs.svelte";
+  import Button from "../../../../Misc/Button.svelte";
+  import DynamicAxie from "../../../../Axie/DynamicAxie.svelte";
+  import { getAxieDetail } from "../../../../../services/AxieDataService";
 
   let axies = [
     //mystics
@@ -309,7 +309,7 @@
   </div>
 
   <div style="margin-top:20px;">
-    <a href="/PromotionLeekPool2/PrizeDraw">
+    <a href="/Promotion/PromotionLeekPool2/PrizeDraw">
       <Button>Go to prize draw page</Button>
     </a>
   </div>

@@ -1,11 +1,8 @@
 <script>
-  import AxieImage from "../../../LeekPromotion/AxieImage.svelte";
-  import Tabs from "../../../LeekPromotion/Tabs.svelte";
-  import Button from "../../../Misc/Button.svelte";
-  import BigButton from "../../../LeekPromotion/BigButton.svelte";
-  import WinnerList from "../../../LeekPromotion/WinnerList.svelte";
-
-  import Loader from "../../../UI/Loader.svelte";
+  import AxieImage from "../../../../LeekPromotion/AxieImage.svelte";
+  import BigButton from "../../../../LeekPromotion/BigButton.svelte";
+  import WinnerList from "../../../../LeekPromotion/WinnerList.svelte";
+  import Loader from "../../../../UI/Loader.svelte";
 
   let loading = false;
 
