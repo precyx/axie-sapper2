@@ -568,8 +568,8 @@
     {/if}
   </div>
 
-  <h1 class="infobar text-dark-2">Hype & Hair</h1>
-  <h1 class="title text-dark-2">Prize Draw - Hype & Hair</h1>
+  <h1 class="infobar text-dark-2">Whaxie 3.0 - Sunday</h1>
+  <h1 class="title text-dark-2">Prize Draw - Whaxie 3.0</h1>
 
   <div class="region" style="margin-top:40px">
     <div class="text-dark-2" style="display:flex;flex-flow:column">

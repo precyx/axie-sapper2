@@ -80,7 +80,7 @@ a {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-
+b,
 strong {
   font-weight: bolder;
 }
@@ -140,7 +140,8 @@ img {
 
 button,
 input,
-select {
+select,
+textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
@@ -228,6 +229,10 @@ legend {
 /**
  * Remove the default vertical scrollbar in IE 10+.
  */
+
+textarea {
+  overflow: auto;
+}
 
 /**
  * 1. Add the correct box sizing in IE 10.
@@ -422,7 +427,12 @@ img {
   border-style: solid;
 }
 
-input::placeholder {
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
   color: #a0aec0;
 }
 
@@ -458,7 +468,8 @@ a {
 
 button,
 input,
-select {
+select,
+textarea {
   padding: 0;
   line-height: inherit;
   color: inherit;
@@ -739,6 +750,10 @@ img {
 
 .underline {
   text-decoration: underline;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .whitespace-pre {
