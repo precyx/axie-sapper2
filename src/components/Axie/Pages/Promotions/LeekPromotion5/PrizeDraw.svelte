@@ -95,15 +95,17 @@
     // SLP
     { id: "slp-2500", status: "a", type: "currency-slp", color:"pink", count:"2500" },
     // whale
-    { id: "whale-30", status: "a", type: "currency-whale", color:"blue", count:"30" },
+    { id: "whale-15", status: "a", type: "currency-whale", color:"blue", count:"15" },
     // ETH
     { id: "eth-0.06-1", status: "a", type: "currency-eth", color:"blue", count:"0.06" },
     { id: "eth-0.06-2", status: "a", type: "currency-eth", color:"blue", count:"0.06" },
     { id: "eth-0.06-3", status: "a", type: "currency-eth", color:"blue", count:"0.06" },
     { id: "eth-0.06-4", status: "a", type: "currency-eth", color:"blue", count:"0.06" },
+    { id: "eth-0.06-4", status: "a", type: "currency-eth", color:"blue", count:"0.06" },
     // rarible art pieces
-    {id:"0xd07dc4262bcdbf85190c01c996b4c06a461d2430:13226:0x7556cc553036e8e67ca77b72fca81657988de13e", color:"golden", type:"rarible-art", img_url:"https://cloudflare-ipfs.com/ipfs/QmcTzryQtNvW9tzKuCVTwnaQtTqoY4Ge58SED1AtN3q166"},
-    {id:"0xd07dc4262bcdbf85190c01c996b4c06a461d2430:11413:0x7556cc553036e8e67ca77b72fca81657988de13e", color:"golden", type:"rarible-art", img_url:"https://cloudflare-ipfs.com/ipfs/Qmc4peksuq5pytUZfo7K8XxADM5g36tCRrDhgFDsh9WzBT"},
+    {id:"0x60f80121c31a0d46b5279700f9df786054aa5ee5:55971:0x7556cc553036e8e67ca77b72fca81657988de13e", color:"golden", type:"rarible-art", img_url:"/images/promotion/ABL_Specimen_Cocaine_Cowboy.gif"},
+    // opensea art pieces
+    {id:"0xa7e7fb2e17868bc4e336dc6834168c31fb59fc67/18", color:"golden", type:"opensea-art", img_url:"/images/promotion/Axie_Gothic.gif"},
   ];
 
   let axies2 = [];
