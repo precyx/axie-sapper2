@@ -116,10 +116,14 @@
 
   // prettier-ignore
   let winners = [
-    {name:"winner #1", axies:[], tickets:100},
-    {name:"winner #2", axies:[], tickets:1},
-    {name:"winner #3", axies:[], tickets:1},
+    {name:"Odin", axies:[], tickets:1},
+    {name:"Zee", axies:[], tickets:1},
+    {name:"Aume", axies:[], tickets:1},
+    {name:"Britt", axies:[], tickets:1},
+    {name:"Brookhawk", axies:[], tickets:1},
+    {name:"Tuerd", axies:[], tickets:1},
   ];
+  let ticketsLeft = true;
 
   let winnerPointer = 0;
 
@@ -169,6 +173,13 @@
     });
     winners = newWinners;
     lastPickedWinner = currentWinner;
+
+    // check if any tickets are left
+    let _ticketsLeft = false;
+    newWinners.forEach(winner => {
+       if(winner.tickets > 0) _ticketsLeft = true;
+    });
+    ticketsLeft = _ticketsLeft;
 
     // theme bg
     globalContainer.setAttribute("theme", lastPickedAxie.color);
@@ -583,7 +594,7 @@
           placeholder="Enter text for RNG"
           class="input-random" />
       </div>
-      {#if axies.length > 0}
+      {#if ticketsLeft}
         <div on:click={pickAxie} class="button-container" class:loading>
 
           <BigButton>Pick Prize 1/{axies.length}</BigButton>
