@@ -111,12 +111,8 @@
 
   // prettier-ignore
   let winners = [
-    {name:"Odin", axies:[], tickets:1},
-    {name:"Zee", axies:[], tickets:1},
-    {name:"Aume", axies:[], tickets:1},
-    {name:"Britt", axies:[], tickets:1},
-    {name:"Brookhawk", axies:[], tickets:1},
-    {name:"Tuerd", axies:[], tickets:1},
+    {name:"Ben", axies:[], tickets:2},
+    {name:"Odin", axies:[], tickets:1}
   ];
   let ticketsLeft = true;
 

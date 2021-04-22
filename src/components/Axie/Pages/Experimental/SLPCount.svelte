@@ -10,21 +10,25 @@
   let textinput = "";
   let item_counts = [];
   let loading = false;
+  let current_index = 0;
+  let max_index = 0;
 
   // on mount
 
   // data
   const loadItemData = async addresses => {
     let promises = [];
-    let item_counts = [];
+    let _item_counts = [];
 
     let p = new Promise(async (resolve, reject) => {
-      await asyncForEach(addresses, async address => {
+      await asyncForEach(addresses, async (address,i) => {
+        current_index = i+1;
         let data = await loadItem(address);
-        item_counts.push(data);
+        _item_counts.push(data);
+        item_counts = _item_counts;
       });
 
-      resolve(item_counts);
+      resolve(_item_counts);
     });
 
     /*addresses.forEach(address => {
@@ -47,6 +51,7 @@
   const getItems = async () => {
     loading = true;
     let addresses = textinput.split("\n");
+    max_index = addresses.length;
     let _itemcounts = await loadItemData(addresses);
     item_counts = _itemcounts;
     loading = false;
@@ -66,7 +71,7 @@
   textarea {
     border: 1px solid #cacaca;
     margin-bottom: 10px;
-    width: 400px;
+    width: 450px;
     height: 100px;
     padding: 5px;
   }
@@ -79,6 +84,11 @@
     margin-top: 5px;
     font-size: 12px;
     font-family: monospace;
+  }
+
+  .index_counter {
+    color: var(--color-dark-2);
+    margin-bottom:5px;
   }
 
   .address_container :global(.button) {
@@ -106,6 +116,7 @@
   <Plate>
     <div class="flex address_container">
       <Text type="h3">Input Addresses</Text>
+      <div class="index_counter">{current_index} / {max_index}</div>
       <textarea bind:value={textinput} />
       <Button on:click={getItems}>
 
@@ -120,8 +131,11 @@
         <Text type="h3">Count</Text>
 
         <div class="counts">
-          {#each item_counts as count}
+          {#each item_counts as count, i}
+          <div style="display:flex;">
+            <div style="width:40px; opacity:0.4; user-select: none; pointer-events: none;">#{i+1}</div>
             <div>{count}</div>
+          </div>
           {/each}
         </div>
       </div>
