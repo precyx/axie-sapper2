@@ -5,6 +5,8 @@
   import Button from "../../../Misc/Button.svelte";
   import Loader from "../../../UI/Loader.svelte";
   import { asyncForEach } from "../../../../utils/Utils";
+  import { sleep } from "../../../../utils/Utils";
+  
 
   // state
   let textinput = "";
@@ -12,6 +14,7 @@
   let loading = false;
   let current_index = 0;
   let max_index = 0;
+  let item_total = 0;
 
   // on mount
 
@@ -19,6 +22,7 @@
   const loadItemData = async addresses => {
     let promises = [];
     let _item_counts = [];
+    item_total = 0;
 
     let p = new Promise(async (resolve, reject) => {
       await asyncForEach(addresses, async (address,i) => {
@@ -26,6 +30,15 @@
         let data = await loadItem(address);
         _item_counts.push(data);
         item_counts = _item_counts;
+        item_total += data;
+
+        await sleep(500);
+        if(item_counts % 10 == 0){
+          await sleep(3000);
+        }
+        if(item_counts % 100 == 0) {
+          await sleep(6000);
+        }
       });
 
       resolve(_item_counts);
@@ -74,6 +87,9 @@
     width: 450px;
     height: 100px;
     padding: 5px;
+    background: rgb(var(--color-white));
+    color: rgb(var(--color-black));
+    font-size: 12px;
   }
 
   .block {
@@ -84,6 +100,13 @@
     margin-top: 5px;
     font-size: 12px;
     font-family: monospace;
+    max-height: 280px;
+    overflow-y: scroll;
+
+    box-shadow: 0 2px 8px #0000002e;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgb(var(--color-white));
   }
 
   .index_counter {
@@ -107,6 +130,16 @@
     color: var(--color-dark-2);
     margin-bottom: 5px;
   }
+
+  .numbers {
+    width:40px; 
+    opacity:0.4; 
+  }
+
+  .non-select {
+    user-select: none;
+    pointer-events: none;
+  }
 </style>
 
 <div class="promotion-overview">
@@ -115,7 +148,7 @@
 
   <Plate>
     <div class="flex address_container">
-      <Text type="h3">Input Addresses</Text>
+      <Text type="h3">Insert ETH Addresses</Text>
       <div class="index_counter">{current_index} / {max_index}</div>
       <textarea bind:value={textinput} />
       <Button on:click={getItems}>
@@ -128,12 +161,12 @@
 
     {#if item_counts.length}
       <div class="block">
-        <Text type="h3">Count</Text>
+        <Text type="h3">Count ({item_total} total)</Text>
 
         <div class="counts">
           {#each item_counts as count, i}
           <div style="display:flex;">
-            <div style="width:40px; opacity:0.4; user-select: none; pointer-events: none;">#{i+1}</div>
+            <div data-non-select="" class="numbers non-select" style=" ">#{i+1}</div>
             <div>{count}</div>
           </div>
           {/each}
