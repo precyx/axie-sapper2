@@ -2,8 +2,9 @@ import { AxieBrief, AxiePart, AxieStats, AxieDetail, AxieCardAbility, AxieAuctio
 
 const AXIE_V2_URL = "https://axieinfinity.com/api/v2";
 const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
+const GRAPH_V2_URL = "https://axieinfinity.com/graphql-server-v2/graphql"
 
-export function getAxieBriefList({ from, size, sort, auctionType, owner, parts, querySelect }, { classes, numMystics, stages, pureness, title }) {
+export function getAxieBriefList({ from, size, sort, auctionType, owner, parts, querySelect, endpoint }, { classes, numMystics, stages, pureness, title }) {
   var query1 = `query GetAxieBriefList($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {
     axies(auctionType: $auctionType, criteria: $criteria, from: $from, sort: $sort, size: $size, owner: $owner) {
       total
@@ -47,7 +48,9 @@ export function getAxieBriefList({ from, size, sort, auctionType, owner, parts, 
     query: query1,
   };
 
-  return post(GRAPH_URL, query);
+  let _endpoint = endpoint == "graph_v2" ? GRAPH_V2_URL : GRAPH_URL;
+
+  return post(_endpoint, query);
 }
 
 export function getAxieDetail({ axieId }) {

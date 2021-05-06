@@ -234,6 +234,12 @@
     ["https://marketplace.axieinfinity.com/axie/154728"],
     ["https://marketplace.axieinfinity.com/axie/130872"],
   ];
+
+
+  let odp_batch_01 = [
+    
+
+  ];
 </script>
 
 
