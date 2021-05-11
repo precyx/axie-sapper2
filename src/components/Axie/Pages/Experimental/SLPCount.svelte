@@ -31,33 +31,54 @@
         _item_counts.push(data);
         item_counts = _item_counts;
         item_total += data;
-
-        await sleep(500);
-        if(item_counts % 10 == 0){
-          await sleep(3000);
-        }
-        if(item_counts % 100 == 0) {
-          await sleep(6000);
-        }
       });
 
       resolve(_item_counts);
     });
 
-    /*addresses.forEach(address => {
-      let p = new Promise(async (resolve, reject) => {
-        let data = await loadItem(address);
-        resolve(data);
-      });
-      promises.push(p);
-    });*/
     return p;
   };
 
   const loadItem = async address => {
     let url = `https://lunacia.skymavis.com/game-api/clients/${address}/items/1`;
-    let data = await fetch(url).then(response => response.json());
-    return data.total;
+    let _fetch = async () => { 
+      let data = null;
+      try {
+        data = fetch(`${url}?r=${Math.round(Math.random()*900100)}`);
+      }
+      catch(err) {console.log("err", err); }
+      if(data) {
+        return data
+        .then(response => {console.log("r",response); return response.status == 200 ? response.json() : null})
+        .then(a => {console.log("a", a); return a && a.total != null  ? a.total : null});
+      }
+      else return data;
+    };
+    let data;
+    data = await _fetch();
+    if(data == null) {
+      await sleep(1000);
+      data = await _fetch();
+    }
+    if(data == null) {
+      await sleep(2000);
+      data = await _fetch();
+    }
+    if(data == null) {
+      await sleep(3000);
+      data = await _fetch();
+    }
+    if(data == null) {
+      await sleep(5000);
+      data = await _fetch();
+    }
+    if(data == null) {
+      await sleep(10000);
+      data = await _fetch();
+    }
+
+    console.log("data", data);
+    return data;
   };
 
   // events
