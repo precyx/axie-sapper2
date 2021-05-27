@@ -100,7 +100,7 @@
 						{#if account}
 							<div class="axies">
 								{#each account.results as axie}
-									<div class="axie">
+									<div class="axie" class:banned={axie.battleInfo.banned}>
 										<AxieImage id={axie.id} />
 									</div>
 								{/each}
@@ -158,19 +158,42 @@
     font-size: 14px;
     font-weight: bold;
     color: var(--text-dark-2);
-    /*margin-bottom: -50px;*/
+		margin-bottom: 5px;
+		align-items: center;
   }
   .axies {
     display: flex;
 		flex-flow: wrap;
-		margin-bottom: 20px;
-    margin-top: 20px;
+		margin-bottom: 0px;
+		margin-left: 15px;
   }
   .axie {
-    width: 120px;
-		margin-right: -50px;
-    margin-top: -45px;
+    width: 80px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+		margin-right: 5px;
   }
+
+	.axies .axie :global(.item) {
+    width: 110px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+		align-items: unset;
+		margin:0;
+	}
+
+	.axies .axie :global(img) {
+		max-width:unset;
+	}
+
+	.axie.banned {
+		background: #ca004173;
+		border: 1px solid #7b011a8f;
+    border-radius: 15px;
+	}
 
   .axie :global(.id) {
     display: none;

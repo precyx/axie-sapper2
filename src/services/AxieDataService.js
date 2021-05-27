@@ -1,4 +1,4 @@
-import { AxieBrief, AxiePart, AxieStats, AxieDetail, AxieCardAbility, AxieAuction } from "../model/Fragments/Axie.js";
+import { AxieBrief, AxiePart, AxieStats, AxieDetail, AxieCardAbility, AxieAuction, AxieBattleInfo } from "../model/Fragments/Axie.js";
 
 const AXIE_V2_URL = "https://axieinfinity.com/api/v2";
 const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
@@ -18,7 +18,7 @@ export function getAxieBriefList({ from, size, sort, auctionType, owner, parts, 
       __typename
     }
   }
-
+  ${querySelect == "minimal" ? "" : AxieBattleInfo}
   ${querySelect == "minimal" ? "" : AxieCardAbility}
   ${querySelect == "minimal" ? "" : AxieBrief}
   ${querySelect == "minimal" ? "" : AxiePart}

@@ -24,6 +24,10 @@ fragment AxieBrief on Axie {
     ...AxiePart
     __typename
   }
+  battleInfo {
+    ...AxieBattleInfo
+    __typename
+  }
   __typename
 }`;
 
@@ -89,13 +93,14 @@ fragment AxieCardAbility on AxieCardAbility {
 }
 `;
 
-/*export const AxieBattleInfo = `
+export const AxieBattleInfo = `
 fragment AxieBattleInfo on AxieBattleInfo {
-  activityPoint
-  pendingExp
-  expSignature
+  banned
+  banUntil
+  level
   __typename
-}`;*/
+}
+`
 
 export const AxieAuction = `
 fragment AxieAuction on Auction {
