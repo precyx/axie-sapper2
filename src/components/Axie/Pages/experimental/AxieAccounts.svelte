@@ -5,7 +5,7 @@
   import AxieImage from "../../../LeekPromotion/AxieImage.svelte";
 	import Button from "../../../Misc/Button.svelte";
 	import Loader from "../../../UI/Loader.svelte";
-	import {asyncForEach} from "../../../../utils/Utils";
+	import {asyncForEach, sleep} from "../../../../utils/Utils";
 	import { getAxieBriefList } from "../../../../services/AxieDataService";
 
 	// state
@@ -46,27 +46,60 @@
 
 	const getAxie = async(ronin_address) => {
 		let params = {
-      from: 0,
-      size: 24,
-      sort: "IdDesc", //"PriceAsc",
-      auctionType: "All",
-      owner: ronin_address,
-      region: null,
-			endpoint: "graph_v2"
-    };
+		from: 0,
+		size: 24,
+		sort: "IdDesc", //"PriceAsc",
+		auctionType: "All",
+		owner: ronin_address,
+		region: null,
+				endpoint: "graph_v2"
+		};
 
-    /*let criteria = {
-      classes: $filters.classes ? Array.from($filters.classes) : null,
-      numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
-      pureness: $filters.pureness ? [parseInt([$filters.pureness])] : null,
-      stages: $filters.stages ? Array.from($filters.stages).map(Number) : null,
-      title: $filters.title ? Array.from($filters.title) : null
-    };*/
+		/*let criteria = {
+		classes: $filters.classes ? Array.from($filters.classes) : null,
+		numMystics: $filters.numMystic ? [parseInt([$filters.numMystic])] : null,
+		pureness: $filters.pureness ? [parseInt([$filters.pureness])] : null,
+		stages: $filters.stages ? Array.from($filters.stages).map(Number) : null,
+		title: $filters.title ? Array.from($filters.title) : null
+		};*/
 
-    let axie = await getAxieBriefList(params, {}).then((data) => data.data ? data.data.axies : null); 
-		if(!axie) axie = await getAxieBriefList(params, {}).then((data) => data.data ? data.data.axies : null); // retry 1
-		if(!axie) axie = await getAxieBriefList(params, {}).then((data) => data.data ? data.data.axies : null); // retry 2
+		const _fetch = async () => {
+			let data = null;
+			try {
+				data = await getAxieBriefList(params, {}).then((data) => {
+					return data.data ? data.data.axies : null;
+				});
+			}
+			catch(err) {
+				console.log("err", err);
+			}
+			return data;
+		}
+
+		let axie;
+		axie = await _fetch();
+		if(!axie) {
+			console.log("retry x1");
+			await sleep(1000);
+			axie = await _fetch();
+		}
+		if(!axie) {
+			console.log("retry x2");
+			await sleep(2000);
+			axie = await _fetch();
+		}
+		if(!axie) {
+			console.log("retry x3");
+			await sleep(3000);
+			axie = await _fetch();
+		}
+		if(!axie) {
+			console.log("retry x4");
+			await sleep(5000);
+			axie = await _fetch();
+		}
 		return axie;
+
 	}
 </script>
 

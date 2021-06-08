@@ -1,7 +1,7 @@
 <script>
-  export let id;
-  export let type;
-  export let count;
+  export let id = "";
+  export let type = "";
+  export let count = "";
   export let img_url = "";
   export let link_url = "";
 
