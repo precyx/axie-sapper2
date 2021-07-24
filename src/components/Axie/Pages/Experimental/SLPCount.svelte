@@ -40,11 +40,17 @@
   };
 
   const loadItem = async address => {
-    let url = `https://lunacia.skymavis.com/game-api/clients/${address}/items/1`;
+    let _addr = address;
+    if(_addr.includes("ronin:")) _addr = _addr.replace("ronin:", "0x");
+
+    let old_url = `https://lunacia.skymavis.com/game-api/clients/${_addr}/items/1`;
+
+    let new_url = `https://game-api.skymavis.com/game-api/clients/${_addr}/items/1`;
+
     let _fetch = async () => { 
       let data = null;
       try {
-        data = fetch(`${url}?r=${Math.round(Math.random()*900100)}`);
+        data = fetch(`${new_url}?r=${Math.round(Math.random()*900100)}`);
       }
       catch(err) {console.log("err", err); }
       if(data) {
@@ -169,7 +175,7 @@
 
   <Plate>
     <div class="flex address_container">
-      <Text type="h3">Insert ETH Addresses</Text>
+      <Text type="h3">Insert Ronin Addresses</Text>
       <div class="index_counter">{current_index} / {max_index}</div>
       <textarea bind:value={textinput} />
       <Button on:click={getItems}>
