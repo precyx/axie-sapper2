@@ -3,6 +3,7 @@ import { AxieBrief, AxiePart, AxieStats, AxieDetail, AxieCardAbility, AxieAuctio
 const AXIE_V2_URL = "https://axieinfinity.com/api/v2";
 const GRAPH_URL = "https://axieinfinity.com/graphql-server/graphql";
 const GRAPH_V2_URL = "https://axieinfinity.com/graphql-server-v2/graphql"
+const GRAPH_GATEWAY = `https://graphql-gateway.axieinfinity.com/graphql`;
 
 export function getAxieBriefList({ from, size, sort, auctionType, owner, parts, querySelect, endpoint }, { classes, numMystics, stages, pureness, title }) {
   var query1 = `query GetAxieBriefList($auctionType: AuctionType, $criteria: AxieSearchCriteria, $from: Int, $sort: SortBy, $size: Int, $owner: String) {
@@ -48,7 +49,7 @@ export function getAxieBriefList({ from, size, sort, auctionType, owner, parts, 
     query: query1,
   };
 
-  let _endpoint = endpoint == "graph_v2" ? GRAPH_V2_URL : GRAPH_URL;
+  let _endpoint = GRAPH_GATEWAY; // endpoint == "graph_v2" ? GRAPH_V2_URL : GRAPH_URL;
 
   return post(_endpoint, query);
 }
@@ -74,7 +75,7 @@ export function getAxieDetail({ axieId }) {
     query: query1,
   };
 
-  return post(GRAPH_URL, query);
+  return post(GRAPH_GATEWAY, query);
 }
 
 export function getParentsBrief({ matronId, sireId }) {
@@ -104,7 +105,7 @@ export function getParentsBrief({ matronId, sireId }) {
     query: query1,
   };
 
-  return post(GRAPH_URL, query);
+  return post(GRAPH_GATEWAY, query);
 }
 
 /* @deprecated */
