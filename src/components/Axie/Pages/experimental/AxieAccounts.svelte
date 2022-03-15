@@ -13,7 +13,8 @@
 	let loading = false;
 	let counter = 0;
 	let axie_objects = [];
-  let addresses = [];
+  	let addresses = [];
+  	let num_axies = 0;
 
 	onMount(async () => {});
 
@@ -38,6 +39,7 @@
 				if(axie) {
 					axie_objects.push(axie);
 					axie_objects = axie_objects;
+					num_axies += axie.results.length || 0;
 				}
 				counter += 1;
 		});
@@ -123,6 +125,10 @@
 		{#if addresses.length}
 
 			<div class="counter">Accounts: {counter} / {addresses.length}</div>
+			<div class="axie_counter">
+				<img src="images/axie/isometric-axie.png" alt="axie" /> 
+				<div>{num_axies} </div>
+			</div>
 
 			<div class="teams">
 				
@@ -193,6 +199,9 @@
     color: var(--text-dark-2);
 		margin-bottom: 5px;
 		align-items: center;
+	    background-color: var(--color-dark-shimmer-1);
+    border-radius: 6px;
+    padding: 2px 10px;
   }
   .axies {
     display: flex;
@@ -234,5 +243,16 @@
 
 	.counter {
 		margin:20px 0px;
+	}
+
+	.axie_counter {
+		display:flex;
+		align-items: center;
+	}
+	.axie_counter img {
+		display:flex;
+		width:24px;
+		height:24px;
+		margin-right:8px;
 	}
 </style>
